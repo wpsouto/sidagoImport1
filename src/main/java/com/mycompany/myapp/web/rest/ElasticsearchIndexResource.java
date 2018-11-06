@@ -3,6 +3,7 @@ package com.mycompany.myapp.web.rest;
 import com.codahale.metrics.annotation.Timed;
 import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
+import com.mycompany.myapp.service.ElasticsearchIndexGtaService;
 import com.mycompany.myapp.service.ElasticsearchIndexService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
@@ -29,8 +30,26 @@ public class ElasticsearchIndexResource {
 
     private final ElasticsearchIndexService elasticsearchIndexService;
 
-    public ElasticsearchIndexResource(ElasticsearchIndexService elasticsearchIndexService) {
+    private final ElasticsearchIndexGtaService elasticsearchIndexGtaService;
+
+    public ElasticsearchIndexResource(ElasticsearchIndexService elasticsearchIndexService,
+                                      ElasticsearchIndexGtaService elasticsearchIndexGtaService) {
         this.elasticsearchIndexService = elasticsearchIndexService;
+        this.elasticsearchIndexGtaService = elasticsearchIndexGtaService;
+    }
+
+    /**
+     * POST  /elasticsearch/index -> Reindex all Elasticsearch documents
+     */
+    @PostMapping("/elasticsearch/gta")
+    @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
+    public ResponseEntity<Void> reindexGta() throws URISyntaxException {
+        log.info("REST request to reindex Elasticsearch Gta by user : {}", SecurityUtils.getCurrentUserLogin());
+        elasticsearchIndexGtaService.reindexForClass();
+        return ResponseEntity.accepted()
+            .headers(HeaderUtil.createAlert("elasticsearch.reindex.accepted", null))
+            .build();
     }
 
     /**

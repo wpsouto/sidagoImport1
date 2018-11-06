@@ -2,9 +2,14 @@ package com.mycompany.myapp.service;
 
 import com.codahale.metrics.annotation.Timed;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mycompany.myapp.domain.Gta;
 import com.mycompany.myapp.domain.User;
+import com.mycompany.myapp.repository.GtaRepository;
 import com.mycompany.myapp.repository.UserRepository;
+import com.mycompany.myapp.repository.search.GtaSearchRepository;
 import com.mycompany.myapp.repository.search.UserSearchRepository;
+import com.mycompany.myapp.service.dto.GtaDTO;
+import com.mycompany.myapp.service.mapper.GtaMapper;
 import org.elasticsearch.ResourceAlreadyExistsException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,14 +48,22 @@ public class ElasticsearchIndexService {
 
     private final UserSearchRepository userSearchRepository;
 
+    private final GtaRepository gtaRepository;
+
+    private final GtaSearchRepository gtaSearchRepository;
+
     private final ElasticsearchOperations elasticsearchTemplate;
 
     public ElasticsearchIndexService(
         UserRepository userRepository,
         UserSearchRepository userSearchRepository,
+        GtaRepository gtaRepository,
+        GtaSearchRepository gtaSearchRepository,
         ElasticsearchOperations elasticsearchTemplate) {
         this.userRepository = userRepository;
         this.userSearchRepository = userSearchRepository;
+        this.gtaRepository = gtaRepository;
+        this.gtaSearchRepository = gtaSearchRepository;
         this.elasticsearchTemplate = elasticsearchTemplate;
     }
 
@@ -62,11 +75,9 @@ public class ElasticsearchIndexService {
                 if (all || classesForReindex.contains(User.class.getSimpleName().toLowerCase())) {
                     reindexForClass(User.class, userRepository, userSearchRepository);
                 }
-/*
                 if (all || classesForReindex.contains(Gta.class.getSimpleName().toLowerCase())) {
                     reindexForClass(Gta.class, gtaRepository, gtaSearchRepository);
                 }
-*/
                 log.info("Elasticsearch: Successfully performed reindexing");
             } finally {
                 reindexLock.unlock();
@@ -121,11 +132,13 @@ public class ElasticsearchIndexService {
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
 
-            int size = 100;
-            for (int i = 0; i <= jpaRepository.count() / size; i++) {
+            int size = 10;
+            long count = jpaRepository.count();
+            for (int i = 0; i <= count / size; i++) {
                 Pageable page = PageRequest.of(i, size);
-                log.info("Indexing {} Indexing page {} of {}, size {}", entityClass.getSimpleName(), i, jpaRepository.count() / size, size);
+                log.info("Indexing {} Indexing page {} of {}, size {}", entityClass.getSimpleName(), i, count / size, size);
                 Page<T> results = jpaRepository.findAll(page);
+/*
                 results.map(result -> {
                     // if there are any relationships to load, do it now
                     relationshipGetters.forEach(method -> {
@@ -138,6 +151,7 @@ public class ElasticsearchIndexService {
                     });
                     return result;
                 });
+*/
                 elasticsearchRepository.saveAll(results.getContent());
             }
         }

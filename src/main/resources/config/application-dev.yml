@@ -18,6 +18,8 @@ logging:
         ROOT: DEBUG
         io.github.jhipster: DEBUG
         com.mycompany.myapp: DEBUG
+        org.springframework.jdbc.core.JdbcTemplate: DEBUG
+        org.springframework.jdbc.core.StatementCreatorUtils: TRACE
 
 spring:
     profiles:
@@ -40,6 +42,9 @@ spring:
         password: postgres
         hikari:
             auto-commit: false
+            connectionTimeout: 60000
+            #idleTimeout: 600000
+            #maxLifetime: 1800000
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
@@ -50,6 +55,7 @@ spring:
             hibernate.cache.use_second_level_cache: false
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
+            hibernate.hbm2ddl.auto: validate
     data:
         jest:
             uri: http://analyzer.agrodefesa.go.gov.br:9200
