@@ -81,5 +81,8 @@ public class ElasticsearchIndexGtaService {
         }
 
         log.info("Elasticsearch: Indexed all rows for {}", Gta.class.getSimpleName());
+
+        //Last Update
+        // 2018-11-06 09:29:34.950  INFO 21462 --- [rt-1-Executor-2] c.m.m.s.ElasticsearchIndexGtaService     : Indexing Gta Indexing page 158 of 1530, size 5000, total7650115
     }
 }
