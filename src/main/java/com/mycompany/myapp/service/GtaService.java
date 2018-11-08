@@ -2,18 +2,14 @@ package com.mycompany.myapp.service;
 
 import com.mycompany.myapp.domain.Gta;
 import com.mycompany.myapp.repository.GtaRepository;
-import com.mycompany.myapp.repository.search.GtaSearchRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
-
-import static org.elasticsearch.index.query.QueryBuilders.*;
 
 /**
  * Service Implementation for managing Gta.
@@ -26,11 +22,11 @@ public class GtaService {
 
     private GtaRepository gtaRepository;
 
-    private GtaSearchRepository gtaSearchRepository;
+    //private GtaSearchRepository gtaSearchRepository;
 
-    public GtaService(GtaRepository gtaRepository, GtaSearchRepository gtaSearchRepository) {
+    public GtaService(GtaRepository gtaRepository) {
         this.gtaRepository = gtaRepository;
-        this.gtaSearchRepository = gtaSearchRepository;
+        //this.gtaSearchRepository = gtaSearchRepository;
     }
 
     /**
@@ -42,7 +38,7 @@ public class GtaService {
     public Gta save(Gta gta) {
         log.debug("Request to save Gta : {}", gta);
         Gta result = gtaRepository.save(gta);
-        gtaSearchRepository.save(result);
+        //gtaSearchRepository.save(result);
         return result;
     }
 
@@ -79,18 +75,20 @@ public class GtaService {
     public void delete(Integer id) {
         log.debug("Request to delete Gta : {}", id);
         gtaRepository.deleteById(id);
-        gtaSearchRepository.deleteById(id);
+        //gtaSearchRepository.deleteById(id);
     }
 
     /**
      * Search for the gta corresponding to the query.
      *
-     * @param query the query of the search
+     * @param query    the query of the search
      * @param pageable the pagination information
      * @return the list of entities
      */
     @Transactional(readOnly = true)
     public Page<Gta> search(String query, Pageable pageable) {
         log.debug("Request to search for a page of Gtas for query {}", query);
-        return gtaSearchRepository.search(queryStringQuery(query), pageable);    }
+        return null;
+        //return gtaSearchRepository.search(queryStringQuery(query), pageable);
+    }
 }

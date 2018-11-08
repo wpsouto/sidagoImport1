@@ -44,7 +44,7 @@ public class ElasticsearchIndexResource {
     @PostMapping("/elasticsearch/gta")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
-    public ResponseEntity<Void> reindexGta() throws URISyntaxException {
+    public ResponseEntity<Void> gta() throws URISyntaxException {
         log.info("REST request to reindex Elasticsearch Gta by user : {}", SecurityUtils.getCurrentUserLogin());
         elasticsearchIndexGtaService.reindexForClass();
         return ResponseEntity.accepted()

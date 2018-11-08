@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -29,20 +30,4 @@ public class GtaMapper {
             .collect(Collectors.toList());
     }
 
-    /*
-    public <T> Iterable<T> gtasToGtaDTOs(List<T> content) {
-        content.stream()
-            .map(this::gtaToGtaDTO);
-        return null;
-    }
-*/
-
-/*
-    public <T> Iterable<T> gtasToGtaDTOs(Page<T> page) {
-        return page.stream()
-            .filter(Objects::nonNull)
-            .map(this::gtaToGtaDTO)
-            .collect(Collectors.toList());
-    }
-*/
 }

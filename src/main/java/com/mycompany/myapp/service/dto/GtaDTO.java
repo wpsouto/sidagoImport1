@@ -4,9 +4,10 @@ import com.mycompany.myapp.domain.*;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.math.BigInteger;
+import java.time.LocalDateTime;
 import java.util.Date;
 
-@Document(indexName = "gta", type = "doc")
+@Document(indexName = "gta1", type = "doc")
 public class GtaDTO {
 
     private Integer id;
@@ -15,7 +16,7 @@ public class GtaDTO {
 
     private String serie;
 
-    private Date emissao;
+    private LocalDateTime emissao;
 
     private String dare;
 
@@ -47,20 +48,9 @@ public class GtaDTO {
         this.id = gta.getId();
         this.numero = gta.getNumero();
         this.serie = gta.getSerie();
-    }
-
-    public GtaDTO(Integer id, String numero, Finalidade finalidade) {
-        this.id = id;
-        this.numero = numero;
-        this.finalidade = finalidade;
-    }
-
-    public GtaDTO(Integer id, String numero, String serie, Date emissao, String dare) {
-        this.id = id;
-        this.numero = numero;
-        this.serie = serie;
-        this.emissao = emissao;
-        this.dare = dare;
+        this.emissao = gta.getEmissao();
+        this.ativo = gta.getAtivo();
+        this.dados = gta.getDados();
     }
 
     public GtaDTO(Integer id, String numero, String serie, Date emissao, String dare, String valor, Boolean ativo, String dados,
@@ -82,7 +72,7 @@ public class GtaDTO {
         this.id = id;
         this.numero = numero;
         this.serie = serie;
-        this.emissao = emissao;
+        //this.emissao = emissao;
         this.dare = dare;
         this.valor = valor;
         this.ativo = ativo;
@@ -168,11 +158,11 @@ public class GtaDTO {
         this.serie = serie;
     }
 
-    public Date getEmissao() {
+    public LocalDateTime getEmissao() {
         return emissao;
     }
 
-    public void setEmissao(Date emissao) {
+    public void setEmissao(LocalDateTime emissao) {
         this.emissao = emissao;
     }
 

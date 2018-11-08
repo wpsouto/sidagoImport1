@@ -21,6 +21,9 @@ public class Pessoa implements Serializable {
     @Column(name = "nome")
     private String nome;
 
+    @Transient
+    private String documento;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Integer getId() {
         return id;
@@ -41,6 +44,14 @@ public class Pessoa implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     @Override

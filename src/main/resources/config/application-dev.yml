@@ -42,9 +42,12 @@ spring:
         password: postgres
         hikari:
             auto-commit: false
-            connectionTimeout: 60000
+            #connectionTimeout: 1800000
             #idleTimeout: 600000
             #maxLifetime: 1800000
+            #idleTimeout: 1800000
+            #maxLifetime: 0
+
     jpa:
         database-platform: io.github.jhipster.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL

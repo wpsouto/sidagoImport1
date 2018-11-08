@@ -2,10 +2,14 @@ package com.mycompany.myapp.domain;
 
 
 import com.mycompany.myapp.service.dto.GtaDTO;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -29,6 +33,9 @@ public class Gta implements Serializable {
     @Column(name = "nu_serie")
     private String serie;
 
+    @Column(name = "ts_emissao", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private LocalDateTime emissao;
+
     @Column(name = "bo_ativo")
     private Boolean ativo;
 
@@ -42,9 +49,11 @@ public class Gta implements Serializable {
 
     @OneToOne()
     @JoinColumn(name = "id_tipotransporte")
+    @Fetch(FetchMode.JOIN)
     private TipoTransporte tipoTransporte;
 
-    @Transient
+    @OneToOne()
+    @JoinColumn(name = "id_emissor")
     private Pessoa emissor;
 
     @OneToOne()
@@ -52,6 +61,7 @@ public class Gta implements Serializable {
     private Lotacao lotacao;
 
     @Column(name = "dados", columnDefinition = "json")
+    @Transient
     private String dados;
 
 
@@ -88,6 +98,14 @@ public class Gta implements Serializable {
 
     public void setSerie(String serie) {
         this.serie = serie;
+    }
+
+    public LocalDateTime getEmissao() {
+        return emissao;
+    }
+
+    public void setEmissao(LocalDateTime emissao) {
+        this.emissao = emissao;
     }
 
     public Boolean isAtivo() {
