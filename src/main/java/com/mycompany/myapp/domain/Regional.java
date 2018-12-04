@@ -1,21 +1,18 @@
 package com.mycompany.myapp.domain;
 
 
-import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * A Gta.
  */
-public class Lotacao implements Serializable {
+public class Regional implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private Integer id;
 
     private String nome;
-
-    private Regional regional;
 
     public Integer getId() {
         return id;
@@ -29,7 +26,7 @@ public class Lotacao implements Serializable {
         return nome;
     }
 
-    public Lotacao nome(String nome) {
+    public Regional nome(String nome) {
         this.nome = nome;
         return this;
     }
@@ -38,19 +35,4 @@ public class Lotacao implements Serializable {
         this.nome = nome;
     }
 
-    public Regional getRegional() {
-        return regional;
-    }
-
-    public void setRegional(Regional regional) {
-        this.regional = regional;
-    }
-
-    @Override
-    public String toString() {
-        return "Lotacao{" +
-            "id=" + id +
-            ", nome='" + nome + '\'' +
-            '}';
-    }
 }

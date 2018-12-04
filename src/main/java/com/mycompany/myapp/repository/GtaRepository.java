@@ -36,8 +36,6 @@ public interface GtaRepository extends JpaRepository<Gta, Integer> {
     Page<Gta> findAll(Pageable pageable);
 */
 
-    @Query(nativeQuery = true,
-        name = "findAllDataMapping",
-        countQuery = "SELECT count(*) FROM gta.gta ")
-    List<GtaDTO> findAll1(Pageable pageable);
+    @Query(nativeQuery = true)
+    List<GtaDTO> findAllDataMapping(Pageable pageable);
 }
