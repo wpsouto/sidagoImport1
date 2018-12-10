@@ -6,92 +6,8 @@
                     "ativo": {
                         "type": "boolean"
                     },
-                    "dare": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "type": "keyword",
-                                "ignore_above": 256
-                            }
-                        }
-                    },
                     "destino": {
                         "properties": {
-                            "inscricaoEstadual": {
-                                "properties": {
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nomeFantasia": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "numero": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "municipio": {
-                                "properties": {
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nome": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "uf": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "pessoa": {
-                                "properties": {
-                                    "documento": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nome": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    }
-                                }
-                            },
                             "propriedade": {
                                 "properties": {
                                     "codigo": {
@@ -103,8 +19,76 @@
                                             }
                                         }
                                     },
-                                    "localizacao": {
-                                        "type": "geo_point"
+                                    "ie": {
+                                        "type": "text",
+                                        "fields": {
+                                            "keyword": {
+                                                "type": "keyword",
+                                                "ignore_above": 256
+                                            }
+                                        }
+                                    },
+                                    "municipio": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "localizacao": {
+                                                "type": "geo_point"
+                                            },
+                                            "nome": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            },
+                                            "uf": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "nomeFantasia": {
+                                        "type": "text",
+                                        "fields": {
+                                            "keyword": {
+                                                "type": "keyword",
+                                                "ignore_above": 256
+                                            }
+                                        }
+                                    },
+                                    "proprietario": {
+                                        "properties": {
+                                            "documento": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "nome": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -211,10 +195,44 @@
                     },
                     "origem": {
                         "properties": {
-                            "inscricaoEstadual": {
+                            "propriedade": {
                                 "properties": {
-                                    "id": {
-                                        "type": "long"
+                                    "ie": {
+                                        "type": "text",
+                                        "fields": {
+                                            "keyword": {
+                                                "type": "keyword",
+                                                "ignore_above": 256
+                                            }
+                                        }
+                                    },
+                                    "municipio": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "localizacao": {
+                                                "type": "geo_point"
+                                            },
+                                            "nome": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            },
+                                            "uf": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            }
+                                        }
                                     },
                                     "nomeFantasia": {
                                         "type": "text",
@@ -225,80 +243,30 @@
                                             }
                                         }
                                     },
-                                    "numero": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
+                                    "proprietario": {
+                                        "properties": {
+                                            "documento": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
+                                            },
+                                            "id": {
+                                                "type": "long"
+                                            },
+                                            "nome": {
+                                                "type": "text",
+                                                "fields": {
+                                                    "keyword": {
+                                                        "type": "keyword",
+                                                        "ignore_above": 256
+                                                    }
+                                                }
                                             }
                                         }
-                                    }
-                                }
-                            },
-                            "municipio": {
-                                "properties": {
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nome": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "uf": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "pessoa": {
-                                "properties": {
-                                    "documento": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nome": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "propriedade": {
-                                "properties": {
-                                    "codigo": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "localizacao": {
-                                        "type": "geo_point"
                                     }
                                 }
                             }
