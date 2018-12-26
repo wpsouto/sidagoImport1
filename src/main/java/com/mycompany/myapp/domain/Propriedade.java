@@ -12,6 +12,8 @@ public class Propriedade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    private Integer id;
+
     private String codigo;
 
     private String nomeFantasia;
@@ -21,6 +23,14 @@ public class Propriedade implements Serializable {
     private Pessoa proprietario;
 
     private Municipio municipio;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getCodigo() {
         return codigo;

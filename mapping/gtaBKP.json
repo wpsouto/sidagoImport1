@@ -1,307 +1,131 @@
 {
-    "gta": {
-        "mappings": {
-            "doc": {
-                "properties": {
-                    "ativo": {
-                        "type": "boolean"
-                    },
-                    "destino": {
-                        "properties": {
-                            "propriedade": {
-                                "properties": {
-                                    "codigo": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "ie": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "municipio": {
-                                        "properties": {
-                                            "id": {
-                                                "type": "long"
-                                            },
-                                            "localizacao": {
-                                                "type": "geo_point"
-                                            },
-                                            "nome": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            },
-                                            "uf": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "nomeFantasia": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "proprietario": {
-                                        "properties": {
-                                            "documento": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            },
-                                            "id": {
-                                                "type": "long"
-                                            },
-                                            "nome": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "emissao": {
-                        "type": "date"
-                    },
-                    "emissor": {
-                        "properties": {
-                            "id": {
-                                "type": "long"
-                            },
-                            "lotacao": {
-                                "properties": {
-                                    "id": {
-                                        "type": "long"
-                                    },
-                                    "nome": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "regional": {
-                                        "properties": {
-                                            "id": {
-                                                "type": "long"
-                                            },
-                                            "nome": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            "nome": {
-                                "type": "text",
-                                "fields": {
-                                    "keyword": {
-                                        "type": "keyword",
-                                        "ignore_above": 256
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "especie": {
-                        "properties": {
-                            "id": {
-                                "type": "long"
-                            },
-                            "nome": {
-                                "type": "text",
-                                "fields": {
-                                    "keyword": {
-                                        "type": "keyword",
-                                        "ignore_above": 256
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "estratificacao": {
-                        "properties": {
-                            "femea": {
-                                "type": "long"
-                            },
-                            "macho": {
-                                "type": "long"
-                            }
-                        }
-                    },
-                    "finalidade": {
-                        "properties": {
-                            "id": {
-                                "type": "long"
-                            },
-                            "nome": {
-                                "type": "text",
-                                "fields": {
-                                    "keyword": {
-                                        "type": "keyword",
-                                        "ignore_above": 256
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "id": {
-                        "type": "long"
-                    },
-                    "numero": {
-                        "type": "long"
-                    },
-                    "origem": {
-                        "properties": {
-                            "propriedade": {
-                                "properties": {
-                                    "ie": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "municipio": {
-                                        "properties": {
-                                            "id": {
-                                                "type": "long"
-                                            },
-                                            "localizacao": {
-                                                "type": "geo_point"
-                                            },
-                                            "nome": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            },
-                                            "uf": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "nomeFantasia": {
-                                        "type": "text",
-                                        "fields": {
-                                            "keyword": {
-                                                "type": "keyword",
-                                                "ignore_above": 256
-                                            }
-                                        }
-                                    },
-                                    "proprietario": {
-                                        "properties": {
-                                            "documento": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            },
-                                            "id": {
-                                                "type": "long"
-                                            },
-                                            "nome": {
-                                                "type": "text",
-                                                "fields": {
-                                                    "keyword": {
-                                                        "type": "keyword",
-                                                        "ignore_above": 256
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "serie": {
-                        "type": "text",
-                        "fields": {
-                            "keyword": {
-                                "type": "keyword",
-                                "ignore_above": 256
-                            }
-                        }
-                    },
-                    "transporte": {
-                        "properties": {
-                            "id": {
-                                "type": "long"
-                            },
-                            "nome": {
-                                "type": "text",
-                                "fields": {
-                                    "keyword": {
-                                        "type": "keyword",
-                                        "ignore_above": 256
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "valor": {
-                        "type": "float"
-                    }
-                }
-            }
+    "vacinas_aftosa": [
+        {
+            "campanha": "2\u00ba Etapa Febre Aftosa 2018",
+            "dt_vacinacao": "29\/11\/2018"
+        },
+        {
+            "campanha": "1\u00ba Etapa Febre Aftosa 2018",
+            "dt_vacinacao": "13\/05\/2018"
         }
-    }
+    ],
+    "vacinas_anti_rabica": [
+        {
+            "campanha": "2\u00ba Etapa Antirr\u00e1bica 2018",
+            "dt_vacinacao": "-"
+        }
+    ],
+    "estratificacoes_gta": [
+        {
+            "id_especie": "1",
+            "no_especie": "Bovino",
+            "estratificacoes": [
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98315,
+                    "estratificacao_id": 1,
+                    "estratificacao_nome": "Macho, 0 a 12 meses",
+                    "estratificacao_sigla": "0 - 12 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98319,
+                    "estratificacao_id": 5,
+                    "estratificacao_nome": "F\u00eamea, 0 a 12 meses",
+                    "estratificacao_sigla": "0 - 12 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98316,
+                    "estratificacao_id": 2,
+                    "estratificacao_nome": "Macho, 13 a 24 meses",
+                    "estratificacao_sigla": "13 - 24 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98320,
+                    "estratificacao_id": 6,
+                    "estratificacao_nome": "F\u00eamea, 13 a 24 meses",
+                    "estratificacao_sigla": "13 - 24 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98317,
+                    "estratificacao_id": 3,
+                    "estratificacao_nome": "Macho, 25 a 36 meses",
+                    "estratificacao_sigla": "25 - 36 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 6
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98321,
+                    "estratificacao_id": 7,
+                    "estratificacao_nome": "F\u00eamea, 25 a 36 meses",
+                    "estratificacao_sigla": "25 - 36 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98318,
+                    "estratificacao_id": 4,
+                    "estratificacao_nome": "Macho, Acima de 36 meses",
+                    "estratificacao_sigla": "> 36 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 10
+                },
+                {
+                    "nucleo_id": 12789,
+                    "saldo_id": 98322,
+                    "estratificacao_id": 8,
+                    "estratificacao_nome": "F\u00eamea, Acima de 36 meses",
+                    "estratificacao_sigla": "> 36 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                }
+            ]
+        }
+    ],
+    "nu_gta": "204266",
+    "nu_serie": "U",
+    "data_validade": "17\/12\/2018",
+    "id_codigobarras": 7337053,
+    "origem": {
+        "nome_fantasia": "FAZENDA SAO CARLOS",
+        "codigo_estabelecimento": "52013300022",
+        "inscricao_estadual": "111897254",
+        "razao_social": "Carlos Barbosa da Silva",
+        "documento": "01084412888",
+        "municipio_uf": "Lagoa Santa\/GO"
+    },
+    "destino": {
+        "nome_fantasia": "FRIGOESTRELA SA",
+        "codigo_estabelecimento": "ABATEDOURO - SIF - 2924",
+        "inscricao_estadual": "301002161111",
+        "razao_social": "FRIGOESTRELA S A",
+        "documento": "52645009001206",
+        "municipio_uf": "Estrela D'Oeste\/SP"
+    },
+    "finalidade": "Abate",
+    "transporte": "Rodovi\u00e1rio",
+    "observacao": " <br>PRODUTOR: A emiss\u00e3o de Nota Fiscal para este documento \u00e9 obrigat\u00f3ria e de sua responsabilidade.<br>\n            Solicite a um de nossos funcion\u00e1rios a sua senha de acesso ao Sidago. Assim, voc\u00ea poder\u00e1 emitir GTA's, Notas Fiscais e consultar o seu rebanho em qualquer hor\u00e1rio e lugar. <br>N\u00e3o h\u00e1 registro de ingresso, na propriedade de origem, nos \u00faltimos noventa dias, de bovinos procedentes de estados n\u00e3o habilitados para exporta\u00e7\u00e3o de carne bovina ao Chile. N\u00e3o h\u00e1 registro de ingresso, na propriedade de origem, nos \u00faltimos noventa dias, de animais procedentes de zona n\u00e3o habilitada para exporta\u00e7\u00e3o de carne \u00e0 Uni\u00e3o Europ\u00e9ia. <br>",
+    "requisitante": "Edson Gomes Ferreira",
+    "documento_requisitante": "33167010100",
+    "nome_emissor": "Carlos Barbosa da Silva",
+    "data_hora_emissao": "10\/12\/2018 11:47",
+    "documento_emissor": "01084412888",
+    "nome_lotacao_emissor": "Produtor Rural",
+    "os_portaria_emissor": null,
+    "crmv_emissor": "",
+    "id_boleto": "5825043  ",
+    "vl_gta": 35.54
 }

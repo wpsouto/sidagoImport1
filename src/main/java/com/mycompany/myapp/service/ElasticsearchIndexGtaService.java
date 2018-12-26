@@ -71,13 +71,13 @@ public class ElasticsearchIndexGtaService {
             elasticsearchTemplate.putMapping(GtaDTO.class);
         }
 
-        int size = 10000;
+        int size = 300000;
         long count = gtaRepository.count();
         for (int i = 0; i <= count / size; i++) {
             Pageable page = PageRequest.of(i, size);
             log.info("Indexing {} Indexing page {} of {}, size {}, total {}", Gta.class.getSimpleName(), i, count / size, size, count);
             List<GtaDTO> listBD = gtaRepository.findAllDataMapping(page);
-/*
+
             log.info("Start Partition in {}", 25000);
             Collection<List<GtaDTO>> lists = partition(listBD, 25000);
 
@@ -86,8 +86,6 @@ public class ElasticsearchIndexGtaService {
                 log.info("Saving of {}", index++);
                 gtaDTOSearchRepository.saveAll(list);
             }
-*/
-            gtaDTOSearchRepository.saveAll(listBD);
         }
 
         log.info("Elasticsearch: Indexed all rows for {}", Gta.class.getSimpleName());

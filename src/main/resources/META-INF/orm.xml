@@ -31,6 +31,7 @@
                        reg.id                                      AS emissor_lotacao_regional_id,
                        reg.nome                                    AS emissor_lotacao_regional_nome,
 
+                       ieo.id_inscricaoestadual                    AS origem_propriedade_id,
                        pro.nu_codigoanimal                         AS origem_propriedade_codigo,
                        ieo.no_fantasia                             AS origem_propriedade_nome_fantasia,
                        ieo.nu_inscricaoestadual                    AS origem_propriedade_ie,
@@ -43,6 +44,7 @@
                        lo.lat                                      AS origem_propriedade_municipio_localizacao_latitude,
                        lo.lon                                      AS origem_propriedade_municipio_localizacao_longitude,
 
+                       ied.id_inscricaoestadual                    AS destino_propriedade_id,
                        prd.nu_codigoanimal                         AS destino_propriedade_codigo,
                        ied.no_fantasia                             AS destino_propriedade_nome_fantasia,
                        ied.nu_inscricaoestadual                    AS destino_propriedade_ie,
@@ -59,12 +61,17 @@
                         FROM gta.estratificacao_gta AS gem
                                INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
                         WHERE gem.id_gta = gt.id_gta
-                          AND em.tp_sexo = 'FE')                   AS estratificacoes_femea,
+                          AND em.tp_sexo = 'FE')                   AS estratificacao_femea,
                        (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
                         FROM gta.estratificacao_gta AS gem
                                INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
                         WHERE gem.id_gta = gt.id_gta
-                          AND em.tp_sexo = 'MA')                   AS estratificacoes_macho
+                          AND em.tp_sexo = 'MA')                   AS estratificacao_macho,
+                       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+                        FROM gta.estratificacao_gta AS gem
+                                 INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
+                        WHERE gem.id_gta = gt.id_gta
+                          AND em.tp_sexo = 'IN')                   AS estratificacao_indeterminado
                 FROM gta.gta AS gt
                        INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta
                        INNER JOIN gta.gta_destino AS gtd ON gt.id_gta = gtd.id_gta

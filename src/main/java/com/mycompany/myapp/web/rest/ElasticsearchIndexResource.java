@@ -52,9 +52,12 @@ public class ElasticsearchIndexResource {
             .build();
     }
 
-    /**
+/*
+    */
+/**
      * POST  /elasticsearch/index -> Reindex all Elasticsearch documents
-     */
+     *//*
+
     @PostMapping("/elasticsearch/index")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
@@ -66,9 +69,11 @@ public class ElasticsearchIndexResource {
             .build();
     }
 
-    /**
+    */
+/**
      * POST  /elasticsearch/selected -> Reindex selected Elasticsearch documents
-     */
+     *//*
+
     @PostMapping("/elasticsearch/selected")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
@@ -81,5 +86,6 @@ public class ElasticsearchIndexResource {
             .headers(HeaderUtil.createAlert("elasticsearch.reindex.acceptedSelected", ""))
             .build();
     }
+*/
 
 }

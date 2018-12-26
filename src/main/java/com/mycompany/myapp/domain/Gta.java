@@ -37,6 +37,7 @@ import java.util.Objects;
             @ColumnResult(name = "emissor_lotacao_nome"),
             @ColumnResult(name = "emissor_lotacao_regional_id"),
             @ColumnResult(name = "emissor_lotacao_regional_nome"),
+            @ColumnResult(name = "origem_propriedade_id"),
             @ColumnResult(name = "origem_propriedade_codigo"),
             @ColumnResult(name = "origem_propriedade_nome_fantasia"),
             @ColumnResult(name = "origem_propriedade_ie"),
@@ -48,6 +49,7 @@ import java.util.Objects;
             @ColumnResult(name = "origem_propriedade_municipio_uf"),
             @ColumnResult(name = "origem_propriedade_municipio_localizacao_latitude"),
             @ColumnResult(name = "origem_propriedade_municipio_localizacao_longitude"),
+            @ColumnResult(name = "destino_propriedade_id"),
             @ColumnResult(name = "destino_propriedade_codigo"),
             @ColumnResult(name = "destino_propriedade_nome_fantasia"),
             @ColumnResult(name = "destino_propriedade_ie"),
@@ -59,8 +61,9 @@ import java.util.Objects;
             @ColumnResult(name = "destino_propriedade_municipio_uf"),
             @ColumnResult(name = "destino_propriedade_municipio_localizacao_latitude"),
             @ColumnResult(name = "destino_propriedade_municipio_localizacao_longitude"),
-            @ColumnResult(name = "estratificacoes_femea"),
-            @ColumnResult(name = "estratificacoes_macho")
+            @ColumnResult(name = "estratificacao_femea"),
+            @ColumnResult(name = "estratificacao_macho"),
+            @ColumnResult(name = "estratificacao_indeterminado")
         })
 )
 

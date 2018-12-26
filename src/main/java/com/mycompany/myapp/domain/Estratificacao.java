@@ -1,7 +1,6 @@
 package com.mycompany.myapp.domain;
 
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 
@@ -14,6 +13,7 @@ public class Estratificacao implements Serializable {
 
     private BigInteger femea;
     private BigInteger macho;
+    private BigInteger indeterminado;
 
     public BigInteger getFemea() {
         return femea;
@@ -23,6 +23,11 @@ public class Estratificacao implements Serializable {
         this.femea = femea;
     }
 
+    public Estratificacao femea(BigInteger femea) {
+        this.femea = femea;
+        return this;
+    }
+
     public BigInteger getMacho() {
         return macho;
     }
@@ -30,4 +35,23 @@ public class Estratificacao implements Serializable {
     public void setMacho(BigInteger macho) {
         this.macho = macho;
     }
+
+    public Estratificacao macho(BigInteger macho) {
+        this.macho = macho;
+        return this;
+    }
+
+    public BigInteger getIndeterminado() {
+        return indeterminado;
+    }
+
+    public void setIndeterminado(BigInteger indeterminado) {
+        this.indeterminado = indeterminado;
+    }
+
+    public Estratificacao indeterminado(BigInteger indeterminado) {
+        this.indeterminado = indeterminado;
+        return this;
+    }
+
 }

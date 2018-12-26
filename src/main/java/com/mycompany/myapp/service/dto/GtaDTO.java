@@ -1,8 +1,6 @@
 package com.mycompany.myapp.service.dto;
 
 import com.mycompany.myapp.domain.*;
-import com.mycompany.myapp.service.util.CoordinateUtil;
-import com.mycompany.myapp.service.util.LatLng;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
@@ -27,7 +25,7 @@ public class GtaDTO {
 
     private Boolean ativo;
 
-    private  Finalidade finalidade;
+    private Finalidade finalidade;
 
     private Especie especie;
 
@@ -58,15 +56,15 @@ public class GtaDTO {
                   Integer emissor_id, String emissor_nome,
                   Integer emissor_lotacao_id, String emissor_lotacao_nome,
                   Integer emissor_lotacao_regional_id, String emissor_lotacao_regional_nome,
-                  String origem_propriedade_codigo, String origem_propriedade_nome_fantasia, String origem_propriedade_ie,
+                  Integer origem_propriedade_id, String origem_propriedade_codigo, String origem_propriedade_nome_fantasia, String origem_propriedade_ie,
                   Integer origem_propriedade_proprietario_id, String origem_propriedade_proprietario_nome, String origem_propriedade_proprietario_documento,
                   short origem_propriedade_municipio_id, String origem_propriedade_municipio_nome, String origem_propriedade_municipio_uf,
                   BigDecimal origem_propriedade_municipio_localizacao_latitude, BigDecimal origem_propriedade_municipio_localizacao_longitude,
-                  String destino_propriedade_codigo, String destino_propriedade_nome_fantasia, String destino_propriedade_ie,
+                  Integer destino_propriedade_id, String destino_propriedade_codigo, String destino_propriedade_nome_fantasia, String destino_propriedade_ie,
                   Integer destino_propriedade_proprietario_id, String destino_propriedade_proprietario_nome, String destino_propriedade_proprietario_documento,
                   short destino_propriedade_municipio_id, String destino_propriedade_municipio_nome, String destino_propriedade_municipio_uf,
                   BigDecimal destino_propriedade_municipio_localizacao_latitude, BigDecimal destino_propriedade_municipio_localizacao_longitude,
-                  BigInteger estratificacoes_femea, BigInteger estratificacoes_macho) {
+                  BigInteger estratificacao_femea, BigInteger estratificacao_macho, BigInteger estratificacao_indeterminado) {
 
         this.id = id;
         this.numero = numero;
@@ -102,6 +100,7 @@ public class GtaDTO {
         this.origem.setPropriedade(new Propriedade());
         this.origem.getPropriedade().setProprietario(new Pessoa());
         this.origem.getPropriedade().setMunicipio(new Municipio());
+        this.origem.getPropriedade().setId(origem_propriedade_id);
         this.origem.getPropriedade().setCodigo(origem_propriedade_codigo);
         this.origem.getPropriedade().setNomeFantasia(origem_propriedade_nome_fantasia);
         this.origem.getPropriedade().setIe(origem_propriedade_ie);
@@ -121,6 +120,7 @@ public class GtaDTO {
         this.destino.setPropriedade(new Propriedade());
         this.destino.getPropriedade().setProprietario(new Pessoa());
         this.destino.getPropriedade().setMunicipio(new Municipio());
+        this.destino.getPropriedade().setId(destino_propriedade_id);
         this.destino.getPropriedade().setCodigo(destino_propriedade_codigo);
         this.destino.getPropriedade().setNomeFantasia(destino_propriedade_nome_fantasia);
         this.destino.getPropriedade().setIe(destino_propriedade_ie);
@@ -141,8 +141,9 @@ public class GtaDTO {
         }
 
         this.estratificacao = new Estratificacao();
-        this.estratificacao.setFemea(estratificacoes_femea);
-        this.estratificacao.setMacho(estratificacoes_macho);
+        this.estratificacao.setFemea(estratificacao_femea);
+        this.estratificacao.setMacho(estratificacao_macho);
+        this.estratificacao.setIndeterminado(estratificacao_indeterminado);
     }
 
     public Integer getId() {
