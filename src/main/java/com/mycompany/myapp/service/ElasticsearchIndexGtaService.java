@@ -5,8 +5,6 @@ import com.mycompany.myapp.domain.Gta;
 import com.mycompany.myapp.repository.GtaRepository;
 import com.mycompany.myapp.repository.search.GtaDTOSearchRepository;
 import com.mycompany.myapp.service.dto.GtaDTO;
-import com.mycompany.myapp.service.mapper.GtaMapper;
-import io.searchbox.core.BulkResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.PageRequest;
@@ -37,20 +35,16 @@ public class ElasticsearchIndexGtaService {
 
     private final GtaDTOSearchRepository gtaDTOSearchRepository;
 
-    private final GtaMapper gtaMapper;
-
     private final ElasticsearchOperations elasticsearchTemplate;
 
     public ElasticsearchIndexGtaService(
 
         GtaRepository gtaRepository,
         GtaService gtaService, GtaDTOSearchRepository gtaDTOSearchRepository,
-        GtaMapper gtaMapper,
         ElasticsearchOperations elasticsearchTemplate) {
         this.gtaRepository = gtaRepository;
         this.gtaService = gtaService;
         this.gtaDTOSearchRepository = gtaDTOSearchRepository;
-        this.gtaMapper = gtaMapper;
         this.elasticsearchTemplate = elasticsearchTemplate;
     }
 
@@ -72,7 +66,7 @@ public class ElasticsearchIndexGtaService {
         }
 
         int size = 300000;
-        long count = gtaRepository.count();
+        long count = 10;//gtaRepository.count();
         for (int i = 0; i <= count / size; i++) {
             Pageable page = PageRequest.of(i, size);
             log.info("Indexing {} Indexing page {} of {}, size {}, total {}", Gta.class.getSimpleName(), i, count / size, size, count);

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings
-    xmlns="http://java.sun.com/xml/ns/persistence/orm"
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_2.xsd"
-    version="2.0">
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+    version="2.1">
 
     <named-native-query name="Gta.findAllDataMapping" result-set-mapping="GtaDTOResult">
         <query>
@@ -17,13 +17,13 @@
 
                        f.id_finalidade                             AS finalidade_id,
                        f.no_finalidade                             AS finalidade_nome,
-                       
+
                        es.id                                       AS especie_id,
                        es.no_especie                               AS especie_nome,
-                       
+
                        tt.id_tipotransporte                        AS transporte_id,
                        tt.no_tipotransporte                        AS transporte_nome,
-                
+
                        pe.id                                       AS emissor_id,
                        pe.nome                                     AS emissor_nome,
                        lote.id                                     AS emissor_lotacao_id,
@@ -92,16 +92,59 @@
                        INNER JOIN gta.gta_rascunho AS gr ON gt.id_gta_rascunho = gr.id_gta_rascunho
                        INNER JOIN rh.lotacao AS lote ON gt.id_lotacao_emissor = lote.id
                        INNER JOIN rh.lotacao AS reg ON lote.id_lotacao_pai = reg.id
+                WHERE gt.id_gta = 6226355
                 ORDER BY gt.id_gta
             </query>
     </named-native-query>
 
-<!--
-    <sql-result-set-mapping name="JediMapping">
+    <sql-result-set-mapping name="GtaDTOResult">
         <constructor-result target-class="com.mycompany.myapp.service.dto.GtaDTO">
-            <column name="name"/>
-            <column name="age"/>
+            <column name="id"/>
+            <column name="numero"/>
+            <column name="serie"/>
+            <column name="emissao"/>
+            <column name="dare"/>
+            <column name="valor"/>
+            <column name="ativo"/>
+            <column name="finalidade_id"/>
+            <column name="finalidade_nome"/>
+            <column name="especie_id"/>
+            <column name="especie_nome"/>
+            <column name="transporte_id"/>
+            <column name="transporte_nome"/>
+            <column name="emissor_id"/>
+            <column name="emissor_nome"/>
+            <column name="emissor_lotacao_id"/>
+            <column name="emissor_lotacao_nome"/>
+            <column name="emissor_lotacao_regional_id"/>
+            <column name="emissor_lotacao_regional_nome"/>
+            <column name="origem_propriedade_id"/>
+            <column name="origem_propriedade_codigo"/>
+            <column name="origem_propriedade_nome_fantasia"/>
+            <column name="origem_propriedade_ie"/>
+            <column name="origem_propriedade_proprietario_id"/>
+            <column name="origem_propriedade_proprietario_nome"/>
+            <column name="origem_propriedade_proprietario_documento"/>
+            <column name="origem_propriedade_municipio_id"/>
+            <column name="origem_propriedade_municipio_nome"/>
+            <column name="origem_propriedade_municipio_uf"/>
+            <column name="origem_propriedade_municipio_localizacao_latitude"/>
+            <column name="origem_propriedade_municipio_localizacao_longitude"/>
+            <column name="destino_propriedade_id"/>
+            <column name="destino_propriedade_codigo"/>
+            <column name="destino_propriedade_nome_fantasia"/>
+            <column name="destino_propriedade_ie"/>
+            <column name="destino_propriedade_proprietario_id"/>
+            <column name="destino_propriedade_proprietario_nome"/>
+            <column name="destino_propriedade_proprietario_documento"/>
+            <column name="destino_propriedade_municipio_id"/>
+            <column name="destino_propriedade_municipio_nome"/>
+            <column name="destino_propriedade_municipio_uf"/>
+            <column name="destino_propriedade_municipio_localizacao_latitude"/>
+            <column name="destino_propriedade_municipio_localizacao_longitude"/>
+            <column name="estratificacao_femea"/>
+            <column name="estratificacao_macho"/>
+            <column name="estratificacao_indeterminado"/>
         </constructor-result>
     </sql-result-set-mapping>
--->
 </entity-mappings>

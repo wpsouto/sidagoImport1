@@ -1,71 +1,9 @@
 package com.mycompany.myapp.domain;
 
 
-import com.mycompany.myapp.service.dto.GtaDTO;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
-
-
-/**
- * A Gta.
- */
-
-@SqlResultSetMapping(
-    name = "GtaDTOResult",
-
-    classes = @ConstructorResult(
-        targetClass = GtaDTO.class,
-        columns = {
-            @ColumnResult(name = "id"),
-            @ColumnResult(name = "numero"),
-            @ColumnResult(name = "serie"),
-            @ColumnResult(name = "emissao"),
-            @ColumnResult(name = "dare"),
-            @ColumnResult(name = "valor"),
-            @ColumnResult(name = "ativo"),
-            @ColumnResult(name = "finalidade_id"),
-            @ColumnResult(name = "finalidade_nome"),
-            @ColumnResult(name = "especie_id"),
-            @ColumnResult(name = "especie_nome"),
-            @ColumnResult(name = "transporte_id"),
-            @ColumnResult(name = "transporte_nome"),
-            @ColumnResult(name = "emissor_id"),
-            @ColumnResult(name = "emissor_nome"),
-            @ColumnResult(name = "emissor_lotacao_id"),
-            @ColumnResult(name = "emissor_lotacao_nome"),
-            @ColumnResult(name = "emissor_lotacao_regional_id"),
-            @ColumnResult(name = "emissor_lotacao_regional_nome"),
-            @ColumnResult(name = "origem_propriedade_id"),
-            @ColumnResult(name = "origem_propriedade_codigo"),
-            @ColumnResult(name = "origem_propriedade_nome_fantasia"),
-            @ColumnResult(name = "origem_propriedade_ie"),
-            @ColumnResult(name = "origem_propriedade_proprietario_id"),
-            @ColumnResult(name = "origem_propriedade_proprietario_nome"),
-            @ColumnResult(name = "origem_propriedade_proprietario_documento"),
-            @ColumnResult(name = "origem_propriedade_municipio_id"),
-            @ColumnResult(name = "origem_propriedade_municipio_nome"),
-            @ColumnResult(name = "origem_propriedade_municipio_uf"),
-            @ColumnResult(name = "origem_propriedade_municipio_localizacao_latitude"),
-            @ColumnResult(name = "origem_propriedade_municipio_localizacao_longitude"),
-            @ColumnResult(name = "destino_propriedade_id"),
-            @ColumnResult(name = "destino_propriedade_codigo"),
-            @ColumnResult(name = "destino_propriedade_nome_fantasia"),
-            @ColumnResult(name = "destino_propriedade_ie"),
-            @ColumnResult(name = "destino_propriedade_proprietario_id"),
-            @ColumnResult(name = "destino_propriedade_proprietario_nome"),
-            @ColumnResult(name = "destino_propriedade_proprietario_documento"),
-            @ColumnResult(name = "destino_propriedade_municipio_id"),
-            @ColumnResult(name = "destino_propriedade_municipio_nome"),
-            @ColumnResult(name = "destino_propriedade_municipio_uf"),
-            @ColumnResult(name = "destino_propriedade_municipio_localizacao_latitude"),
-            @ColumnResult(name = "destino_propriedade_municipio_localizacao_longitude"),
-            @ColumnResult(name = "estratificacao_femea"),
-            @ColumnResult(name = "estratificacao_macho"),
-            @ColumnResult(name = "estratificacao_indeterminado")
-        })
-)
 
 @Entity
 @Table(name = "gta", schema = "gta")

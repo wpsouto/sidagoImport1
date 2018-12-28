@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
-@Document(indexName = "gta", type = "doc")
+@Document(indexName = "gta_temp", type = "doc")
 public class GtaDTO {
 
     private Integer id;
@@ -43,10 +43,6 @@ public class GtaDTO {
 
     public GtaDTO() {
         // Empty constructor needed for Jackson.
-    }
-
-    public GtaDTO(Gta gta) {
-        this.id = gta.getId();
     }
 
     public GtaDTO(Integer id, Integer numero, String serie, Date emissao, String dare, BigDecimal valor, Boolean ativo,
