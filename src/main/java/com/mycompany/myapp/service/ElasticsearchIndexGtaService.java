@@ -66,7 +66,7 @@ public class ElasticsearchIndexGtaService {
         }
 
         int size = 300000;
-        long count = 10;//gtaRepository.count();
+        long count = gtaRepository.count();
         for (int i = 0; i <= count / size; i++) {
             Pageable page = PageRequest.of(i, size);
             log.info("Indexing {} Indexing page {} of {}, size {}, total {}", Gta.class.getSimpleName(), i, count / size, size, count);

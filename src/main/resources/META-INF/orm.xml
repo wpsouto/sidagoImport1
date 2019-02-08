@@ -7,94 +7,82 @@
 
     <named-native-query name="Gta.findAllDataMapping" result-set-mapping="GtaDTOResult">
         <query>
-                SELECT gt.id_gta                                   AS id,
-                       CAST(gt.nu_gta AS integer)                  AS numero,
-                       gt.nu_serie                                 AS serie,
-                       gt.ts_emissao                               AS emissao,
-                       gr.ids_boleto                               AS dare,
-                       CAST(gr.vl_gta AS numeric)                  AS valor,
-                       gt.bo_ativo                                 AS ativo,
+            SELECT gt.id_gta                            AS id,
+            CAST(gt.nu_gta AS integer)                  AS numero,
+            gt.nu_serie                                 AS serie,
+            gt.ts_emissao                               AS emissao,
+            trim(dados->>'id_boleto')                   AS dare,
+            CAST(dados->>'vl_gta' AS numeric)           AS valor,
+            case when gt.bo_ativo = TRUE then 'Não' else 'Sim' end as cancelada,
 
-                       f.id_finalidade                             AS finalidade_id,
-                       f.no_finalidade                             AS finalidade_nome,
+            f.id_finalidade                             AS finalidade_id,
+            f.no_finalidade                             AS finalidade_nome,
 
-                       es.id                                       AS especie_id,
-                       es.no_especie                               AS especie_nome,
+            es.id                                       AS especie_id,
+            es.no_especie                               AS especie_nome,
 
-                       tt.id_tipotransporte                        AS transporte_id,
-                       tt.no_tipotransporte                        AS transporte_nome,
+            dados->>'transporte'                        AS transporte_nome,
 
-                       pe.id                                       AS emissor_id,
-                       pe.nome                                     AS emissor_nome,
-                       lote.id                                     AS emissor_lotacao_id,
-                       lote.nome                                   AS emissor_lotacao_nome,
-                       reg.id                                      AS emissor_lotacao_regional_id,
-                       reg.nome                                    AS emissor_lotacao_regional_nome,
+            dados->>'nome_emissor'                      AS emissor_nome,
+            dados->>'documento_emissor'                 AS emissor_documento,
+            lote.id                                     AS emissor_lotacao_id,
+            lote.nome                                   AS emissor_lotacao_nome,
+            reg.id                                      AS emissor_lotacao_regional_id,
+            reg.nome                                    AS emissor_lotacao_regional_nome,
 
-                       ieo.id_inscricaoestadual                    AS origem_propriedade_id,
-                       pro.nu_codigoanimal                         AS origem_propriedade_codigo,
-                       ieo.no_fantasia                             AS origem_propriedade_nome_fantasia,
-                       ieo.nu_inscricaoestadual                    AS origem_propriedade_ie,
-                       po.id                                       AS origem_propriedade_proprietario_id,
-                       po.nome                                     AS origem_propriedade_proprietario_nome,
-                       dco.numero                                  AS origem_propriedade_proprietario_documento,
-                       lo.loc_nu                                   AS origem_propriedade_municipio_id,
-                       lo.loc_no                                   AS origem_propriedade_municipio_nome,
-                       lo.ufe_sg                                   AS origem_propriedade_municipio_uf,
-                       lo.lat                                      AS origem_propriedade_municipio_localizacao_latitude,
-                       lo.lon                                      AS origem_propriedade_municipio_localizacao_longitude,
+            gto.tp_origem                               AS origem_tipo,
+            dados->'origem'->>'codigo_estabelecimento'  AS origem_estabelecimento_codigo,
+            dados->'origem'->>'nome_fantasia'           AS origem_estabelecimento_nome_fantasia,
+            dados->'origem'->>'razao_social'            AS origem_estabelecimento_razao_social,
+            dados->'origem'->>'inscricao_estadual'      AS origem_estabelecimento_ie,
+            dados->'origem'->>'documento'               AS origem_proprietario_documento,
+            lo.loc_no                                   AS origem_municipio_nome,
+            lo.ufe_sg                                   AS origem_municipio_uf,
+            COALESCE(lo.lat,0)                          AS origem_municipio_localizacao_latitude,
+            lo.lon                                      AS origem_municipio_localizacao_longitude,
 
-                       ied.id_inscricaoestadual                    AS destino_propriedade_id,
-                       prd.nu_codigoanimal                         AS destino_propriedade_codigo,
-                       ied.no_fantasia                             AS destino_propriedade_nome_fantasia,
-                       ied.nu_inscricaoestadual                    AS destino_propriedade_ie,
-                       pd.id                                       AS destino_propriedade_proprietario_id,
-                       pd.nome                                     AS destino_propriedade_proprietario_nome,
-                       dcd.numero                                  AS destino_propriedade_proprietario_documento,
-                       ld.loc_nu                                   AS destino_propriedade_municipio_id,
-                       ld.ufe_sg                                   AS destino_propriedade_municipio_uf,
-                       ld.loc_no                                   AS destino_propriedade_municipio_nome,
-                       ld.lat                                      AS destino_propriedade_municipio_localizacao_latitude,
-                       ld.lon                                      AS destino_propriedade_municipio_localizacao_longitude,
+            gtd.tp_destino                              AS destino_tipo,
+            dados->'destino'->>'codigo_estabelecimento' AS destino_estabelecimento_codigo,
+            dados->'destino'->>'nome_fantasia'          AS destino_estabelecimento_nome_fantasia,
+            dados->'destino'->>'razao_social'           AS destino_estabelecimento_razao_social,
+            dados->'destino'->>'inscricao_estadual'     AS destino_estabelecimento_ie,
+            dados->'destino'->>'documento'              AS destino_proprietario_documento,
+            ld.loc_no                                   AS destino_municipio_nome,
+            ld.ufe_sg                                   AS destino_municipio_uf,
+            COALESCE(ld.lat,0)                          AS destino_municipio_localizacao_latitude,
+            ld.lon                                      AS destino_municipio_localizacao_longitude,
 
-                       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
-                        FROM gta.estratificacao_gta AS gem
-                               INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
-                        WHERE gem.id_gta = gt.id_gta
-                          AND em.tp_sexo = 'FE')                   AS estratificacao_femea,
-                       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
-                        FROM gta.estratificacao_gta AS gem
-                               INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
-                        WHERE gem.id_gta = gt.id_gta
-                          AND em.tp_sexo = 'MA')                   AS estratificacao_macho,
-                       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
-                        FROM gta.estratificacao_gta AS gem
-                                 INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
-                        WHERE gem.id_gta = gt.id_gta
-                          AND em.tp_sexo = 'IN')                   AS estratificacao_indeterminado
-                FROM gta.gta AS gt
-                       INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta
-                       INNER JOIN gta.gta_destino AS gtd ON gt.id_gta = gtd.id_gta
-                       INNER JOIN gta.finalidade AS f ON gt.id_finalidade = f.id_finalidade
-                       INNER JOIN gta.tipo_transporte AS tt ON gt.id_tipotransporte = tt.id_tipotransporte
-                       LEFT JOIN agrocomum.inscricaoestadual AS ieo ON gto.id_origem = ieo.id_inscricaoestadual
-                       LEFT JOIN agrocomum.inscricaoestadual AS ied ON gtd.id_destino = ied.id_inscricaoestadual
-                       LEFT JOIN agrocomum.propriedade AS pro ON ieo.id_inscricaoestadual = pro.id_inscricaoestadual
-                       LEFT JOIN agrocomum.propriedade AS prd ON ied.id_inscricaoestadual = prd.id_inscricaoestadual
-                       LEFT JOIN rh.documento AS dco ON ieo.id_pessoa = dco.id_pessoa and dco.id_documento_tipo in (1, 2)
-                       LEFT JOIN rh.documento AS dcd ON ied.id_pessoa = dcd.id_pessoa and dcd.id_documento_tipo in (1, 2)
-                       LEFT JOIN rh.pessoa AS po ON ieo.id_pessoa = po.id
-                       LEFT JOIN rh.pessoa AS pd ON ied.id_pessoa = pd.id
-                       INNER JOIN dne.log_localidade AS lo ON gto.id_municipio = lo.loc_nu
-                       INNER JOIN dne.log_localidade AS ld ON gtd.id_municipio = ld.loc_nu
-                       INNER JOIN rh.pessoa AS pe ON gt.id_emissor = pe.id
-                       INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
-                       INNER JOIN gta.gta_rascunho AS gr ON gt.id_gta_rascunho = gr.id_gta_rascunho
-                       INNER JOIN rh.lotacao AS lote ON gt.id_lotacao_emissor = lote.id
-                       INNER JOIN rh.lotacao AS reg ON lote.id_lotacao_pai = reg.id
-                WHERE gt.id_gta = 6226355
-                ORDER BY gt.id_gta
-            </query>
+            (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+            FROM gta.estratificacao_gta AS gem
+            INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
+            WHERE gem.id_gta = gt.id_gta
+            AND em.tp_sexo = 'FE')                   AS estratificacao_femea,
+            (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+            FROM gta.estratificacao_gta AS gem
+            INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
+            WHERE gem.id_gta = gt.id_gta
+            AND em.tp_sexo = 'MA')                   AS estratificacao_macho,
+            (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+            FROM gta.estratificacao_gta AS gem
+            INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
+            WHERE gem.id_gta = gt.id_gta
+            AND em.tp_sexo = 'IN')                   AS estratificacao_indefinido,
+            (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+            FROM gta.estratificacao_gta AS gem
+            INNER JOIN dsa.estratificacao AS em ON gem.id_estratificacao = em.id
+            WHERE gem.id_gta = gt.id_gta)            AS estratificacao_total
+
+            FROM gta.gta as gt
+            INNER JOIN gta.finalidade AS f ON gt.id_finalidade = f.id_finalidade
+            INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+            INNER JOIN rh.lotacao AS lote ON gt.id_lotacao_emissor = lote.id
+            INNER JOIN rh.lotacao AS reg ON lote.id_lotacao_pai = reg.id
+            INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta
+            INNER JOIN gta.gta_destino AS gtd ON gt.id_gta = gtd.id_gta
+            INNER JOIN dne.log_localidade AS lo ON gto.id_municipio = lo.loc_nu
+            INNER JOIN dne.log_localidade AS ld ON gtd.id_municipio = ld.loc_nu
+            ORDER BY gt.id_gta ASC
+        </query>
     </named-native-query>
 
     <sql-result-set-mapping name="GtaDTOResult">
@@ -105,46 +93,42 @@
             <column name="emissao"/>
             <column name="dare"/>
             <column name="valor"/>
-            <column name="ativo"/>
+            <column name="cancelada"/>
             <column name="finalidade_id"/>
             <column name="finalidade_nome"/>
             <column name="especie_id"/>
             <column name="especie_nome"/>
-            <column name="transporte_id"/>
             <column name="transporte_nome"/>
-            <column name="emissor_id"/>
             <column name="emissor_nome"/>
+            <column name="emissor_documento"/>
             <column name="emissor_lotacao_id"/>
             <column name="emissor_lotacao_nome"/>
             <column name="emissor_lotacao_regional_id"/>
             <column name="emissor_lotacao_regional_nome"/>
-            <column name="origem_propriedade_id"/>
-            <column name="origem_propriedade_codigo"/>
-            <column name="origem_propriedade_nome_fantasia"/>
-            <column name="origem_propriedade_ie"/>
-            <column name="origem_propriedade_proprietario_id"/>
-            <column name="origem_propriedade_proprietario_nome"/>
-            <column name="origem_propriedade_proprietario_documento"/>
-            <column name="origem_propriedade_municipio_id"/>
-            <column name="origem_propriedade_municipio_nome"/>
-            <column name="origem_propriedade_municipio_uf"/>
-            <column name="origem_propriedade_municipio_localizacao_latitude"/>
-            <column name="origem_propriedade_municipio_localizacao_longitude"/>
-            <column name="destino_propriedade_id"/>
-            <column name="destino_propriedade_codigo"/>
-            <column name="destino_propriedade_nome_fantasia"/>
-            <column name="destino_propriedade_ie"/>
-            <column name="destino_propriedade_proprietario_id"/>
-            <column name="destino_propriedade_proprietario_nome"/>
-            <column name="destino_propriedade_proprietario_documento"/>
-            <column name="destino_propriedade_municipio_id"/>
-            <column name="destino_propriedade_municipio_nome"/>
-            <column name="destino_propriedade_municipio_uf"/>
-            <column name="destino_propriedade_municipio_localizacao_latitude"/>
-            <column name="destino_propriedade_municipio_localizacao_longitude"/>
+            <column name="origem_tipo"/>
+            <column name="origem_estabelecimento_codigo"/>
+            <column name="origem_estabelecimento_nome_fantasia"/>
+            <column name="origem_estabelecimento_razao_social"/>
+            <column name="origem_estabelecimento_ie"/>
+            <column name="origem_proprietario_documento"/>
+            <column name="origem_municipio_nome"/>
+            <column name="origem_municipio_uf"/>
+            <column name="origem_municipio_localizacao_latitude"/>
+            <column name="origem_municipio_localizacao_longitude"/>
+            <column name="destino_tipo"/>
+            <column name="destino_estabelecimento_codigo"/>
+            <column name="destino_estabelecimento_nome_fantasia"/>
+            <column name="destino_estabelecimento_razao_social"/>
+            <column name="destino_estabelecimento_ie"/>
+            <column name="destino_proprietario_documento"/>
+            <column name="destino_municipio_nome"/>
+            <column name="destino_municipio_uf"/>
+            <column name="destino_municipio_localizacao_latitude"/>
+            <column name="destino_municipio_localizacao_longitude"/>
             <column name="estratificacao_femea"/>
             <column name="estratificacao_macho"/>
-            <column name="estratificacao_indeterminado"/>
+            <column name="estratificacao_indefinido"/>
+            <column name="estratificacao_total"/>
         </constructor-result>
     </sql-result-set-mapping>
 </entity-mappings>

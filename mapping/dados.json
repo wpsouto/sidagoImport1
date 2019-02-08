@@ -1,0 +1,173 @@
+{
+    "estratificacoes_gta": {
+        "0": {
+            "id_especie": "5",
+            "no_especie": "Equino",
+            "estratificacoes": [
+                {
+                    "nucleo_id": 234529,
+                    "saldo_id": 1814769,
+                    "estratificacao_id": 25,
+                    "estratificacao_nome": "Macho, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234529,
+                    "saldo_id": 1814771,
+                    "estratificacao_id": 27,
+                    "estratificacao_nome": "F\u00eamea, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234529,
+                    "saldo_id": 1814770,
+                    "estratificacao_id": 26,
+                    "estratificacao_nome": "Macho, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 2
+                },
+                {
+                    "nucleo_id": 234529,
+                    "saldo_id": 1814772,
+                    "estratificacao_id": 28,
+                    "estratificacao_nome": "F\u00eamea, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                }
+            ]
+        },
+        "4": {
+            "id_especie": "6",
+            "no_especie": "Muar",
+            "estratificacoes": [
+                {
+                    "nucleo_id": 234530,
+                    "saldo_id": 1814773,
+                    "estratificacao_id": 29,
+                    "estratificacao_nome": "Macho, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234530,
+                    "saldo_id": 1814775,
+                    "estratificacao_id": 31,
+                    "estratificacao_nome": "F\u00eamea, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234530,
+                    "saldo_id": 1814774,
+                    "estratificacao_id": 30,
+                    "estratificacao_nome": "Macho, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234530,
+                    "saldo_id": 1814776,
+                    "estratificacao_id": 32,
+                    "estratificacao_nome": "F\u00eamea, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                }
+            ]
+        },
+        "8": {
+            "id_especie": "7",
+            "no_especie": "Asinino",
+            "estratificacoes": [
+                {
+                    "nucleo_id": 234531,
+                    "saldo_id": 1814777,
+                    "estratificacao_id": 33,
+                    "estratificacao_nome": "Macho, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234531,
+                    "saldo_id": 1814779,
+                    "estratificacao_id": 35,
+                    "estratificacao_nome": "F\u00eamea, At\u00e9 6 meses",
+                    "estratificacao_sigla": "0 - 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234531,
+                    "saldo_id": 1814778,
+                    "estratificacao_id": 34,
+                    "estratificacao_nome": "Macho, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 M",
+                    "estratificacao_sexo": "MA",
+                    "quantidade": 0
+                },
+                {
+                    "nucleo_id": 234531,
+                    "saldo_id": 1814780,
+                    "estratificacao_id": 36,
+                    "estratificacao_nome": "F\u00eamea, Acima de 6 meses",
+                    "estratificacao_sigla": "> 6 F",
+                    "estratificacao_sexo": "FE",
+                    "quantidade": 0
+                }
+            ]
+        }
+    },
+    "exames": [
+        {
+            "ds_exame": "Anemia infecciosa equina",
+            "dt_exame": "23\/03\/2018"
+        },
+        {
+            "ds_exame": "Anemia infecciosa equina",
+            "dt_exame": "04\/04\/2018"
+        }
+    ],
+    "nu_gta": "504772",
+    "nu_serie": "T",
+    "data_validade": "15\/04\/2018",
+    "id_codigobarras": "3333206",
+    "origem": {
+        "nome_fantasia": "ATRI",
+        "codigo_estabelecimento": "52011102308",
+        "inscricao_estadual": "107083027",
+        "razao_social": "ASSOCIACAO DE TEAM ROPING DE IPAMERI",
+        "documento": "28902364000186",
+        "municipio_uf": "Ipameri\/GO"
+    },
+    "destino": {
+        "nome_fantasia": "FAZENDA MATINHA",
+        "codigo_estabelecimento": "52024000695",
+        "inscricao_estadual": "114570299",
+        "razao_social": "Marnnen Pacheco",
+        "documento": "97136794153",
+        "municipio_uf": "Uruta\u00ed\/GO"
+    },
+    "finalidade": "Trabalho",
+    "transporte": "Rodovi\u00e1rio",
+    "observacao": " <br>PRODUTOR: A emiss\u00e3o de Nota Fiscal para este documento \u00e9 obrigat\u00f3ria e de sua responsabilidade.<br>\n            Solicite a um de nossos funcion\u00e1rios a sua senha de acesso ao Sidago. Assim, voc\u00ea poder\u00e1 emitir GTA's, Notas Fiscais e consultar o seu rebanho em qualquer hor\u00e1rio e lugar. <br>",
+    "requisitante": "ASSOCIACAO DE TEAM ROPING DE IPAMERI",
+    "documento_requisitante": "28902364000186",
+    "nome_emissor": "Thiago Oliveira Nunes de Souza",
+    "data_hora_emissao": "12\/04\/2018 08:28",
+    "documento_emissor": "00676542158",
+    "nome_lotacao_emissor": "UOL Ipameri",
+    "os_portaria_emissor": "266\/2014DITEC",
+    "crmv_emissor": "",
+    "id_boleto": "5540044  ",
+    "vl_gta": "12.34"
+}

@@ -25,17 +25,6 @@ public class Gta implements Serializable {
     @Column(name = "bo_ativo")
     private Boolean ativo;
 
-    @OneToOne()
-    @JoinColumn(name = "id_finalidade")
-    private Finalidade finalidade;
-
-    @OneToOne()
-    @JoinColumn(name = "id_especie")
-    private Especie especie;
-
-    @Transient
-    private TipoTransporte tipoTransporte;
-
     @Transient
     private Pessoa emissor;
 
@@ -109,30 +98,6 @@ public class Gta implements Serializable {
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
 
-    public Finalidade getFinalidade() {
-        return finalidade;
-    }
-
-    public void setFinalidade(Finalidade finalidade) {
-        this.finalidade = finalidade;
-    }
-
-    public TipoTransporte getTipoTransporte() {
-        return tipoTransporte;
-    }
-
-    public void setTipoTransporte(TipoTransporte tipoTransporte) {
-        this.tipoTransporte = tipoTransporte;
-    }
-
-    public Especie getEspecie() {
-        return especie;
-    }
-
-    public void setEspecie(Especie especie) {
-        this.especie = especie;
-    }
-
     public Pessoa getEmissor() {
         return emissor;
     }
@@ -176,8 +141,6 @@ public class Gta implements Serializable {
             ", numero='" + numero + '\'' +
             ", serie='" + serie + '\'' +
             ", ativo=" + ativo +
-            ", finalidade=" + finalidade +
-            ", tipoTransporte=" + tipoTransporte +
             ", dados='" + dados + '\'' +
             '}';
     }

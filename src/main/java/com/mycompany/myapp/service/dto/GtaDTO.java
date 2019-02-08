@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
-@Document(indexName = "gta_temp", type = "doc")
+@Document(indexName = "gta", type = "doc")
 public class GtaDTO {
 
     private Integer id;
@@ -23,7 +23,7 @@ public class GtaDTO {
 
     private BigDecimal valor;
 
-    private Boolean ativo;
+    private String cancelada;
 
     private Finalidade finalidade;
 
@@ -39,28 +39,28 @@ public class GtaDTO {
 
     private Estratificacao estratificacao;
 
-//    private String dados;
-
     public GtaDTO() {
         // Empty constructor needed for Jackson.
     }
 
-    public GtaDTO(Integer id, Integer numero, String serie, Date emissao, String dare, BigDecimal valor, Boolean ativo,
+    public GtaDTO(Integer id, Integer numero, String serie, Date emissao, String dare, BigDecimal valor, String cancelada,
                   Integer finalidade_id, String finalidade_nome,
                   Integer especie_id, String especie_nome,
-                  Integer transporte_id, String transporte_nome,
-                  Integer emissor_id, String emissor_nome,
+                  String transporte_nome,
+                  String emissor_nome, String emissor_documento,
                   Integer emissor_lotacao_id, String emissor_lotacao_nome,
                   Integer emissor_lotacao_regional_id, String emissor_lotacao_regional_nome,
-                  Integer origem_propriedade_id, String origem_propriedade_codigo, String origem_propriedade_nome_fantasia, String origem_propriedade_ie,
-                  Integer origem_propriedade_proprietario_id, String origem_propriedade_proprietario_nome, String origem_propriedade_proprietario_documento,
-                  short origem_propriedade_municipio_id, String origem_propriedade_municipio_nome, String origem_propriedade_municipio_uf,
-                  BigDecimal origem_propriedade_municipio_localizacao_latitude, BigDecimal origem_propriedade_municipio_localizacao_longitude,
-                  Integer destino_propriedade_id, String destino_propriedade_codigo, String destino_propriedade_nome_fantasia, String destino_propriedade_ie,
-                  Integer destino_propriedade_proprietario_id, String destino_propriedade_proprietario_nome, String destino_propriedade_proprietario_documento,
-                  short destino_propriedade_municipio_id, String destino_propriedade_municipio_nome, String destino_propriedade_municipio_uf,
-                  BigDecimal destino_propriedade_municipio_localizacao_latitude, BigDecimal destino_propriedade_municipio_localizacao_longitude,
-                  BigInteger estratificacao_femea, BigInteger estratificacao_macho, BigInteger estratificacao_indeterminado) {
+                  String origem_tipo,
+                  String origem_estabelecimento_codigo, String origem_estabelecimento_nome_fantasia, String origem_estabelecimento_razao_social, String origem_estabelecimento_ie,
+                  String origem_proprietario_documento,
+                  String origem_municipio_nome, String origem_municipio_uf,
+                  BigDecimal origem_municipio_localizacao_latitude, BigDecimal origem_municipio_localizacao_longitude,
+                  String destino_tipo,
+                  String destino_estabelecimento_codigo, String destino_estabelecimento_nome_fantasia, String destino_estabelecimento_razao_social, String destino_estabelecimento_ie,
+                  String destino_proprietario_documento,
+                  String destino_municipio_nome, String destino_municipio_uf,
+                  BigDecimal destino_municipio_localizacao_latitude, BigDecimal destino_municipio_localizacao_longitude,
+                  BigInteger estratificacao_femea, BigInteger estratificacao_macho, BigInteger estratificacao_indefinido, BigInteger estratificacao_total) {
 
         this.id = id;
         this.numero = numero;
@@ -68,7 +68,7 @@ public class GtaDTO {
         this.emissao = emissao;
         this.dare = dare;
         this.valor = valor;
-        this.ativo = ativo;
+        this.cancelada = cancelada;
 
         this.finalidade = new Finalidade();
         this.finalidade.setId(finalidade_id);
@@ -79,67 +79,63 @@ public class GtaDTO {
         this.especie.setNome(especie_nome);
 
         this.transporte = new TipoTransporte();
-        this.transporte.setId(transporte_id);
+        //this.transporte.setId(transporte_id);
         this.transporte.setNome(transporte_nome);
 
         this.emissor = new Emissor();
         this.emissor.setLotacao(new Lotacao());
         this.emissor.getLotacao().setRegional(new Regional());
-        this.emissor.setId(emissor_id);
+        //this.emissor.setId(emissor_id);
         this.emissor.setNome(emissor_nome);
+        this.emissor.setDocumento(emissor_documento);
         this.emissor.getLotacao().setId(emissor_lotacao_id);
         this.emissor.getLotacao().setNome(emissor_lotacao_nome);
         this.emissor.getLotacao().getRegional().setId(emissor_lotacao_regional_id);
         this.emissor.getLotacao().getRegional().setNome(emissor_lotacao_regional_nome);
 
         this.origem = new Origem();
-        this.origem.setPropriedade(new Propriedade());
-        this.origem.getPropriedade().setProprietario(new Pessoa());
-        this.origem.getPropriedade().setMunicipio(new Municipio());
-        this.origem.getPropriedade().setId(origem_propriedade_id);
-        this.origem.getPropriedade().setCodigo(origem_propriedade_codigo);
-        this.origem.getPropriedade().setNomeFantasia(origem_propriedade_nome_fantasia);
-        this.origem.getPropriedade().setIe(origem_propriedade_ie);
+        this.origem.setEstabelecimento(new Estabelecimento());
+        this.origem.getEstabelecimento().setProprietario(new Pessoa());
+        this.origem.setMunicipio(new Municipio());
+        this.origem.setTipo(origem_tipo);
+        this.origem.getEstabelecimento().setCodigo(origem_estabelecimento_codigo);
+        this.origem.getEstabelecimento().setNomeFantasia(origem_estabelecimento_nome_fantasia);
+        this.origem.getEstabelecimento().setRazaoSocial(origem_estabelecimento_razao_social);
+        this.origem.getEstabelecimento().setIe(origem_estabelecimento_ie);
 
-        this.origem.getPropriedade().getProprietario().setId(origem_propriedade_proprietario_id);
-        this.origem.getPropriedade().getProprietario().setNome(origem_propriedade_proprietario_nome);
-        this.origem.getPropriedade().getProprietario().setDocumento(origem_propriedade_proprietario_documento);
+        this.origem.getEstabelecimento().getProprietario().setDocumento(origem_proprietario_documento);
 
-        this.origem.getPropriedade().getMunicipio().setId(origem_propriedade_municipio_id);
-        this.origem.getPropriedade().getMunicipio().setNome(origem_propriedade_municipio_nome);
-        this.origem.getPropriedade().getMunicipio().setUf(origem_propriedade_municipio_uf);
-        if (origem_propriedade_municipio_localizacao_latitude != null && origem_propriedade_municipio_localizacao_longitude != null) {
-            this.origem.getPropriedade().getMunicipio().setLocalizacao(new GeoPoint(origem_propriedade_municipio_localizacao_latitude.doubleValue(), origem_propriedade_municipio_localizacao_longitude.doubleValue()));
+        //this.origem.getMunicipio().setId(origem_municipio_id);
+        this.origem.getMunicipio().setNome(origem_municipio_nome);
+        this.origem.getMunicipio().setUf(origem_municipio_uf);
+        if (origem_municipio_localizacao_latitude != null && origem_municipio_localizacao_longitude != null) {
+            this.origem.getMunicipio().setLocalizacao(new GeoPoint(origem_municipio_localizacao_latitude.doubleValue(), origem_municipio_localizacao_longitude.doubleValue()));
         }
 
         this.destino = new Destino();
-        this.destino.setPropriedade(new Propriedade());
-        this.destino.getPropriedade().setProprietario(new Pessoa());
-        this.destino.getPropriedade().setMunicipio(new Municipio());
-        this.destino.getPropriedade().setId(destino_propriedade_id);
-        this.destino.getPropriedade().setCodigo(destino_propriedade_codigo);
-        this.destino.getPropriedade().setNomeFantasia(destino_propriedade_nome_fantasia);
-        this.destino.getPropriedade().setIe(destino_propriedade_ie);
+        this.destino.setEstabelecimento(new Estabelecimento());
+        this.destino.getEstabelecimento().setProprietario(new Pessoa());
+        this.destino.setMunicipio(new Municipio());
+        this.destino.setTipo(destino_tipo);
+        this.destino.getEstabelecimento().setCodigo(destino_estabelecimento_codigo);
+        this.destino.getEstabelecimento().setNomeFantasia(destino_estabelecimento_nome_fantasia);
+        this.destino.getEstabelecimento().setRazaoSocial(destino_estabelecimento_razao_social);
+        this.destino.getEstabelecimento().setIe(destino_estabelecimento_ie);
 
-        this.destino.getPropriedade().getProprietario().setId(destino_propriedade_proprietario_id);
-        this.destino.getPropriedade().getProprietario().setNome(destino_propriedade_proprietario_nome);
-        this.destino.getPropriedade().getProprietario().setDocumento(destino_propriedade_proprietario_documento);
+        this.destino.getEstabelecimento().getProprietario().setDocumento(destino_proprietario_documento);
 
-        this.destino.getPropriedade().getMunicipio().setId(destino_propriedade_municipio_id);
-        this.destino.getPropriedade().getMunicipio().setNome(destino_propriedade_municipio_nome);
-        this.destino.getPropriedade().getMunicipio().setUf(destino_propriedade_municipio_uf);
-        this.destino.getPropriedade().setCodigo(destino_propriedade_codigo);
-        this.destino.getPropriedade().setNomeFantasia(destino_propriedade_nome_fantasia);
-        this.destino.getPropriedade().setIe(destino_propriedade_ie);
-
-        if (destino_propriedade_municipio_localizacao_latitude != null && destino_propriedade_municipio_localizacao_longitude != null) {
-            this.destino.getPropriedade().getMunicipio().setLocalizacao(new GeoPoint(destino_propriedade_municipio_localizacao_latitude.doubleValue(), destino_propriedade_municipio_localizacao_longitude.doubleValue()));
+        //this.destino.getMunicipio().setId(destino_municipio_id);
+        this.destino.getMunicipio().setNome(destino_municipio_nome);
+        this.destino.getMunicipio().setUf(destino_municipio_uf);
+        if (destino_municipio_localizacao_latitude != null && destino_municipio_localizacao_longitude != null) {
+            this.destino.getMunicipio().setLocalizacao(new GeoPoint(destino_municipio_localizacao_latitude.doubleValue(), destino_municipio_localizacao_longitude.doubleValue()));
         }
 
         this.estratificacao = new Estratificacao();
         this.estratificacao.setFemea(estratificacao_femea);
         this.estratificacao.setMacho(estratificacao_macho);
-        this.estratificacao.setIndeterminado(estratificacao_indeterminado);
+        this.estratificacao.setIndefinido(estratificacao_indefinido);
+        this.estratificacao.setTotal(estratificacao_total);
     }
 
     public Integer getId() {
@@ -190,22 +186,14 @@ public class GtaDTO {
         this.valor = valor;
     }
 
-    public Boolean getAtivo() {
-        return ativo;
+    public String getCancelada() {
+        return cancelada;
     }
 
-    public void setAtivo(Boolean ativo) {
-        this.ativo = ativo;
+    public void setCancelada(String cancelada) {
+        this.cancelada = cancelada;
     }
 
-    /*  public String getDados() {
-          return dados;
-      }
-
-      public void setDados(String dados) {
-          this.dados = dados;
-      }
-  */
     public Finalidade getFinalidade() {
         return finalidade;
     }

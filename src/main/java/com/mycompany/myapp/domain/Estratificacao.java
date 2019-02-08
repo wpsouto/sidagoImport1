@@ -13,7 +13,8 @@ public class Estratificacao implements Serializable {
 
     private BigInteger femea;
     private BigInteger macho;
-    private BigInteger indeterminado;
+    private BigInteger indefinido;
+    private BigInteger total;
 
     public BigInteger getFemea() {
         return femea;
@@ -41,17 +42,19 @@ public class Estratificacao implements Serializable {
         return this;
     }
 
-    public BigInteger getIndeterminado() {
-        return indeterminado;
+    public BigInteger getIndefinido() {
+        return indefinido;
     }
 
-    public void setIndeterminado(BigInteger indeterminado) {
-        this.indeterminado = indeterminado;
+    public void setIndefinido(BigInteger indefinido) {
+        this.indefinido = indefinido;
     }
 
-    public Estratificacao indeterminado(BigInteger indeterminado) {
-        this.indeterminado = indeterminado;
-        return this;
+    public BigInteger getTotal() {
+        return total;
     }
 
+    public void setTotal(BigInteger total) {
+        this.total = total;
+    }
 }

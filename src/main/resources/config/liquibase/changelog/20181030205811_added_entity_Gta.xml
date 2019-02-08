@@ -29,7 +29,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="ativo" type="boolean">
+            <column name="cancelada" type="boolean">
                 <constraints nullable="true" />
             </column>
 

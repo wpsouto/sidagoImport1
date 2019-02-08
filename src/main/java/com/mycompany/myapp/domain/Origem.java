@@ -10,14 +10,33 @@ public class Origem implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Propriedade propriedade;
+    private String tipo;
 
-    public Propriedade getPropriedade() {
-        return propriedade;
+    private Estabelecimento estabelecimento;
+
+    private Municipio municipio;
+
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setPropriedade(Propriedade propriedade) {
-        this.propriedade = propriedade;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
+    public Estabelecimento getEstabelecimento() {
+        return estabelecimento;
+    }
+
+    public void setEstabelecimento(Estabelecimento estabelecimento) {
+        this.estabelecimento = estabelecimento;
+    }
+
+    public Municipio getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
+    }
 }

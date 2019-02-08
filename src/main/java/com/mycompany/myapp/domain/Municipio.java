@@ -3,32 +3,17 @@ package com.mycompany.myapp.domain;
 
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 
-import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * A Gta.
- */
 public class Municipio implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    private short id;
 
     private String nome;
 
     private String uf;
 
     private GeoPoint localizacao;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public short getId() {
-        return id;
-    }
-
-    public void setId(short id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -59,12 +44,4 @@ public class Municipio implements Serializable {
         this.localizacao = localizacao;
     }
 
-    @Override
-    public String toString() {
-        return "Municipio{" +
-            "id=" + id +
-            ", nome='" + nome + '\'' +
-            ", uf='" + uf + '\'' +
-            '}';
-    }
 }

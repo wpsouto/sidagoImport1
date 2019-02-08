@@ -11,20 +11,11 @@ public class Emissor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
-
     private String nome;
 
+    private String documento;
+
     private Lotacao lotacao;
-
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
@@ -37,6 +28,14 @@ public class Emissor implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
     }
 
     public Lotacao getLotacao() {

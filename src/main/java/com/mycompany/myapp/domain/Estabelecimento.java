@@ -1,36 +1,21 @@
 package com.mycompany.myapp.domain;
 
 
-import org.springframework.data.elasticsearch.core.geo.GeoPoint;
-
 import java.io.Serializable;
 
-/**
- * A Gta.
- */
-public class Propriedade implements Serializable {
+public class Estabelecimento implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    private Integer id;
 
     private String codigo;
 
     private String nomeFantasia;
 
+    private String razaoSocial;
+
     private String ie;
 
     private Pessoa proprietario;
-
-    private Municipio municipio;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getCodigo() {
         return codigo;
@@ -46,6 +31,14 @@ public class Propriedade implements Serializable {
 
     public void setNomeFantasia(String nomeFantasia) {
         this.nomeFantasia = nomeFantasia;
+    }
+
+    public String getRazaoSocial() {
+        return razaoSocial;
+    }
+
+    public void setRazaoSocial(String razaoSocial) {
+        this.razaoSocial = razaoSocial;
     }
 
     public String getIe() {
@@ -64,11 +57,4 @@ public class Propriedade implements Serializable {
         this.proprietario = proprietario;
     }
 
-    public Municipio getMunicipio() {
-        return municipio;
-    }
-
-    public void setMunicipio(Municipio municipio) {
-        this.municipio = municipio;
-    }
 }
