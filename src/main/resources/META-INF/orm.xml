@@ -35,22 +35,22 @@
             dados->'origem'->>'nome_fantasia'           AS origem_estabelecimento_nome_fantasia,
             dados->'origem'->>'razao_social'            AS origem_estabelecimento_razao_social,
             dados->'origem'->>'inscricao_estadual'      AS origem_estabelecimento_ie,
-            dados->'origem'->>'documento'               AS origem_proprietario_documento,
+            dados->'origem'->>'documento'               AS origem_estabelecimento_proprietario_documento,
             lo.loc_no                                   AS origem_municipio_nome,
             lo.ufe_sg                                   AS origem_municipio_uf,
             COALESCE(lo.lat,0)                          AS origem_municipio_localizacao_latitude,
-            lo.lon                                      AS origem_municipio_localizacao_longitude,
+            COALESCE(lo.lon,0)                          AS origem_municipio_localizacao_longitude,
 
             gtd.tp_destino                              AS destino_tipo,
             dados->'destino'->>'codigo_estabelecimento' AS destino_estabelecimento_codigo,
             dados->'destino'->>'nome_fantasia'          AS destino_estabelecimento_nome_fantasia,
             dados->'destino'->>'razao_social'           AS destino_estabelecimento_razao_social,
             dados->'destino'->>'inscricao_estadual'     AS destino_estabelecimento_ie,
-            dados->'destino'->>'documento'              AS destino_proprietario_documento,
+            dados->'destino'->>'documento'              AS destino_estabelecimento_proprietario_documento,
             ld.loc_no                                   AS destino_municipio_nome,
             ld.ufe_sg                                   AS destino_municipio_uf,
             COALESCE(ld.lat,0)                          AS destino_municipio_localizacao_latitude,
-            ld.lon                                      AS destino_municipio_localizacao_longitude,
+            COALESCE(ld.lon,0)                          AS destino_municipio_localizacao_longitude,
 
             (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
             FROM gta.estratificacao_gta AS gem
@@ -81,6 +81,7 @@
             INNER JOIN gta.gta_destino AS gtd ON gt.id_gta = gtd.id_gta
             INNER JOIN dne.log_localidade AS lo ON gto.id_municipio = lo.loc_nu
             INNER JOIN dne.log_localidade AS ld ON gtd.id_municipio = ld.loc_nu
+            WHERE gt.id_gta > 6300012
             ORDER BY gt.id_gta ASC
         </query>
     </named-native-query>
@@ -110,7 +111,7 @@
             <column name="origem_estabelecimento_nome_fantasia"/>
             <column name="origem_estabelecimento_razao_social"/>
             <column name="origem_estabelecimento_ie"/>
-            <column name="origem_proprietario_documento"/>
+            <column name="origem_estabelecimento_proprietario_documento"/>
             <column name="origem_municipio_nome"/>
             <column name="origem_municipio_uf"/>
             <column name="origem_municipio_localizacao_latitude"/>
@@ -120,7 +121,7 @@
             <column name="destino_estabelecimento_nome_fantasia"/>
             <column name="destino_estabelecimento_razao_social"/>
             <column name="destino_estabelecimento_ie"/>
-            <column name="destino_proprietario_documento"/>
+            <column name="destino_estabelecimento_proprietario_documento"/>
             <column name="destino_municipio_nome"/>
             <column name="destino_municipio_uf"/>
             <column name="destino_municipio_localizacao_latitude"/>

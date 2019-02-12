@@ -52,12 +52,12 @@ public class GtaDTO {
                   Integer emissor_lotacao_regional_id, String emissor_lotacao_regional_nome,
                   String origem_tipo,
                   String origem_estabelecimento_codigo, String origem_estabelecimento_nome_fantasia, String origem_estabelecimento_razao_social, String origem_estabelecimento_ie,
-                  String origem_proprietario_documento,
+                  String origem_estabelecimento_proprietario_documento,
                   String origem_municipio_nome, String origem_municipio_uf,
                   BigDecimal origem_municipio_localizacao_latitude, BigDecimal origem_municipio_localizacao_longitude,
                   String destino_tipo,
                   String destino_estabelecimento_codigo, String destino_estabelecimento_nome_fantasia, String destino_estabelecimento_razao_social, String destino_estabelecimento_ie,
-                  String destino_proprietario_documento,
+                  String destino_estabelecimento_proprietario_documento,
                   String destino_municipio_nome, String destino_municipio_uf,
                   BigDecimal destino_municipio_localizacao_latitude, BigDecimal destino_municipio_localizacao_longitude,
                   BigInteger estratificacao_femea, BigInteger estratificacao_macho, BigInteger estratificacao_indefinido, BigInteger estratificacao_total) {
@@ -103,14 +103,12 @@ public class GtaDTO {
         this.origem.getEstabelecimento().setRazaoSocial(origem_estabelecimento_razao_social);
         this.origem.getEstabelecimento().setIe(origem_estabelecimento_ie);
 
-        this.origem.getEstabelecimento().getProprietario().setDocumento(origem_proprietario_documento);
+        this.origem.getEstabelecimento().getProprietario().setDocumento(origem_estabelecimento_proprietario_documento);
 
         //this.origem.getMunicipio().setId(origem_municipio_id);
         this.origem.getMunicipio().setNome(origem_municipio_nome);
         this.origem.getMunicipio().setUf(origem_municipio_uf);
-        if (origem_municipio_localizacao_latitude != null && origem_municipio_localizacao_longitude != null) {
-            this.origem.getMunicipio().setLocalizacao(new GeoPoint(origem_municipio_localizacao_latitude.doubleValue(), origem_municipio_localizacao_longitude.doubleValue()));
-        }
+        this.origem.getMunicipio().setLocalizacao(new GeoPoint(origem_municipio_localizacao_latitude.doubleValue(), origem_municipio_localizacao_longitude.doubleValue()));
 
         this.destino = new Destino();
         this.destino.setEstabelecimento(new Estabelecimento());
@@ -122,14 +120,12 @@ public class GtaDTO {
         this.destino.getEstabelecimento().setRazaoSocial(destino_estabelecimento_razao_social);
         this.destino.getEstabelecimento().setIe(destino_estabelecimento_ie);
 
-        this.destino.getEstabelecimento().getProprietario().setDocumento(destino_proprietario_documento);
+        this.destino.getEstabelecimento().getProprietario().setDocumento(destino_estabelecimento_proprietario_documento);
 
         //this.destino.getMunicipio().setId(destino_municipio_id);
         this.destino.getMunicipio().setNome(destino_municipio_nome);
         this.destino.getMunicipio().setUf(destino_municipio_uf);
-        if (destino_municipio_localizacao_latitude != null && destino_municipio_localizacao_longitude != null) {
-            this.destino.getMunicipio().setLocalizacao(new GeoPoint(destino_municipio_localizacao_latitude.doubleValue(), destino_municipio_localizacao_longitude.doubleValue()));
-        }
+        this.destino.getMunicipio().setLocalizacao(new GeoPoint(destino_municipio_localizacao_latitude.doubleValue(), destino_municipio_localizacao_longitude.doubleValue()));
 
         this.estratificacao = new Estratificacao();
         this.estratificacao.setFemea(estratificacao_femea);

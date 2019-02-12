@@ -72,8 +72,8 @@ public class ElasticsearchIndexGtaService {
             log.info("Indexing {} Indexing page {} of {}, size {}, total {}", Gta.class.getSimpleName(), i, count / size, size, count);
             List<GtaDTO> listBD = gtaRepository.findAllDataMapping(page);
 
-            log.info("Start Partition in {}", 25000);
-            Collection<List<GtaDTO>> lists = partition(listBD, 25000);
+            log.info("Start Partition in {}", 10000);
+            Collection<List<GtaDTO>> lists = partition(listBD, 10000);
 
             int index = 1;
             for (List<GtaDTO> list : lists) {
