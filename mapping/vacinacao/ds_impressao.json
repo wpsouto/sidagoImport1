@@ -1,0 +1,619 @@
+{
+    "propriedade": {
+        "nome": "BURITI",
+        "codigo": "52015600124",
+        "inscricao": "112561306",
+        "area": "0.00ha",
+        "endereco": "ROD GO 060 KM 66 SN ZONA RURAL",
+        "municipio": "Naz\u00e1rio",
+        "latitude": 1635211,
+        "longitude": 4955231
+    },
+    "produtor": {
+        "nome": "adegmar batista da cunha",
+        "email": null,
+        "cpfcnpj": "29050472168",
+        "endereco": "Fazenda Corrego do Buriti 0 zona rural ",
+        "municipio": "GO\/Naz\u00e1rio"
+    },
+    "morte": {
+        "bovino": [
+            {
+                "ordem": 0,
+                "estratificacao": "Macho, 0 a 12 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 2,
+                "estratificacao": "Macho, 13 a 24 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 4,
+                "estratificacao": "Macho, 25 a 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 6,
+                "estratificacao": "Macho, Acima de 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 1,
+                "estratificacao": "F\u00eamea, 0 a 12 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 3,
+                "estratificacao": "F\u00eamea, 13 a 24 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 5,
+                "estratificacao": "F\u00eamea, 25 a 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 7,
+                "estratificacao": "F\u00eamea, Acima de 36 meses",
+                "valor": 0
+            }
+        ]
+    },
+    "aftosa": {
+        "data": "08\/03\/2018",
+        "observacao": "",
+        "fiscalizado": "",
+        "tipo": "Assistida",
+        "nota": [
+            {
+                "numero": "52180308061358000136550010000047821000047826",
+                "eletronica": "Sim",
+                "uf": "GO",
+                "municipio": "Anicuns",
+                "data": "07\/03\/2018",
+                "revenda": "AGRORACA",
+                "produto": {
+                    "1": {
+                        "laboratorio": "BIOGENESES BAG\u00d3",
+                        "partida": "0011\/2016",
+                        "validade": "11\/2018",
+                        "doses": "10"
+                    }
+                }
+            }
+        ],
+        "bovino": [
+            {
+                "ordem": 0,
+                "estratificacao": "Macho, 0 a 12 meses",
+                "valor": 0,
+                "existente": ""
+            },
+            {
+                "ordem": 2,
+                "estratificacao": "Macho, 13 a 24 meses",
+                "valor": 0,
+                "existente": ""
+            },
+            {
+                "ordem": 4,
+                "estratificacao": "Macho, 25 a 36 meses",
+                "valor": 0,
+                "existente": "existente"
+            },
+            {
+                "ordem": 6,
+                "estratificacao": "Macho, Acima de 36 meses",
+                "valor": 1,
+                "existente": "existente"
+            },
+            {
+                "ordem": 1,
+                "estratificacao": "F\u00eamea, 0 a 12 meses",
+                "valor": 1,
+                "existente": ""
+            },
+            {
+                "ordem": 3,
+                "estratificacao": "F\u00eamea, 13 a 24 meses",
+                "valor": 2,
+                "existente": ""
+            },
+            {
+                "ordem": 5,
+                "estratificacao": "F\u00eamea, 25 a 36 meses",
+                "valor": 0,
+                "existente": "existente"
+            },
+            {
+                "ordem": 7,
+                "estratificacao": "F\u00eamea, Acima de 36 meses",
+                "valor": 5,
+                "existente": "existente"
+            }
+        ]
+    },
+    "abate": {
+        "bovino": {
+            "1": {
+                "ordem": 0,
+                "estratificacao": "Macho, 0 a 12 meses",
+                "valor": 0
+            },
+            "2": {
+                "ordem": 2,
+                "estratificacao": "Macho, 13 a 24 meses",
+                "valor": 0
+            },
+            "3": {
+                "ordem": 4,
+                "estratificacao": "Macho, 25 a 36 meses",
+                "valor": 0
+            },
+            "4": {
+                "ordem": 6,
+                "estratificacao": "Macho, Acima de 36 meses",
+                "valor": 0
+            },
+            "5": {
+                "ordem": 1,
+                "estratificacao": "F\u00eamea, 0 a 12 meses",
+                "valor": 0
+            },
+            "6": {
+                "ordem": 3,
+                "estratificacao": "F\u00eamea, 13 a 24 meses",
+                "valor": 0
+            },
+            "7": {
+                "ordem": 5,
+                "estratificacao": "F\u00eamea, 25 a 36 meses",
+                "valor": 0
+            },
+            "8": {
+                "ordem": 7,
+                "estratificacao": "F\u00eamea, Acima de 36 meses",
+                "valor": 0
+            }
+        }
+    },
+    "antirrabica": {
+        "data": "",
+        "observacao": "",
+        "bovino": [
+            {
+                "ordem": 0,
+                "estratificacao": "Macho, 0 a 12 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 2,
+                "estratificacao": "Macho, 13 a 24 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 4,
+                "estratificacao": "Macho, 25 a 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 6,
+                "estratificacao": "Macho, Acima de 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 1,
+                "estratificacao": "F\u00eamea, 0 a 12 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 3,
+                "estratificacao": "F\u00eamea, 13 a 24 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 5,
+                "estratificacao": "F\u00eamea, 25 a 36 meses",
+                "valor": 0
+            },
+            {
+                "ordem": 7,
+                "estratificacao": "F\u00eamea, Acima de 36 meses",
+                "valor": 0
+            }
+        ]
+    },
+    "saldo": {
+        "Caprinos e Ovinos": {
+            "Caprino": {
+                "8": {
+                    "ordem": 0,
+                    "id_especie": 3,
+                    "estratificacao": "Macho, At\u00e9 12 meses",
+                    "valor": 0
+                },
+                "9": {
+                    "ordem": 1,
+                    "id_especie": 3,
+                    "estratificacao": "F\u00eamea, At\u00e9 12 meses",
+                    "valor": 0
+                },
+                "10": {
+                    "ordem": 2,
+                    "id_especie": 3,
+                    "estratificacao": "Macho, Acima de 12 meses",
+                    "valor": 0
+                },
+                "11": {
+                    "ordem": 3,
+                    "id_especie": 3,
+                    "estratificacao": "F\u00eamea, Acima de 12 meses",
+                    "valor": 0
+                }
+            },
+            "Ovino": {
+                "12": {
+                    "ordem": 0,
+                    "id_especie": 4,
+                    "estratificacao": "Macho, At\u00e9 12 meses",
+                    "valor": 0
+                },
+                "13": {
+                    "ordem": 1,
+                    "id_especie": 4,
+                    "estratificacao": "F\u00eamea, At\u00e9 12 meses",
+                    "valor": 0
+                },
+                "14": {
+                    "ordem": 2,
+                    "id_especie": 4,
+                    "estratificacao": "Macho, Acima de 12 meses",
+                    "valor": 0
+                },
+                "15": {
+                    "ordem": 3,
+                    "id_especie": 4,
+                    "estratificacao": "F\u00eamea, Acima de 12 meses",
+                    "valor": 0
+                }
+            }
+        },
+        "Equ\u00eddeos": {
+            "Equino": {
+                "16": {
+                    "ordem": 0,
+                    "id_especie": 5,
+                    "estratificacao": "Macho, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "17": {
+                    "ordem": 1,
+                    "id_especie": 5,
+                    "estratificacao": "F\u00eamea, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "18": {
+                    "ordem": 2,
+                    "id_especie": 5,
+                    "estratificacao": "Macho, Acima de 6 meses",
+                    "valor": 0
+                },
+                "19": {
+                    "ordem": 3,
+                    "id_especie": 5,
+                    "estratificacao": "F\u00eamea, Acima de 6 meses",
+                    "valor": 0
+                }
+            },
+            "Asinino": {
+                "20": {
+                    "ordem": 0,
+                    "id_especie": 7,
+                    "estratificacao": "Macho, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "21": {
+                    "ordem": 1,
+                    "id_especie": 7,
+                    "estratificacao": "F\u00eamea, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "22": {
+                    "ordem": 2,
+                    "id_especie": 7,
+                    "estratificacao": "Macho, Acima de 6 meses",
+                    "valor": 0
+                },
+                "23": {
+                    "ordem": 3,
+                    "id_especie": 7,
+                    "estratificacao": "F\u00eamea, Acima de 6 meses",
+                    "valor": 0
+                }
+            },
+            "Muar": {
+                "24": {
+                    "ordem": 0,
+                    "id_especie": 6,
+                    "estratificacao": "Macho, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "25": {
+                    "ordem": 1,
+                    "id_especie": 6,
+                    "estratificacao": "F\u00eamea, At\u00e9 6 meses",
+                    "valor": 0
+                },
+                "26": {
+                    "ordem": 2,
+                    "id_especie": 6,
+                    "estratificacao": "Macho, Acima de 6 meses",
+                    "valor": 0
+                },
+                "27": {
+                    "ordem": 3,
+                    "id_especie": 6,
+                    "estratificacao": "F\u00eamea, Acima de 6 meses",
+                    "valor": 0
+                }
+            }
+        },
+        "Su\u00eddeos": {
+            "Su\u00edno": {
+                "28": {
+                    "ordem": 0,
+                    "id_especie": 22,
+                    "estratificacao": "Sexo e idade n\u00e3o relevantes",
+                    "valor": 0
+                },
+                "29": {
+                    "ordem": 1,
+                    "id_especie": 22,
+                    "estratificacao": "Macho, Leit\u00e3o",
+                    "valor": 0
+                },
+                "30": {
+                    "ordem": 2,
+                    "id_especie": 22,
+                    "estratificacao": "F\u00eamea, Leit\u00e3o",
+                    "valor": 0
+                },
+                "31": {
+                    "ordem": 3,
+                    "id_especie": 22,
+                    "estratificacao": "Macho, Reprodutor (Cacha\u00e7o)",
+                    "valor": 0
+                },
+                "32": {
+                    "ordem": 4,
+                    "id_especie": 22,
+                    "estratificacao": "F\u00eamea, Matriz",
+                    "valor": 0
+                },
+                "33": {
+                    "ordem": null,
+                    "id_especie": 22,
+                    "estratificacao": "temp",
+                    "valor": 0
+                }
+            },
+            "Javali": {
+                "34": {
+                    "ordem": 0,
+                    "id_especie": 23,
+                    "estratificacao": "Macho, Leit\u00e3o",
+                    "valor": 0
+                },
+                "35": {
+                    "ordem": 1,
+                    "id_especie": 23,
+                    "estratificacao": "Macho, F\u00eamea, Leit\u00e3o",
+                    "valor": 0
+                },
+                "36": {
+                    "ordem": 2,
+                    "id_especie": 23,
+                    "estratificacao": "Macho, Reprodutor (Cacha\u00e7o)",
+                    "valor": 0
+                },
+                "37": {
+                    "ordem": 3,
+                    "id_especie": 23,
+                    "estratificacao": "F\u00eamea, Matriz",
+                    "valor": 0
+                }
+            }
+        },
+        "Aves": {
+            "Peru": {
+                "38": {
+                    "ordem": 0,
+                    "id_especie": 12,
+                    "estratificacao": "Ovos F\u00e9rteis",
+                    "valor": 0
+                },
+                "39": {
+                    "ordem": 0,
+                    "id_especie": 12,
+                    "estratificacao": "Iniciado",
+                    "valor": 0
+                },
+                "40": {
+                    "ordem": 1,
+                    "id_especie": 12,
+                    "estratificacao": "Aves de 1 dia",
+                    "valor": 0
+                },
+                "41": {
+                    "ordem": 2,
+                    "id_especie": 12,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            },
+            "Galinha": {
+                "42": {
+                    "ordem": 0,
+                    "id_especie": 11,
+                    "estratificacao": "Ovos F\u00e9rteis",
+                    "valor": 0
+                },
+                "43": {
+                    "ordem": 1,
+                    "id_especie": 11,
+                    "estratificacao": "Aves de 1 dia",
+                    "valor": 0
+                },
+                "44": {
+                    "ordem": 2,
+                    "id_especie": 11,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            },
+            "Ema": {
+                "45": {
+                    "ordem": 0,
+                    "id_especie": 17,
+                    "estratificacao": "Ovos F\u00e9rteis",
+                    "valor": 0
+                },
+                "46": {
+                    "ordem": 1,
+                    "id_especie": 17,
+                    "estratificacao": "Aves de 1 dia",
+                    "valor": 0
+                },
+                "47": {
+                    "ordem": 2,
+                    "id_especie": 17,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            }
+        },
+        "Animais Aqu\u00e1ticos": {
+            "Peixe e seus alevinos": {
+                "48": {
+                    "ordem": 0,
+                    "id_especie": 8,
+                    "estratificacao": "Cistos",
+                    "valor": 0
+                },
+                "49": {
+                    "ordem": 1,
+                    "id_especie": 8,
+                    "estratificacao": "Ovos Embrion\u00e1rios",
+                    "valor": 0
+                },
+                "50": {
+                    "ordem": 2,
+                    "id_especie": 8,
+                    "estratificacao": "Larva",
+                    "valor": 0
+                },
+                "51": {
+                    "ordem": 3,
+                    "id_especie": 8,
+                    "estratificacao": "P\u00f3s-Larva",
+                    "valor": 0
+                },
+                "52": {
+                    "ordem": 4,
+                    "id_especie": 8,
+                    "estratificacao": "Alevino",
+                    "valor": 0
+                },
+                "53": {
+                    "ordem": 5,
+                    "id_especie": 8,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            },
+            "Crust\u00e1ceo, qualquer est\u00e1gio": {
+                "54": {
+                    "ordem": 0,
+                    "id_especie": 9,
+                    "estratificacao": "Cistos",
+                    "valor": 0
+                },
+                "55": {
+                    "ordem": 1,
+                    "id_especie": 9,
+                    "estratificacao": "Ovos Embrion\u00e1rios",
+                    "valor": 0
+                },
+                "56": {
+                    "ordem": 2,
+                    "id_especie": 9,
+                    "estratificacao": "Larva",
+                    "valor": 0
+                },
+                "57": {
+                    "ordem": 3,
+                    "id_especie": 9,
+                    "estratificacao": "P\u00f3s-Larva",
+                    "valor": 0
+                },
+                "58": {
+                    "ordem": 4,
+                    "id_especie": 9,
+                    "estratificacao": "Alevino",
+                    "valor": 0
+                },
+                "59": {
+                    "ordem": 5,
+                    "id_especie": 9,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            },
+            "Molusco, qualquer est\u00e1gio": {
+                "60": {
+                    "ordem": 0,
+                    "id_especie": 10,
+                    "estratificacao": "Cistos",
+                    "valor": 0
+                },
+                "61": {
+                    "ordem": 1,
+                    "id_especie": 10,
+                    "estratificacao": "Ovos Embrion\u00e1rios",
+                    "valor": 0
+                },
+                "62": {
+                    "ordem": 2,
+                    "id_especie": 10,
+                    "estratificacao": "Larva",
+                    "valor": 0
+                },
+                "63": {
+                    "ordem": 3,
+                    "id_especie": 10,
+                    "estratificacao": "P\u00f3s-Larva",
+                    "valor": 0
+                },
+                "64": {
+                    "ordem": 4,
+                    "id_especie": 10,
+                    "estratificacao": "Alevino",
+                    "valor": 0
+                },
+                "65": {
+                    "ordem": 5,
+                    "id_especie": 10,
+                    "estratificacao": "Adulto",
+                    "valor": 0
+                }
+            }
+        }
+    },
+    "declaracao": {
+        "responsavel": "Jos\u00e9 Lucas Mesquita Belchior",
+        "data": "11\/04\/2018 09:52:10",
+        "id_codigobarra": "3326005",
+        "campanha": "2\/2017"
+    }
+}
