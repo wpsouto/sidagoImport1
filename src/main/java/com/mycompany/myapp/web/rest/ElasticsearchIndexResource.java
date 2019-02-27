@@ -5,6 +5,7 @@ import com.mycompany.myapp.security.AuthoritiesConstants;
 import com.mycompany.myapp.security.SecurityUtils;
 import com.mycompany.myapp.service.ElasticsearchIndexGtaService;
 import com.mycompany.myapp.service.ElasticsearchIndexService;
+import com.mycompany.myapp.service.ElasticsearchIndexTermoFiscalizacaoService;
 import com.mycompany.myapp.web.rest.util.HeaderUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,21 +33,36 @@ public class ElasticsearchIndexResource {
 
     private final ElasticsearchIndexGtaService elasticsearchIndexGtaService;
 
-    public ElasticsearchIndexResource(ElasticsearchIndexService elasticsearchIndexService,
-                                      ElasticsearchIndexGtaService elasticsearchIndexGtaService) {
+    private final ElasticsearchIndexTermoFiscalizacaoService elasticsearchIndexTermoFiscalizacaoService;
+
+    public ElasticsearchIndexResource(ElasticsearchIndexService elasticsearchIndexService, ElasticsearchIndexGtaService elasticsearchIndexGtaService, ElasticsearchIndexTermoFiscalizacaoService elasticsearchIndexTermoFiscalizacaoService) {
         this.elasticsearchIndexService = elasticsearchIndexService;
         this.elasticsearchIndexGtaService = elasticsearchIndexGtaService;
+        this.elasticsearchIndexTermoFiscalizacaoService = elasticsearchIndexTermoFiscalizacaoService;
     }
 
     /**
      * POST  /elasticsearch/index -> Reindex all Elasticsearch documents
      */
+/*
     @PostMapping("/elasticsearch/gta")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
     public ResponseEntity<Void> reindexGta() throws URISyntaxException {
         log.info("REST request to reindex Elasticsearch Gta by user : {}", SecurityUtils.getCurrentUserLogin());
         elasticsearchIndexGtaService.reindexForClass();
+        return ResponseEntity.accepted()
+            .headers(HeaderUtil.createAlert("elasticsearch.reindex.accepted", null))
+            .build();
+    }
+*/
+
+    @PostMapping("/elasticsearch/termoFiscalizacao")
+    @Timed
+    @Secured(AuthoritiesConstants.ADMIN)
+    public ResponseEntity<Void> reindexTermoFiscalizacao() throws URISyntaxException {
+        log.info("REST request to reindex Elasticsearch Termo Fiscalizacao by user : {}", SecurityUtils.getCurrentUserLogin());
+        elasticsearchIndexTermoFiscalizacaoService.reindexForClass();
         return ResponseEntity.accepted()
             .headers(HeaderUtil.createAlert("elasticsearch.reindex.accepted", null))
             .build();

@@ -15,6 +15,8 @@ public class Lotacao implements Serializable {
 
     private String nome;
 
+    private String organograma;
+
     private Regional regional;
 
     public Integer getId() {
@@ -36,6 +38,14 @@ public class Lotacao implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getOrganograma() {
+        return organograma;
+    }
+
+    public void setOrganograma(String organograma) {
+        this.organograma = organograma;
     }
 
     public Regional getRegional() {

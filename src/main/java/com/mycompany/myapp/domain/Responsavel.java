@@ -6,7 +6,7 @@ import java.io.Serializable;
 /**
  * A Gta.
  */
-public class Emissor implements Serializable {
+public class Responsavel implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -14,15 +14,8 @@ public class Emissor implements Serializable {
 
     private String documento;
 
-    private Lotacao lotacao;
-
     public String getNome() {
         return nome;
-    }
-
-    public Emissor nome(String nome) {
-        this.nome = nome;
-        return this;
     }
 
     public void setNome(String nome) {
@@ -35,13 +28,5 @@ public class Emissor implements Serializable {
 
     public void setDocumento(String documento) {
         this.documento = documento;
-    }
-
-    public Lotacao getLotacao() {
-        return lotacao;
-    }
-
-    public void setLotacao(Lotacao lotacao) {
-        this.lotacao = lotacao;
     }
 }

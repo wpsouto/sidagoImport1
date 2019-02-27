@@ -1,0 +1,258 @@
+/*PUT /termo_fiscalizacao*/
+{
+    "settings": {
+        "number_of_shards": 1
+    },
+    "mappings" : {
+        "doc" : {
+            "properties" : {
+                "autuado" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "cancelada" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "caracterizacao" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "emissao" : {
+                    "type" : "date"
+                },
+                "emissor" : {
+                    "properties" : {
+                        "documento" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        },
+                        "lotacao" : {
+                            "properties" : {
+                                "id" : {
+                                    "type" : "long"
+                                },
+                                "nome" : {
+                                    "type" : "text",
+                                    "fields" : {
+                                        "keyword" : {
+                                            "type" : "keyword",
+                                            "ignore_above" : 256
+                                        }
+                                    }
+                                },
+                                "organograma" : {
+                                    "type" : "text",
+                                    "fields" : {
+                                        "keyword" : {
+                                            "type" : "keyword",
+                                            "ignore_above" : 256
+                                        }
+                                    }
+                                },
+                                "regional" : {
+                                    "properties" : {
+                                        "id" : {
+                                            "type" : "long"
+                                        },
+                                        "nome" : {
+                                            "type" : "text",
+                                            "fields" : {
+                                                "keyword" : {
+                                                    "type" : "keyword",
+                                                    "ignore_above" : 256
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "nome" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "fiscalizado" : {
+                    "properties" : {
+                        "documento" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        },
+                        "ie" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        },
+                        "municipio" : {
+                            "properties" : {
+                                "localizacao" : {
+                                    "type": "geo_point"
+                                },
+                                "nome" : {
+                                    "type" : "text",
+                                    "fields" : {
+                                        "keyword" : {
+                                            "type" : "keyword",
+                                            "ignore_above" : 256
+                                        }
+                                    }
+                                },
+                                "uf" : {
+                                    "type" : "text",
+                                    "fields" : {
+                                        "keyword" : {
+                                            "type" : "keyword",
+                                            "ignore_above" : 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "nome" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "id" : {
+                    "type" : "long"
+                },
+                "idTermoFiscalizacao" : {
+                    "type" : "long"
+                },
+                "identificacao" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "numero" : {
+                    "type" : "long"
+                },
+                "objetivo" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "produto" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "programa" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "quantidade" : {
+                    "type" : "float"
+                },
+                "responsavel" : {
+                    "properties" : {
+                        "documento" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        },
+                        "nome" : {
+                            "type" : "text",
+                            "fields" : {
+                                "keyword" : {
+                                    "type" : "keyword",
+                                    "ignore_above" : 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "serie" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "subObjetivo" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                },
+                "subProduto" : {
+                    "type" : "text",
+                    "fields" : {
+                        "keyword" : {
+                            "type" : "keyword",
+                            "ignore_above" : 256
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

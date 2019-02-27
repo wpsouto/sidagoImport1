@@ -6,23 +6,28 @@ import java.io.Serializable;
 /**
  * A Gta.
  */
-public class Emissor implements Serializable {
+public class Fiscalizado implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private String ie;
 
     private String nome;
 
     private String documento;
 
-    private Lotacao lotacao;
+    private Municipio municipio;
+
+    public String getIe() {
+        return ie;
+    }
+
+    public void setIe(String ie) {
+        this.ie = ie;
+    }
 
     public String getNome() {
         return nome;
-    }
-
-    public Emissor nome(String nome) {
-        this.nome = nome;
-        return this;
     }
 
     public void setNome(String nome) {
@@ -37,11 +42,11 @@ public class Emissor implements Serializable {
         this.documento = documento;
     }
 
-    public Lotacao getLotacao() {
-        return lotacao;
+    public Municipio getMunicipio() {
+        return municipio;
     }
 
-    public void setLotacao(Lotacao lotacao) {
-        this.lotacao = lotacao;
+    public void setMunicipio(Municipio municipio) {
+        this.municipio = municipio;
     }
 }
