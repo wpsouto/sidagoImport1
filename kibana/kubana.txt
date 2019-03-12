@@ -1,0 +1,76 @@
+DD/MM/YYYY HH:mm:ss
+
+[
+  {
+    "from": "now/d",
+    "to": "now/d",
+    "display": "Hoje",
+    "section": 0
+  },
+  {
+    "from": "now/w",
+    "to": "now/w",
+    "display": "Semana atual",
+    "section": 0
+  },
+  {
+    "from": "now/M",
+    "to": "now/M",
+    "display": "Mês atual",
+    "section": 0
+  },
+  {
+    "from": "now/y",
+    "to": "now/y",
+    "display": "Ano atual",
+    "section": 0
+  },
+  {
+    "from": "now/d-1d",
+    "to": "now/d-1d",
+    "display": "Ontem",
+    "section": 1
+  },  
+  {
+    "from": "now/w-1w",
+    "to": "now/w-1w",
+    "display": "Semana passada",
+    "section": 1
+  },
+  {
+    "from": "now/M-1M",
+    "to": "now/M-1M",
+    "display": "Mês passado",
+    "section": 1
+  },
+  {
+    "from": "now/y-1y",
+    "to": "now/y-1y",
+    "display": "Ano passado",
+    "section": 1
+  },
+  {
+    "from": "now-15m",
+    "to": "now",
+    "display": "Ultimos 15 minutes",
+    "section": 2
+  },
+  {
+    "from": "now-60m",
+    "to": "now",
+    "display": "Ultimos 60 minutes",
+    "section": 2
+  },
+  {
+    "from": "now-4h",
+    "to": "now",
+    "display": "Ultimas 4 horas",
+    "section": 2
+  },
+  {
+    "from": "now-2y",
+    "to": "now",
+    "display": "Ultimos 2 anos",
+    "section": 2
+  }
+]

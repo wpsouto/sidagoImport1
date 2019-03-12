@@ -89,15 +89,15 @@
     <named-native-query name="TermoFiscalizacao.findAllDataMapping" result-set-mapping="TermoFiscalizacaoDTOResult">
         <query>
             SELECT tro.id_termoobjetivo                             AS id,
-            tf.id_termofiscalizacao                                 AS idTermoFiscalizacao,
+            tf.id_termofiscalizacao                                 AS termofiscalizacao_id,
             CAST(tf.nu_termo AS integer)                            AS numero,
             tf.nu_serie                                             AS serie,
             tf.dt_criacaotermo                                      AS emissao,
             pr.ds_programa                                          AS programa,
             ob.ds_objetivo                                          AS objetivo,
-            su.ds_subobjetivofiscalizacao                           AS subObjetivo,
+            su.ds_subobjetivofiscalizacao                           AS subobjetivo,
             pd.ds_nome                                              AS produto,
-            epd.ds_especificacaoproduto                             AS subProduto,
+            epd.ds_especificacaoproduto                             AS subproduto,
             tro.nu_quantidade                                       AS quantidade,
             case when tf.tem_auto then 'Sim' else 'Não' end         AS autuado,
             case when tf.ativo then 'Não' else 'Sim' end            AS cancelada,
@@ -214,15 +214,15 @@
     <sql-result-set-mapping name="TermoFiscalizacaoDTOResult">
         <constructor-result target-class="com.mycompany.myapp.service.dto.TermoFiscalizacaoDTO">
             <column name="id"/>
-            <column name="idTermoFiscalizacao"/>
+            <column name="termofiscalizacao_id"/>
             <column name="numero"/>
             <column name="serie"/>
             <column name="emissao"/>
             <column name="programa"/>
             <column name="objetivo"/>
-            <column name="subObjetivo"/>
+            <column name="subobjetivo"/>
             <column name="produto"/>
-            <column name="subProduto"/>
+            <column name="subproduto"/>
             <column name="quantidade"/>
             <column name="autuado"/>
             <column name="cancelada"/>

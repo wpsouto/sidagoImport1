@@ -55,7 +55,7 @@ public class ElasticsearchIndexTermoFiscalizacaoService {
         }
 
         int size = 300000;
-        long count = 100000;//termoFiscalizacaoRepository.count();
+        long count = 1000000;//termoFiscalizacaoRepository.count();
         for (int i = 0; i <= count / size; i++) {
             Pageable page = PageRequest.of(i, size);
             log.info("Indexing {} Indexing page {} of {}, size {}, total {}", TermoFiscalizacao.class.getSimpleName(), i, count / size, size, count);

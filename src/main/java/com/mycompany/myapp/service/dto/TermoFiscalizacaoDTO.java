@@ -12,7 +12,7 @@ public class TermoFiscalizacaoDTO {
 
     private Integer id;
 
-    private Integer idTermoFiscalizacao;
+    private Integer termofiscalizacao_id;
 
     private Integer numero;
 
@@ -24,11 +24,11 @@ public class TermoFiscalizacaoDTO {
 
     private String objetivo;
 
-    private String subObjetivo;
+    private String subobjetivo;
 
     private String produto;
 
-    private String subProduto;
+    private String subproduto;
 
     private BigDecimal quantidade;
 
@@ -50,31 +50,8 @@ public class TermoFiscalizacaoDTO {
         // Empty constructor needed for Jackson.
     }
 
-/*
-    public TermoFiscalizacaoDTO(Integer idTermoFiscalizacao, Integer numero, String serie, Date emissao, String programa, String objetivo,
-                                String subObjetivo, String produto, String subProduto, BigDecimal quantidade, String autuado,
-                                String cancelada, String caracterizacao, String identificacao
-    ) {
-
-        this.idTermoFiscalizacao = idTermoFiscalizacao;
-        this.numero = numero;
-        this.serie = serie;
-        this.emissao = emissao;
-        this.programa = programa;
-        this.objetivo = objetivo;
-        this.subObjetivo = subObjetivo;
-        this.produto = produto;
-        this.subProduto = subProduto;
-        this.quantidade = quantidade;
-        this.autuado = autuado;
-        this.cancelada = cancelada;
-        this.caracterizacao = caracterizacao;
-        this.identificacao = identificacao;
-    }
-*/
-
-    public TermoFiscalizacaoDTO(Integer id, Integer idTermoFiscalizacao, Integer numero, String serie, Date emissao,
-                                String programa, String objetivo, String subObjetivo, String produto, String subProduto, BigDecimal quantidade,
+    public TermoFiscalizacaoDTO(Integer id, Integer termofiscalizacao_id, Integer numero, String serie, Date emissao,
+                                String programa, String objetivo, String subobjetivo, String produto, String subproduto, BigDecimal quantidade,
                                 String autuado, String cancelada, String caracterizacao, String identificacao,
 
                                 String fiscalizado_ie, String fiscalizado_nome, String fiscalizado_documento,
@@ -88,15 +65,15 @@ public class TermoFiscalizacaoDTO {
                                 Integer emissor_lotacao_regional_id, String emissor_lotacao_regional_nome) {
 
         this.id = id;
-        this.idTermoFiscalizacao = idTermoFiscalizacao;
+        this.termofiscalizacao_id = termofiscalizacao_id;
         this.numero = numero;
         this.serie = serie;
         this.emissao = emissao;
         this.programa = programa;
         this.objetivo = objetivo;
-        this.subObjetivo = subObjetivo;
+        this.subobjetivo = subobjetivo;
         this.produto = produto;
-        this.subProduto = subProduto;
+        this.subproduto = subproduto;
         this.quantidade = quantidade;
         this.autuado = autuado;
         this.cancelada = cancelada;
@@ -138,12 +115,12 @@ public class TermoFiscalizacaoDTO {
         this.id = id;
     }
 
-    public Integer getIdTermoFiscalizacao() {
-        return idTermoFiscalizacao;
+    public Integer getTermofiscalizacao_id() {
+        return termofiscalizacao_id;
     }
 
-    public void setIdTermoFiscalizacao(Integer idTermoFiscalizacao) {
-        this.idTermoFiscalizacao = idTermoFiscalizacao;
+    public void setTermofiscalizacao_id(Integer termofiscalizacao_id) {
+        this.termofiscalizacao_id = termofiscalizacao_id;
     }
 
     public Integer getNumero() {
@@ -186,12 +163,12 @@ public class TermoFiscalizacaoDTO {
         this.objetivo = objetivo;
     }
 
-    public String getSubObjetivo() {
-        return subObjetivo;
+    public String getSubobjetivo() {
+        return subobjetivo;
     }
 
-    public void setSubObjetivo(String subObjetivo) {
-        this.subObjetivo = subObjetivo;
+    public void setSubobjetivo(String subobjetivo) {
+        this.subobjetivo = subobjetivo;
     }
 
     public String getProduto() {
@@ -202,12 +179,12 @@ public class TermoFiscalizacaoDTO {
         this.produto = produto;
     }
 
-    public String getSubProduto() {
-        return subProduto;
+    public String getSubproduto() {
+        return subproduto;
     }
 
-    public void setSubProduto(String subProduto) {
-        this.subProduto = subProduto;
+    public void setSubproduto(String subproduto) {
+        this.subproduto = subproduto;
     }
 
     public BigDecimal getQuantidade() {

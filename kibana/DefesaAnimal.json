@@ -1,0 +1,450 @@
+[
+  {
+    "_id": "e63efea0-fd71-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Filtro Destino",
+      "visState": "{\"title\":\"[GTA] Filtro Destino\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1544199403858\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"fieldName\":\"destino.municipio.nome.keyword\",\"parent\":\"\",\"label\":\"Município\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1544199437698\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"fieldName\":\"destino.estabelecimento.nomeFantasia.keyword\",\"parent\":\"\",\"label\":\"Estabelecimento Nome Fantasia\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1544786342561\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"fieldName\":\"destino.estabelecimento.ie.keyword\",\"parent\":\"\",\"label\":\"Estabelecimento Inscrição Estadual\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}}],\"updateFiltersOnChange\":false,\"useTimeFilter\":true,\"pinFilters\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "aeb212e0-4c84-11e8-b3d7-01146121b73d",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Filtro Origem",
+      "visState": "{\"title\":\"[GTA] Filtro Origem\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"fieldName\":\"origem.municipio.nome.keyword\",\"id\":\"1525098134264\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"label\":\"Município\",\"options\":{\"dynamicOptions\":true,\"multiselect\":true,\"order\":\"desc\",\"size\":100,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\"},{\"fieldName\":\"origem.estabelecimento.nomeFantasia.keyword\",\"id\":\"1525099277699\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"label\":\"Estabelecimento Nome Fantasia\",\"options\":{\"dynamicOptions\":true,\"multiselect\":true,\"order\":\"desc\",\"size\":100,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\"},{\"fieldName\":\"origem.estabelecimento.ie.keyword\",\"id\":\"1544786238721\",\"indexPattern\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"label\":\"Estabelecimento Inscrição Estadual\",\"options\":{\"dynamicOptions\":true,\"multiselect\":true,\"order\":\"desc\",\"size\":5,\"type\":\"terms\"},\"parent\":\"\",\"type\":\"list\"}],\"pinFilters\":false,\"updateFiltersOnChange\":false,\"useTimeFilter\":true},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "129be430-4c93-11e8-b3d7-01146121b73d",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Instruções",
+      "visState": "{\"title\":\"[GTA] Instruções\",\"type\":\"markdown\",\"params\":{\"fontSize\":11,\"markdown\":\"### Guia de Transporte Animal (GTA)\\nEste Dashboard contem dados de todas as GTA emitidas pelo sistema [SIDAGO](http://www.sidago.go.gov.br).\\nInformações relevantes das GTA emitidas de acordo com o filtro da **data de emissão**.\\n\\n*Informação como :*\\n* estabelecimento\\n* município\\n* finalidade\\n* especie\\n* estratificação \\n* é outras estão disponíveis para analise.\\n\\nAs informações estão sendo atualizadas a cada **minuto**.\",\"openLinksInNewTab\":true},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "01c413e0-5395-11e8-99bf-1ba7b1bdaa61",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] GTA's emitidas Quantidade",
+      "visState": "{\"title\":\"[GTA] GTA's emitidas Quantidade\",\"type\":\"metric\",\"params\":{\"addLegend\":false,\"addTooltip\":true,\"metric\":{\"colorSchema\":\"Green to Red\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"invertColors\":false,\"labels\":{\"show\":true},\"metricColorMode\":\"None\",\"percentageMode\":false,\"style\":{\"bgColor\":false,\"bgFill\":\"#000\",\"fontSize\":36,\"labelColor\":false,\"subText\":\"\"},\"useRanges\":false},\"type\":\"metric\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "334084f0-52fd-11e8-a160-89cc2ad9e8e2",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Município Origem",
+      "visState": "{\"title\":\"[GTA] Município Origem\",\"type\":\"region_map\",\"params\":{\"addTooltip\":true,\"colorSchema\":\"Blues\",\"emsHotLink\":null,\"isDisplayWarning\":false,\"legendPosition\":\"bottomright\",\"mapCenter\":[0,0],\"mapZoom\":2,\"outlineWeight\":1,\"selectedJoinField\":{\"description\":\"Nome Municipio\",\"name\":\"name\"},\"selectedLayer\":{\"attribution\":\"https://github.com/tbrugz/geodata-br\",\"fields\":[{\"description\":\"Nome Municipio\",\"name\":\"name\"}],\"format\":{\"type\":\"geojson\"},\"isEMS\":false,\"layerId\":\"self_hosted.Região Centro-Oeste\",\"meta\":{\"feature_collection_path\":\"data\"},\"name\":\"Região Centro-Oeste\",\"url\":\"http://analyzer.agrodefesa.go.gov.br/geojs-52-mun.json\"},\"showAllShapes\":true,\"wms\":{\"baseLayersAreLoaded\":{},\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"selectedTmsLayer\":{\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"id\":\"road_map\",\"maxZoom\":18,\"minZoom\":0,\"subdomains\":[],\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.0&license=686f9ec6-d775-44f0-b334-38caf85da617\"},\"tmsLayers\":[{\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"id\":\"road_map\",\"maxZoom\":18,\"minZoom\":0,\"subdomains\":[],\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.0&license=686f9ec6-d775-44f0-b334-38caf85da617\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origem.municipio.nome.keyword\",\"size\":500,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Municipio\"}}]}",
+      "uiStateJSON": "{\n  \"mapZoom\": 7,\n  \"mapCenter\": [\n    -16.151368535968885,\n    -49.16381835937501\n  ]\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "25e3ca20-2b0f-11e9-a97a-a131387375f1",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Origem Estabelecimento Tipo vs. Destino Estabelecimento Tipo",
+      "visState": "{\"title\":\"[GTA] Origem Estabelecimento Tipo vs. Destino Estabelecimento Tipo\",\"type\":\"heatmap\",\"params\":{\"type\":\"heatmap\",\"addTooltip\":true,\"addLegend\":true,\"enableHover\":false,\"legendPosition\":\"right\",\"times\":[],\"colorsNumber\":5,\"colorSchema\":\"Blues\",\"setColorRange\":false,\"colorsRange\":[],\"invertColors\":false,\"percentageMode\":false,\"valueAxes\":[{\"show\":false,\"id\":\"ValueAxis-1\",\"type\":\"value\",\"scale\":{\"type\":\"linear\",\"defaultYExtents\":false},\"labels\":{\"show\":false,\"rotate\":0,\"overwriteColor\":false,\"color\":\"#555\"}}]},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"destino.tipo.keyword\",\"size\":6,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Destino Tipo Estabelecimento\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origem.tipo.keyword\",\"size\":6,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Origem Tipo Estabelecimento\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"defaultColors\":{\"0 - 32.000\":\"rgb(247,251,255)\",\"32.000 - 64.000\":\"rgb(208,225,242)\",\"64.000 - 96.000\":\"rgb(148,196,223)\",\"96.000 - 128.000\":\"rgb(74,152,201)\",\"128.000 - 160.000\":\"rgb(23,100,171)\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "318d0dc0-0a06-11e9-b477-b1b61fce4008",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Cancelamentos",
+      "visState": "{\"title\":\"[GTA] Cancelamentos\",\"type\":\"histogram\",\"params\":{\"type\":\"histogram\",\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"}},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"left\",\"show\":false,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"BottomAxis-1\",\"type\":\"value\",\"position\":\"bottom\",\"show\":false,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Quantidade\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"stacked\",\"data\":{\"label\":\"Quantidade\",\"id\":\"1\"},\"valueAxis\":\"ValueAxis-1\",\"drawLinesBetweenPoints\":true,\"showCircles\":true}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false,\"orderBucketsBySum\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"cancelada.keyword\",\"size\":3,\"order\":\"asc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Cancelada\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "bca5aa70-fecb-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Estabelecimentos Únicos vs Quantidade de GTA's",
+      "visState": "{\"title\":\"[GTA] Estabelecimentos Únicos vs Quantidade de GTA's\",\"type\":\"area\",\"params\":{\"type\":\"area\",\"grid\":{\"categoryLines\":false,\"style\":{\"color\":\"#eee\"},\"valueAxis\":null},\"categoryAxes\":[{\"id\":\"CategoryAxis-1\",\"type\":\"category\",\"position\":\"bottom\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\"},\"labels\":{\"show\":true,\"truncate\":100},\"title\":{}}],\"valueAxes\":[{\"id\":\"ValueAxis-1\",\"name\":\"LeftAxis-1\",\"type\":\"value\",\"position\":\"left\",\"show\":true,\"style\":{},\"scale\":{\"type\":\"linear\",\"mode\":\"normal\"},\"labels\":{\"show\":true,\"rotate\":0,\"filter\":false,\"truncate\":100},\"title\":{\"text\":\"Quantidade GTA's\"}}],\"seriesParams\":[{\"show\":\"true\",\"type\":\"histogram\",\"mode\":\"normal\",\"data\":{\"label\":\"Quantidade\",\"id\":\"1\"},\"drawLinesBetweenPoints\":true,\"showCircles\":true,\"interpolate\":\"linear\",\"valueAxis\":\"ValueAxis-1\"},{\"show\":true,\"mode\":\"stacked\",\"type\":\"line\",\"drawLinesBetweenPoints\":false,\"showCircles\":true,\"interpolate\":\"linear\",\"data\":{\"id\":\"3\",\"label\":\"Estabelecimentos\"},\"valueAxis\":\"ValueAxis-1\"}],\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"times\":[],\"addTimeMarker\":false},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"emissao\",\"timeRange\":{\"from\":\"now/d\",\"to\":\"now\",\"mode\":\"quick\"},\"useNormalizedEsInterval\":true,\"interval\":\"auto\",\"time_zone\":\"Brazil/West\",\"drop_partials\":false,\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{},\"customLabel\":\"\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"origem.estabelecimento.ie.keyword\",\"customLabel\":\"Estabelecimentos\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"count\",\"schema\":\"radius\",\"params\":{}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true,\"colors\":{\"Quantidade\":\"#6ED0E0\",\"Estabelecimentos\":\"#0A50A1\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "9e794890-ffa7-11e8-84f9-fd23b4871600",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Estabelecimentos Destino Top 50",
+      "visState": "{\"title\":\"[GTA] Estabelecimentos Destino Top 50\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":true,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destino.estabelecimento.ie.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Inscrição Estadual\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destino.estabelecimento.nomeFantasia.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Nome Fantasia\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destino.municipio.nome.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Município\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"valor\",\"customLabel\":\"Valor\"}},{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "1ff48520-ffa7-11e8-84f9-fd23b4871600",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Estabelecimentos Origem Top 50",
+      "visState": "{\"title\":\"[GTA] Estabelecimentos Origem Top 50\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":true,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"origem.estabelecimento.ie.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Inscrição Estadual\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"origem.estabelecimento.nomeFantasia.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Nome Fantasia\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"origem.municipio.nome.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Município\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"valor\",\"customLabel\":\"Valor\"}},{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "866d40f0-fa1e-11e8-8b94-3d19b7438a18",
+    "_type": "index-pattern",
+    "_source": {
+      "title": "gta",
+      "timeFieldName": "emissao",
+      "fields": "[{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"cancelada\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"cancelada.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"dare\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"dare.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.estabelecimento.codigo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.estabelecimento.codigo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.estabelecimento.ie\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.estabelecimento.ie.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.estabelecimento.nomeFantasia\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.estabelecimento.nomeFantasia.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.estabelecimento.proprietario.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.estabelecimento.proprietario.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.estabelecimento.razaoSocial\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.estabelecimento.razaoSocial.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.municipio.localizacao\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.municipio.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.municipio.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.municipio.uf\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.municipio.uf.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"destino.tipo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"destino.tipo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissao\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.lotacao.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.regional.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.regional.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.lotacao.regional.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"especie.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"especie.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"especie.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"estratificacao.femea\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"estratificacao.indefinido\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"estratificacao.macho\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"estratificacao.total\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"finalidade.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"finalidade.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"finalidade.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"numero\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.estabelecimento.codigo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.estabelecimento.codigo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.estabelecimento.ie\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.estabelecimento.ie.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.estabelecimento.nomeFantasia\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.estabelecimento.nomeFantasia.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.estabelecimento.proprietario.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.estabelecimento.proprietario.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.estabelecimento.razaoSocial\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.estabelecimento.razaoSocial.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.municipio.localizacao\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.municipio.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.municipio.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.municipio.uf\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.municipio.uf.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"origem.tipo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"origem.tipo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"serie\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"serie.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"transporte.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"transporte.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"valor\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"Download\",\"type\":\"string\",\"count\":3,\"scripted\":true,\"script\":\"doc['id'].value\",\"lang\":\"painless\",\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false}]",
+      "fieldFormatMap": "{\"valor\":{\"id\":\"number\",\"params\":{\"pattern\":\"R$0,0.[00]\"}},\"Download\":{\"id\":\"url\",\"params\":{\"urlTemplate\":\"http://sidago.agrodefesa.go.gov.br/defesa-sanitaria-animal/gta/imprimir-pdf/id/{{value}}/pdf/1\",\"labelTemplate\":\"{{value}}\"}}}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    },
+    "_migrationVersion": {
+      "index-pattern": "6.5.0"
+    }
+  },
+  {
+    "_id": "e85f7e30-0483-11e9-b477-b1b61fce4008",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] GTA's por Especie Quantidade",
+      "visState": "{\"title\":\"[GTA] GTA's por Especie Quantidade\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"especie.nome.keyword\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Especie\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "96996430-fc6d-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] GTA's por Especie Valor",
+      "visState": "{\"title\":\"[GTA] GTA's por Especie Valor\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"valor\",\"customLabel\":\"Valor\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"especie.nome.keyword\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Especie\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "bcb0efe0-fc6c-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Município Destino",
+      "visState": "{\"title\":\"[GTA] Município Destino\",\"type\":\"region_map\",\"params\":{\"addTooltip\":true,\"colorSchema\":\"Yellow to Red\",\"emsHotLink\":null,\"isDisplayWarning\":false,\"legendPosition\":\"bottomright\",\"mapCenter\":[0,0],\"mapZoom\":2,\"outlineWeight\":1,\"selectedJoinField\":{\"description\":\"Nome Municipio\",\"name\":\"name\"},\"selectedLayer\":{\"attribution\":\"https://github.com/tbrugz/geodata-br\",\"fields\":[{\"description\":\"Nome Municipio\",\"name\":\"name\"}],\"format\":{\"type\":\"geojson\"},\"isEMS\":false,\"layerId\":\"self_hosted.Região Centro-Oeste\",\"meta\":{\"feature_collection_path\":\"data\"},\"name\":\"Região Centro-Oeste\",\"url\":\"http://analyzer.agrodefesa.go.gov.br/geojs-52-mun.json\"},\"showAllShapes\":true,\"wms\":{\"baseLayersAreLoaded\":{},\"enabled\":false,\"options\":{\"format\":\"image/png\",\"transparent\":true},\"selectedTmsLayer\":{\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"id\":\"road_map\",\"maxZoom\":18,\"minZoom\":0,\"subdomains\":[],\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.0&license=686f9ec6-d775-44f0-b334-38caf85da617\"},\"tmsLayers\":[{\"attribution\":\"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\",\"id\":\"road_map\",\"maxZoom\":18,\"minZoom\":0,\"subdomains\":[],\"url\":\"https://tiles.maps.elastic.co/v2/default/{z}/{x}/{y}.png?elastic_tile_service_tos=agree&my_app_name=kibana&my_app_version=6.3.0&license=686f9ec6-d775-44f0-b334-38caf85da617\"}]}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destino.municipio.nome.keyword\",\"size\":500,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Municipio\"}}]}",
+      "uiStateJSON": "{\n  \"mapZoom\": 7,\n  \"mapCenter\": [\n    -16.151368535968885,\n    -49.16381835937501\n  ]\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"language\":\"lucene\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "8f4d0c00-4c86-11e8-b3d7-01146121b73d",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Finalidade",
+      "visState": "{\"title\":\"[GTA] Finalidade\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":true,\"labels\":{\"show\":true,\"values\":true,\"last_level\":false,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"finalidade.nome.keyword\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Finalidade\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":true}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"lucene\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2edf78b0-5395-11e8-99bf-1ba7b1bdaa61",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] GTA's emitidas Valor",
+      "visState": "{\"title\":\"[GTA] GTA's emitidas Valor\",\"type\":\"metric\",\"params\":{\"addTooltip\":true,\"addLegend\":false,\"type\":\"metric\",\"metric\":{\"percentageMode\":false,\"useRanges\":false,\"colorSchema\":\"Green to Red\",\"metricColorMode\":\"None\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"labels\":{\"show\":true},\"invertColors\":false,\"style\":{\"bgFill\":\"#000\",\"bgColor\":false,\"labelColor\":false,\"subText\":\"\",\"fontSize\":36}}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"valor\",\"customLabel\":\"Valor\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"query\":\"\",\"language\":\"kuery\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "dcd04600-0481-11e9-b477-b1b61fce4008",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] GTA's emitidas Estabelecimentos",
+      "visState": "{\"title\":\"[GTA] GTA's emitidas Estabelecimentos\",\"type\":\"metric\",\"params\":{\"addLegend\":false,\"addTooltip\":true,\"metric\":{\"colorSchema\":\"Green to Red\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"invertColors\":false,\"labels\":{\"show\":true},\"metricColorMode\":\"None\",\"percentageMode\":false,\"style\":{\"bgColor\":false,\"bgFill\":\"#000\",\"fontSize\":36,\"labelColor\":false,\"subText\":\"\"},\"useRanges\":false},\"type\":\"metric\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"origem.estabelecimento.ie.keyword\",\"customLabel\":\"Estabelecimentos\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"filter\":[],\"query\":{\"language\":\"kuery\",\"query\":\"\"}}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2b3f2ff0-fc98-11e8-8b94-3d19b7438a18",
+    "_type": "search",
+    "_source": {
+      "title": "[GTA] Registros",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "Download",
+        "numero",
+        "serie",
+        "especie.nome",
+        "finalidade.nome",
+        "origem.estabelecimento.ie",
+        "origem.estabelecimento.nomeFantasia",
+        "origem.municipio.nome",
+        "destino.estabelecimento.ie",
+        "destino.estabelecimento.nomeFantasia",
+        "destino.municipio.nome"
+      ],
+      "sort": [
+        "emissao",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"highlightAll\":true,\"version\":true,\"query\":{\"query\":\"\",\"language\":\"lucene\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "a291df20-fed8-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Estabelecimento Origem e Destino",
+      "visState": "{\"title\":\"[GTA] Estabelecimento Origem e Destino\",\"type\":\"vega\",\"params\":{\"spec\":\"{ \\n $schema: https://vega.github.io/schema/vega/v3.0.json\\n  data: [\\n\\t{\\n  \\t// query ES based on the currently selected time range and filter string\\n  \\tname: rawData\\n  \\turl: {\\n    \\t%context%: true\\n    \\t%timefield%: emissao\\n    \\tindex: gta\\n    \\tbody: {\\n      \\tsize: 0\\n      \\taggs: {\\n        \\ttable: {\\n          \\tcomposite: {\\n            \\tsize: 1000\\n            \\tsources: [\\n              \\t{\\n                \\tstk1: {\\n                  \\tterms: {field: \\\"origem.estabelecimento.nomeFantasia.keyword\\\"}\\n                \\t}\\n              \\t}\\n              \\t{\\n                \\tstk2: {\\n                  \\tterms: {field: \\\"destino.estabelecimento.nomeFantasia.keyword\\\"}\\n                \\t}\\n              \\t}\\n            \\t]\\n          \\t}\\n        \\t}\\n      \\t}\\n    \\t}\\n  \\t}\\n  \\t// From the result, take just the data we are interested in\\n  \\tformat: {property: \\\"aggregations.table.buckets\\\"}\\n  \\t// Convert key.stk1 -> stk1 for simpler access below\\n  \\ttransform: [\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.key.stk1\\\", as: \\\"stk1\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.key.stk2\\\", as: \\\"stk2\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.doc_count\\\", as: \\\"size\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: nodes\\n  \\tsource: rawData\\n  \\ttransform: [\\n    \\t// when a country is selected, filter out unrelated data\\n    \\t{\\n      \\ttype: filter\\n      \\texpr: !groupSelector || groupSelector.stk1 == datum.stk1 || groupSelector.stk2 == datum.stk2\\n    \\t}\\n    \\t// Set new key for later lookups - identifies each node\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.stk1+datum.stk2\\\", as: \\\"key\\\"}\\n    \\t// instead of each table row, create two new rows,\\n    \\t// one for the source (stack=stk1) and one for destination node (stack=stk2).\\n    \\t// The country code stored in stk1 and stk2 fields is placed into grpId field.\\n    \\t{\\n      \\ttype: fold\\n      \\tfields: [\\\"stk1\\\", \\\"stk2\\\"]\\n      \\tas: [\\\"stack\\\", \\\"grpId\\\"]\\n    \\t}\\n    \\t// Create a sortkey, different for stk1 and stk2 stacks.\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.stack == 'stk1' ? datum.stk1+datum.stk2 : datum.stk2+datum.stk1\\n      \\tas: sortField\\n    \\t}\\n    \\t// Calculate y0 and y1 positions for stacking nodes one on top of the other,\\n    \\t// independently for each stack, and ensuring they are in the proper order,\\n    \\t// alphabetical from the top (reversed on the y axis)\\n    \\t{\\n      \\ttype: stack\\n      \\tgroupby: [\\\"stack\\\"]\\n      \\tsort: {field: \\\"sortField\\\", order: \\\"descending\\\"}\\n      \\tfield: size\\n    \\t}\\n    \\t// calculate vertical center point for each node, used to draw edges\\n    \\t{type: \\\"formula\\\", expr: \\\"(datum.y0+datum.y1)/2\\\", as: \\\"yc\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: groups\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t// combine all nodes into country groups, summing up the doc counts\\n    \\t{\\n      \\ttype: aggregate\\n      \\tgroupby: [\\\"stack\\\", \\\"grpId\\\"]\\n      \\tfields: [\\\"size\\\"]\\n      \\tops: [\\\"sum\\\"]\\n      \\tas: [\\\"total\\\"]\\n    \\t}\\n    \\t// re-calculate the stacking y0,y1 values\\n    \\t{\\n      \\ttype: stack\\n      \\tgroupby: [\\\"stack\\\"]\\n      \\tsort: {field: \\\"grpId\\\", order: \\\"descending\\\"}\\n      \\tfield: total\\n    \\t}\\n    \\t// project y0 and y1 values to screen coordinates\\n    \\t// doing it once here instead of doing it several times in marks\\n    \\t{type: \\\"formula\\\", expr: \\\"scale('y', datum.y0)\\\", as: \\\"scaledY0\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"scale('y', datum.y1)\\\", as: \\\"scaledY1\\\"}\\n    \\t// boolean flag if the label should be on the right of the stack\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.stack == 'stk1'\\\", as: \\\"rightLabel\\\"}\\n    \\t// Calculate traffic percentage for this country using \\\"y\\\" scale\\n    \\t// domain upper bound, which represents the total traffic\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.total/domain('y')[1]\\n      \\tas: percentage\\n    \\t}\\n  \\t]\\n\\t}\\n\\t{\\n  \\t// This is a temp lookup table with all the 'stk2' stack nodes\\n  \\tname: destinationNodes\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t{type: \\\"filter\\\", expr: \\\"datum.stack == 'stk2'\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: edges\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t// we only want nodes from the left stack\\n    \\t{type: \\\"filter\\\", expr: \\\"datum.stack == 'stk1'\\\"}\\n    \\t// find corresponding node from the right stack, keep it as \\\"target\\\"\\n    \\t{\\n      \\ttype: lookup\\n      \\tfrom: destinationNodes\\n      \\tkey: key\\n      \\tfields: [\\\"key\\\"]\\n      \\tas: [\\\"target\\\"]\\n    \\t}\\n    \\t// calculate SVG link path between stk1 and stk2 stacks for the node pair\\n    \\t{\\n      \\ttype: linkpath\\n      \\torient: horizontal\\n      \\tshape: diagonal\\n      \\tsourceY: {expr: \\\"scale('y', datum.yc)\\\"}\\n      \\tsourceX: {expr: \\\"scale('x', 'stk1') + bandwidth('x')\\\"}\\n      \\ttargetY: {expr: \\\"scale('y', datum.target.yc)\\\"}\\n      \\ttargetX: {expr: \\\"scale('x', 'stk2')\\\"}\\n    \\t}\\n    \\t// A little trick to calculate the thickness of the line.\\n    \\t// The value needs to be the same as the hight of the node, but scaling\\n    \\t// size to screen's height gives inversed value because screen's Y\\n    \\t// coordinate goes from the top to the bottom, whereas the graph's Y=0\\n    \\t// is at the bottom. So subtracting scaled doc count from screen height\\n    \\t// (which is the \\\"lower\\\" bound of the \\\"y\\\" scale) gives us the right value\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: range('y')[0]-scale('y', datum.size)\\n      \\tas: strokeWidth\\n    \\t}\\n    \\t// Tooltip needs individual link's percentage of all traffic\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.size/domain('y')[1]\\n      \\tas: percentage\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n  scales: [\\n\\t{\\n  \\t// calculates horizontal stack positioning\\n  \\tname: x\\n  \\ttype: band\\n  \\trange: width\\n  \\tdomain: [\\\"stk1\\\", \\\"stk2\\\"]\\n  \\tpaddingOuter: 0.05\\n  \\tpaddingInner: 0.95\\n\\t}\\n\\t{\\n  \\t// this scale goes up as high as the highest y1 value of all nodes\\n  \\tname: y\\n  \\ttype: linear\\n  \\trange: height\\n  \\tdomain: {data: \\\"nodes\\\", field: \\\"y1\\\"}\\n\\t}\\n\\t{\\n  \\t// use rawData to ensure the colors stay the same when clicking.\\n  \\tname: color\\n  \\ttype: ordinal\\n  \\trange: category\\n  \\tdomain: {data: \\\"rawData\\\", field: \\\"stk1\\\"}\\n\\t}\\n\\t{\\n  \\t// this scale is used to map internal ids (stk1, stk2) to stack names\\n  \\tname: stackNames\\n  \\ttype: ordinal\\n  \\trange: [\\\"Origem\\\", \\\"Destino\\\"]\\n  \\tdomain: [\\\"stk1\\\", \\\"stk2\\\"]\\n\\t}\\n  ]\\n  axes: [\\n\\t{\\n  \\t// x axis should use custom label formatting to print proper stack names\\n  \\torient: bottom\\n  \\tscale: x\\n  \\tencode: {\\n    \\tlabels: {\\n      \\tupdate: {\\n        \\ttext: {scale: \\\"stackNames\\\", field: \\\"value\\\"}\\n      \\t}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{orient: \\\"left\\\", scale: \\\"y\\\"}\\n  ]\\n  marks: [\\n\\t{\\n  \\t// draw the connecting line between stacks\\n  \\ttype: path\\n  \\tname: edgeMark\\n  \\tfrom: {data: \\\"edges\\\"}\\n  \\t// this prevents some autosizing issues with large strokeWidth for paths\\n  \\tclip: true\\n  \\tencode: {\\n    \\tupdate: {\\n      \\t// By default use color of the left node, except when showing traffic\\n      \\t// from just one country, in which case use destination color.\\n      \\tstroke: [\\n        \\t{\\n          \\ttest: groupSelector && groupSelector.stack=='stk1'\\n          \\tscale: color\\n          \\tfield: stk2\\n        \\t}\\n        \\t{scale: \\\"color\\\", field: \\\"stk1\\\"}\\n      \\t]\\n      \\tstrokeWidth: {field: \\\"strokeWidth\\\"}\\n      \\tpath: {field: \\\"path\\\"}\\n      \\t// when showing all traffic, and hovering over a country,\\n      \\t// highlight the traffic from that country.\\n      \\tstrokeOpacity: {\\n        \\tsignal: !groupSelector && (groupHover.stk1 == datum.stk1 || groupHover.stk2 == datum.stk2) ? 0.9 : 0.3\\n      \\t}\\n      \\t// Ensure that the hover-selected edges show on top\\n      \\tzindex: {\\n        \\tsignal: !groupSelector && (groupHover.stk1 == datum.stk1 || groupHover.stk2 == datum.stk2) ? 1 : 0\\n      \\t}\\n      \\t// format tooltip string\\n      \\ttooltip: {\\n        \\tsignal: datum.stk1 + ' → ' + datum.stk2 + '\\t' + format(datum.size, ',.0f') + '   (' + format(datum.percentage, '.1%') + ')'\\n      \\t}\\n    \\t}\\n    \\t// Simple mouseover highlighting of a single line\\n    \\thover: {\\n      \\tstrokeOpacity: {value: 1}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// draw stack groups (countries)\\n  \\ttype: rect\\n  \\tname: groupMark\\n  \\tfrom: {data: \\\"groups\\\"}\\n  \\tencode: {\\n    \\tenter: {\\n      \\tfill: {scale: \\\"color\\\", field: \\\"grpId\\\"}\\n      \\twidth: {scale: \\\"x\\\", band: 1}\\n    \\t}\\n    \\tupdate: {\\n      \\tx: {scale: \\\"x\\\", field: \\\"stack\\\"}\\n      \\ty: {field: \\\"scaledY0\\\"}\\n      \\ty2: {field: \\\"scaledY1\\\"}\\n      \\tfillOpacity: {value: 0.6}\\n      \\ttooltip: {\\n        \\tsignal: datum.grpId + '   ' + format(datum.total, ',.0f') + '   (' + format(datum.percentage, '.1%') + ')'\\n      \\t}\\n    \\t}\\n    \\thover: {\\n      \\tfillOpacity: {value: 1}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// draw country code labels on the inner side of the stack\\n  \\ttype: text\\n  \\tfrom: {data: \\\"groups\\\"}\\n  \\t// don't process events for the labels - otherwise line mouseover is unclean\\n  \\tinteractive: false\\n  \\tencode: {\\n    \\tupdate: {\\n      \\t// depending on which stack it is, position x with some padding\\n      \\tx: {\\n        \\tsignal: scale('x', datum.stack) + (datum.rightLabel ? bandwidth('x') + 8 : -8)\\n      \\t}\\n      \\t// middle of the group\\n      \\tyc: {signal: \\\"(datum.scaledY0 + datum.scaledY1)/2\\\"}\\n      \\talign: {signal: \\\"datum.rightLabel ? 'left' : 'right'\\\"}\\n      \\tbaseline: {value: \\\"middle\\\"}\\n      \\tfontWeight: {value: \\\"bold\\\"}\\n      \\t// only show text label if the group's height is large enough\\n      \\ttext: {signal: \\\"abs(datum.scaledY0-datum.scaledY1) > 13 ? datum.grpId : ''\\\"}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// Create a \\\"show all\\\" button. Shown only when a country is selected.\\n  \\ttype: group\\n  \\tdata: [\\n    \\t// We need to make the button show only when groupSelector signal is true.\\n    \\t// Each mark is drawn as many times as there are elements in the backing data.\\n    \\t// Which means that if values list is empty, it will not be drawn.\\n    \\t// Here I create a data source with one empty object, and filter that list\\n    \\t// based on the signal value. This can only be done in a group.\\n    \\t{\\n      \\tname: dataForShowAll\\n      \\tvalues: [{}]\\n      \\ttransform: [{type: \\\"filter\\\", expr: \\\"groupSelector\\\"}]\\n    \\t}\\n  \\t]\\n  \\t// Set button size and positioning\\n  \\tencode: {\\n    \\tenter: {\\n      \\txc: {signal: \\\"width/2\\\"}\\n      \\ty: {value: 30}\\n      \\twidth: {value: 80}\\n      \\theight: {value: 30}\\n    \\t}\\n  \\t}\\n  \\tmarks: [\\n    \\t{\\n      \\t// This group is shown as a button with rounded corners.\\n      \\ttype: group\\n      \\t// mark name allows signal capturing\\n      \\tname: groupReset\\n      \\t// Only shows button if dataForShowAll has values.\\n      \\tfrom: {data: \\\"dataForShowAll\\\"}\\n      \\tencode: {\\n        \\tenter: {\\n          \\tcornerRadius: {value: 6}\\n          \\tfill: {value: \\\"#f5f5f5\\\"}\\n          \\tstroke: {value: \\\"#c1c1c1\\\"}\\n          \\tstrokeWidth: {value: 2}\\n          \\t// use parent group's size\\n          \\theight: {\\n            \\tfield: {group: \\\"height\\\"}\\n          \\t}\\n          \\twidth: {\\n            \\tfield: {group: \\\"width\\\"}\\n          \\t}\\n        \\t}\\n        \\tupdate: {\\n          \\t// groups are transparent by default\\n          \\topacity: {value: 1}\\n        \\t}\\n        \\thover: {\\n          \\topacity: {value: 0.7}\\n        \\t}\\n      \\t}\\n      \\tmarks: [\\n        \\t{\\n          \\ttype: text\\n          \\t// if true, it will prevent clicking on the button when over text.\\n          \\tinteractive: false\\n          \\tencode: {\\n            \\tenter: {\\n              \\t// center text in the paren group\\n              \\txc: {\\n                \\tfield: {group: \\\"width\\\"}\\n                \\tmult: 0.5\\n              \\t}\\n              \\tyc: {\\n                \\tfield: {group: \\\"height\\\"}\\n                \\tmult: 0.5\\n                \\toffset: 2\\n              \\t}\\n              \\talign: {value: \\\"center\\\"}\\n              \\tbaseline: {value: \\\"middle\\\"}\\n              \\tfontWeight: {value: \\\"bold\\\"}\\n              \\ttext: {value: \\\"Show All\\\"}\\n            \\t}\\n          \\t}\\n        \\t}\\n      \\t]\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n  signals: [\\n\\t{\\n  \\t// used to highlight traffic to/from the same country\\n  \\tname: groupHover\\n  \\tvalue: {}\\n  \\ton: [\\n    \\t{\\n      \\tevents: @groupMark:mouseover\\n      \\tupdate: \\\"{stk1:datum.stack=='stk1' && datum.grpId, stk2:datum.stack=='stk2' && datum.grpId}\\\"\\n    \\t}\\n    \\t{events: \\\"mouseout\\\", update: \\\"{}\\\"}\\n  \\t]\\n\\t}\\n\\t// used to filter only the data related to the selected country\\n\\t{\\n  \\tname: groupSelector\\n  \\tvalue: false\\n  \\ton: [\\n    \\t{\\n      \\t// Clicking groupMark sets this signal to the filter values\\n      \\tevents: @groupMark:click!\\n      \\tupdate: \\\"{stack:datum.stack, stk1:datum.stack=='stk1' && datum.grpId, stk2:datum.stack=='stk2' && datum.grpId}\\\"\\n    \\t}\\n    \\t{\\n      \\t// Clicking \\\"show all\\\" button, or double-clicking anywhere resets it\\n      \\tevents: [\\n        \\t{type: \\\"click\\\", markname: \\\"groupReset\\\"}\\n        \\t{type: \\\"dblclick\\\"}\\n      \\t]\\n      \\tupdate: \\\"false\\\"\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n}\\n\"},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2ee55ea0-311c-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Municipo Origem e Destino ",
+      "visState": "{\"title\":\"[GTA] Municipo Origem e Destino \",\"type\":\"vega\",\"params\":{\"spec\":\"{ \\n $schema: https://vega.github.io/schema/vega/v3.0.json\\n  data: [\\n\\t{\\n  \\t// query ES based on the currently selected time range and filter string\\n  \\tname: rawData\\n  \\turl: {\\n    \\t%context%: true\\n    \\t%timefield%: emissao\\n    \\tindex: gta\\n    \\tbody: {\\n      \\tsize: 0\\n      \\taggs: {\\n        \\ttable: {\\n          \\tcomposite: {\\n            \\tsize: 1000\\n            \\tsources: [\\n              \\t{\\n                \\tstk1: {\\n                  \\tterms: {field: \\\"origem.municipio.nome.keyword\\\"}\\n                \\t}\\n              \\t}\\n              \\t{\\n                \\tstk2: {\\n                  \\tterms: {field: \\\"destino.municipio.nome.keyword\\\"}\\n                \\t}\\n              \\t}\\n            \\t]\\n          \\t}\\n        \\t}\\n      \\t}\\n    \\t}\\n  \\t}\\n  \\t// From the result, take just the data we are interested in\\n  \\tformat: {property: \\\"aggregations.table.buckets\\\"}\\n  \\t// Convert key.stk1 -> stk1 for simpler access below\\n  \\ttransform: [\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.key.stk1\\\", as: \\\"stk1\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.key.stk2\\\", as: \\\"stk2\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.doc_count\\\", as: \\\"size\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: nodes\\n  \\tsource: rawData\\n  \\ttransform: [\\n    \\t// when a country is selected, filter out unrelated data\\n    \\t{\\n      \\ttype: filter\\n      \\texpr: !groupSelector || groupSelector.stk1 == datum.stk1 || groupSelector.stk2 == datum.stk2\\n    \\t}\\n    \\t// Set new key for later lookups - identifies each node\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.stk1+datum.stk2\\\", as: \\\"key\\\"}\\n    \\t// instead of each table row, create two new rows,\\n    \\t// one for the source (stack=stk1) and one for destination node (stack=stk2).\\n    \\t// The country code stored in stk1 and stk2 fields is placed into grpId field.\\n    \\t{\\n      \\ttype: fold\\n      \\tfields: [\\\"stk1\\\", \\\"stk2\\\"]\\n      \\tas: [\\\"stack\\\", \\\"grpId\\\"]\\n    \\t}\\n    \\t// Create a sortkey, different for stk1 and stk2 stacks.\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.stack == 'stk1' ? datum.stk1+datum.stk2 : datum.stk2+datum.stk1\\n      \\tas: sortField\\n    \\t}\\n    \\t// Calculate y0 and y1 positions for stacking nodes one on top of the other,\\n    \\t// independently for each stack, and ensuring they are in the proper order,\\n    \\t// alphabetical from the top (reversed on the y axis)\\n    \\t{\\n      \\ttype: stack\\n      \\tgroupby: [\\\"stack\\\"]\\n      \\tsort: {field: \\\"sortField\\\", order: \\\"descending\\\"}\\n      \\tfield: size\\n    \\t}\\n    \\t// calculate vertical center point for each node, used to draw edges\\n    \\t{type: \\\"formula\\\", expr: \\\"(datum.y0+datum.y1)/2\\\", as: \\\"yc\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: groups\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t// combine all nodes into country groups, summing up the doc counts\\n    \\t{\\n      \\ttype: aggregate\\n      \\tgroupby: [\\\"stack\\\", \\\"grpId\\\"]\\n      \\tfields: [\\\"size\\\"]\\n      \\tops: [\\\"sum\\\"]\\n      \\tas: [\\\"total\\\"]\\n    \\t}\\n    \\t// re-calculate the stacking y0,y1 values\\n    \\t{\\n      \\ttype: stack\\n      \\tgroupby: [\\\"stack\\\"]\\n      \\tsort: {field: \\\"grpId\\\", order: \\\"descending\\\"}\\n      \\tfield: total\\n    \\t}\\n    \\t// project y0 and y1 values to screen coordinates\\n    \\t// doing it once here instead of doing it several times in marks\\n    \\t{type: \\\"formula\\\", expr: \\\"scale('y', datum.y0)\\\", as: \\\"scaledY0\\\"}\\n    \\t{type: \\\"formula\\\", expr: \\\"scale('y', datum.y1)\\\", as: \\\"scaledY1\\\"}\\n    \\t// boolean flag if the label should be on the right of the stack\\n    \\t{type: \\\"formula\\\", expr: \\\"datum.stack == 'stk1'\\\", as: \\\"rightLabel\\\"}\\n    \\t// Calculate traffic percentage for this country using \\\"y\\\" scale\\n    \\t// domain upper bound, which represents the total traffic\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.total/domain('y')[1]\\n      \\tas: percentage\\n    \\t}\\n  \\t]\\n\\t}\\n\\t{\\n  \\t// This is a temp lookup table with all the 'stk2' stack nodes\\n  \\tname: destinationNodes\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t{type: \\\"filter\\\", expr: \\\"datum.stack == 'stk2'\\\"}\\n  \\t]\\n\\t}\\n\\t{\\n  \\tname: edges\\n  \\tsource: nodes\\n  \\ttransform: [\\n    \\t// we only want nodes from the left stack\\n    \\t{type: \\\"filter\\\", expr: \\\"datum.stack == 'stk1'\\\"}\\n    \\t// find corresponding node from the right stack, keep it as \\\"target\\\"\\n    \\t{\\n      \\ttype: lookup\\n      \\tfrom: destinationNodes\\n      \\tkey: key\\n      \\tfields: [\\\"key\\\"]\\n      \\tas: [\\\"target\\\"]\\n    \\t}\\n    \\t// calculate SVG link path between stk1 and stk2 stacks for the node pair\\n    \\t{\\n      \\ttype: linkpath\\n      \\torient: horizontal\\n      \\tshape: diagonal\\n      \\tsourceY: {expr: \\\"scale('y', datum.yc)\\\"}\\n      \\tsourceX: {expr: \\\"scale('x', 'stk1') + bandwidth('x')\\\"}\\n      \\ttargetY: {expr: \\\"scale('y', datum.target.yc)\\\"}\\n      \\ttargetX: {expr: \\\"scale('x', 'stk2')\\\"}\\n    \\t}\\n    \\t// A little trick to calculate the thickness of the line.\\n    \\t// The value needs to be the same as the hight of the node, but scaling\\n    \\t// size to screen's height gives inversed value because screen's Y\\n    \\t// coordinate goes from the top to the bottom, whereas the graph's Y=0\\n    \\t// is at the bottom. So subtracting scaled doc count from screen height\\n    \\t// (which is the \\\"lower\\\" bound of the \\\"y\\\" scale) gives us the right value\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: range('y')[0]-scale('y', datum.size)\\n      \\tas: strokeWidth\\n    \\t}\\n    \\t// Tooltip needs individual link's percentage of all traffic\\n    \\t{\\n      \\ttype: formula\\n      \\texpr: datum.size/domain('y')[1]\\n      \\tas: percentage\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n  scales: [\\n\\t{\\n  \\t// calculates horizontal stack positioning\\n  \\tname: x\\n  \\ttype: band\\n  \\trange: width\\n  \\tdomain: [\\\"stk1\\\", \\\"stk2\\\"]\\n  \\tpaddingOuter: 0.05\\n  \\tpaddingInner: 0.95\\n\\t}\\n\\t{\\n  \\t// this scale goes up as high as the highest y1 value of all nodes\\n  \\tname: y\\n  \\ttype: linear\\n  \\trange: height\\n  \\tdomain: {data: \\\"nodes\\\", field: \\\"y1\\\"}\\n\\t}\\n\\t{\\n  \\t// use rawData to ensure the colors stay the same when clicking.\\n  \\tname: color\\n  \\ttype: ordinal\\n  \\trange: category\\n  \\tdomain: {data: \\\"rawData\\\", field: \\\"stk1\\\"}\\n\\t}\\n\\t{\\n  \\t// this scale is used to map internal ids (stk1, stk2) to stack names\\n  \\tname: stackNames\\n  \\ttype: ordinal\\n  \\trange: [\\\"Origem\\\", \\\"Destino\\\"]\\n  \\tdomain: [\\\"stk1\\\", \\\"stk2\\\"]\\n\\t}\\n  ]\\n  axes: [\\n\\t{\\n  \\t// x axis should use custom label formatting to print proper stack names\\n  \\torient: bottom\\n  \\tscale: x\\n  \\tencode: {\\n    \\tlabels: {\\n      \\tupdate: {\\n        \\ttext: {scale: \\\"stackNames\\\", field: \\\"value\\\"}\\n      \\t}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{orient: \\\"left\\\", scale: \\\"y\\\"}\\n  ]\\n  marks: [\\n\\t{\\n  \\t// draw the connecting line between stacks\\n  \\ttype: path\\n  \\tname: edgeMark\\n  \\tfrom: {data: \\\"edges\\\"}\\n  \\t// this prevents some autosizing issues with large strokeWidth for paths\\n  \\tclip: true\\n  \\tencode: {\\n    \\tupdate: {\\n      \\t// By default use color of the left node, except when showing traffic\\n      \\t// from just one country, in which case use destination color.\\n      \\tstroke: [\\n        \\t{\\n          \\ttest: groupSelector && groupSelector.stack=='stk1'\\n          \\tscale: color\\n          \\tfield: stk2\\n        \\t}\\n        \\t{scale: \\\"color\\\", field: \\\"stk1\\\"}\\n      \\t]\\n      \\tstrokeWidth: {field: \\\"strokeWidth\\\"}\\n      \\tpath: {field: \\\"path\\\"}\\n      \\t// when showing all traffic, and hovering over a country,\\n      \\t// highlight the traffic from that country.\\n      \\tstrokeOpacity: {\\n        \\tsignal: !groupSelector && (groupHover.stk1 == datum.stk1 || groupHover.stk2 == datum.stk2) ? 0.9 : 0.3\\n      \\t}\\n      \\t// Ensure that the hover-selected edges show on top\\n      \\tzindex: {\\n        \\tsignal: !groupSelector && (groupHover.stk1 == datum.stk1 || groupHover.stk2 == datum.stk2) ? 1 : 0\\n      \\t}\\n      \\t// format tooltip string\\n      \\ttooltip: {\\n        \\tsignal: datum.stk1 + ' → ' + datum.stk2 + '\\t' + format(datum.size, ',.0f') + '   (' + format(datum.percentage, '.1%') + ')'\\n      \\t}\\n    \\t}\\n    \\t// Simple mouseover highlighting of a single line\\n    \\thover: {\\n      \\tstrokeOpacity: {value: 1}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// draw stack groups (countries)\\n  \\ttype: rect\\n  \\tname: groupMark\\n  \\tfrom: {data: \\\"groups\\\"}\\n  \\tencode: {\\n    \\tenter: {\\n      \\tfill: {scale: \\\"color\\\", field: \\\"grpId\\\"}\\n      \\twidth: {scale: \\\"x\\\", band: 1}\\n    \\t}\\n    \\tupdate: {\\n      \\tx: {scale: \\\"x\\\", field: \\\"stack\\\"}\\n      \\ty: {field: \\\"scaledY0\\\"}\\n      \\ty2: {field: \\\"scaledY1\\\"}\\n      \\tfillOpacity: {value: 0.6}\\n      \\ttooltip: {\\n        \\tsignal: datum.grpId + '   ' + format(datum.total, ',.0f') + '   (' + format(datum.percentage, '.1%') + ')'\\n      \\t}\\n    \\t}\\n    \\thover: {\\n      \\tfillOpacity: {value: 1}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// draw country code labels on the inner side of the stack\\n  \\ttype: text\\n  \\tfrom: {data: \\\"groups\\\"}\\n  \\t// don't process events for the labels - otherwise line mouseover is unclean\\n  \\tinteractive: false\\n  \\tencode: {\\n    \\tupdate: {\\n      \\t// depending on which stack it is, position x with some padding\\n      \\tx: {\\n        \\tsignal: scale('x', datum.stack) + (datum.rightLabel ? bandwidth('x') + 8 : -8)\\n      \\t}\\n      \\t// middle of the group\\n      \\tyc: {signal: \\\"(datum.scaledY0 + datum.scaledY1)/2\\\"}\\n      \\talign: {signal: \\\"datum.rightLabel ? 'left' : 'right'\\\"}\\n      \\tbaseline: {value: \\\"middle\\\"}\\n      \\tfontWeight: {value: \\\"bold\\\"}\\n      \\t// only show text label if the group's height is large enough\\n      \\ttext: {signal: \\\"abs(datum.scaledY0-datum.scaledY1) > 13 ? datum.grpId : ''\\\"}\\n    \\t}\\n  \\t}\\n\\t}\\n\\t{\\n  \\t// Create a \\\"show all\\\" button. Shown only when a country is selected.\\n  \\ttype: group\\n  \\tdata: [\\n    \\t// We need to make the button show only when groupSelector signal is true.\\n    \\t// Each mark is drawn as many times as there are elements in the backing data.\\n    \\t// Which means that if values list is empty, it will not be drawn.\\n    \\t// Here I create a data source with one empty object, and filter that list\\n    \\t// based on the signal value. This can only be done in a group.\\n    \\t{\\n      \\tname: dataForShowAll\\n      \\tvalues: [{}]\\n      \\ttransform: [{type: \\\"filter\\\", expr: \\\"groupSelector\\\"}]\\n    \\t}\\n  \\t]\\n  \\t// Set button size and positioning\\n  \\tencode: {\\n    \\tenter: {\\n      \\txc: {signal: \\\"width/2\\\"}\\n      \\ty: {value: 30}\\n      \\twidth: {value: 80}\\n      \\theight: {value: 30}\\n    \\t}\\n  \\t}\\n  \\tmarks: [\\n    \\t{\\n      \\t// This group is shown as a button with rounded corners.\\n      \\ttype: group\\n      \\t// mark name allows signal capturing\\n      \\tname: groupReset\\n      \\t// Only shows button if dataForShowAll has values.\\n      \\tfrom: {data: \\\"dataForShowAll\\\"}\\n      \\tencode: {\\n        \\tenter: {\\n          \\tcornerRadius: {value: 6}\\n          \\tfill: {value: \\\"#f5f5f5\\\"}\\n          \\tstroke: {value: \\\"#c1c1c1\\\"}\\n          \\tstrokeWidth: {value: 2}\\n          \\t// use parent group's size\\n          \\theight: {\\n            \\tfield: {group: \\\"height\\\"}\\n          \\t}\\n          \\twidth: {\\n            \\tfield: {group: \\\"width\\\"}\\n          \\t}\\n        \\t}\\n        \\tupdate: {\\n          \\t// groups are transparent by default\\n          \\topacity: {value: 1}\\n        \\t}\\n        \\thover: {\\n          \\topacity: {value: 0.7}\\n        \\t}\\n      \\t}\\n      \\tmarks: [\\n        \\t{\\n          \\ttype: text\\n          \\t// if true, it will prevent clicking on the button when over text.\\n          \\tinteractive: false\\n          \\tencode: {\\n            \\tenter: {\\n              \\t// center text in the paren group\\n              \\txc: {\\n                \\tfield: {group: \\\"width\\\"}\\n                \\tmult: 0.5\\n              \\t}\\n              \\tyc: {\\n                \\tfield: {group: \\\"height\\\"}\\n                \\tmult: 0.5\\n                \\toffset: 2\\n              \\t}\\n              \\talign: {value: \\\"center\\\"}\\n              \\tbaseline: {value: \\\"middle\\\"}\\n              \\tfontWeight: {value: \\\"bold\\\"}\\n              \\ttext: {value: \\\"Show All\\\"}\\n            \\t}\\n          \\t}\\n        \\t}\\n      \\t]\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n  signals: [\\n\\t{\\n  \\t// used to highlight traffic to/from the same country\\n  \\tname: groupHover\\n  \\tvalue: {}\\n  \\ton: [\\n    \\t{\\n      \\tevents: @groupMark:mouseover\\n      \\tupdate: \\\"{stk1:datum.stack=='stk1' && datum.grpId, stk2:datum.stack=='stk2' && datum.grpId}\\\"\\n    \\t}\\n    \\t{events: \\\"mouseout\\\", update: \\\"{}\\\"}\\n  \\t]\\n\\t}\\n\\t// used to filter only the data related to the selected country\\n\\t{\\n  \\tname: groupSelector\\n  \\tvalue: false\\n  \\ton: [\\n    \\t{\\n      \\t// Clicking groupMark sets this signal to the filter values\\n      \\tevents: @groupMark:click!\\n      \\tupdate: \\\"{stack:datum.stack, stk1:datum.stack=='stk1' && datum.grpId, stk2:datum.stack=='stk2' && datum.grpId}\\\"\\n    \\t}\\n    \\t{\\n      \\t// Clicking \\\"show all\\\" button, or double-clicking anywhere resets it\\n      \\tevents: [\\n        \\t{type: \\\"click\\\", markname: \\\"groupReset\\\"}\\n        \\t{type: \\\"dblclick\\\"}\\n      \\t]\\n      \\tupdate: \\\"false\\\"\\n    \\t}\\n  \\t]\\n\\t}\\n  ]\\n}\\n\"},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "0e611ee0-ff07-11e8-8b94-3d19b7438a18",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Estratificação Especie",
+      "visState": "{\"title\":\"[GTA] Estratificação Especie\",\"type\":\"table\",\"params\":{\"perPage\":8,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":true,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"estratificacao.macho\",\"customLabel\":\"Macho\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"especie.nome.keyword\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Especie\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"estratificacao.femea\",\"customLabel\":\"Femea\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"estratificacao.indefinido\",\"customLabel\":\"Indefinido\"}},{\"id\":\"5\",\"enabled\":true,\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"estratificacao.total\",\"customLabel\":\"Total\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "dc1edf80-2b11-11e9-a97a-a131387375f1",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Origem Estabelecimento Tipo",
+      "visState": "{\"title\":\"[GTA] Origem Estabelecimento Tipo\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"origem.tipo.keyword\",\"size\":6,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Tipo\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "f418dfa0-2b11-11e9-a97a-a131387375f1",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Destino Estabelecimento Tipo",
+      "visState": "{\"title\":\"[GTA] Destino Estabelecimento Tipo\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"destino.tipo.keyword\",\"size\":6,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Tipo\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"legendOpen\":false}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "7adfa750-4c81-11e8-b3d7-01146121b73d",
+    "_type": "dashboard",
+    "_source": {
+      "title": "[GTA] Dashboard Gerencial",
+      "hits": 0,
+      "description": "Analise dos dados da Guia de Transporte Animal",
+      "panelsJSON": "[{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":35,\"h\":8,\"i\":\"1\"},\"id\":\"aeb212e0-4c84-11e8-b3d7-01146121b73d\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":35,\"y\":0,\"w\":13,\"h\":16,\"i\":\"22\"},\"id\":\"129be430-4c93-11e8-b3d7-01146121b73d\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.978605060460174,-49.64571333044999],\"mapZoom\":6},\"gridData\":{\"x\":24,\"y\":104,\"w\":24,\"h\":21,\"i\":\"23\"},\"id\":\"334084f0-52fd-11e8-a160-89cc2ad9e8e2\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":16,\"w\":13,\"h\":7,\"i\":\"29\"},\"id\":\"01c413e0-5395-11e8-99bf-1ba7b1bdaa61\",\"panelIndex\":\"29\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":13,\"y\":16,\"w\":13,\"h\":7,\"i\":\"30\"},\"id\":\"2edf78b0-5395-11e8-99bf-1ba7b1bdaa61\",\"panelIndex\":\"30\",\"type\":\"visualization\",\"version\":\"6.3.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.882904647847717,-49.651447818250006],\"mapZoom\":6},\"gridData\":{\"x\":24,\"y\":125,\"w\":24,\"h\":21,\"i\":\"32\"},\"id\":\"bcb0efe0-fc6c-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"32\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":16,\"y\":23,\"w\":16,\"h\":12,\"i\":\"33\"},\"id\":\"96996430-fc6d-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"33\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":146,\"w\":48,\"h\":16,\"i\":\"35\"},\"id\":\"2b3f2ff0-fc98-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"35\",\"type\":\"search\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":8,\"w\":35,\"h\":8,\"i\":\"38\"},\"id\":\"e63efea0-fd71-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"38\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Estabelecimentos\":\"#0A50A1\",\"Quantidade\":\"#6ED0E0\"},\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":35,\"w\":24,\"h\":15,\"i\":\"39\"},\"id\":\"bca5aa70-fecb-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"39\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":35,\"w\":24,\"h\":15,\"i\":\"40\"},\"id\":\"0e611ee0-ff07-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"40\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":71,\"w\":24,\"h\":33,\"i\":\"41\"},\"id\":\"a291df20-fed8-11e8-8b94-3d19b7438a18\",\"panelIndex\":\"41\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":4,\"direction\":\"desc\"}}}},\"gridData\":{\"x\":0,\"y\":104,\"w\":24,\"h\":21,\"i\":\"42\"},\"id\":\"1ff48520-ffa7-11e8-84f9-fd23b4871600\",\"panelIndex\":\"42\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":125,\"w\":24,\"h\":21,\"i\":\"43\"},\"id\":\"9e794890-ffa7-11e8-84f9-fd23b4871600\",\"panelIndex\":\"43\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":26,\"y\":16,\"w\":11,\"h\":7,\"i\":\"44\"},\"id\":\"dcd04600-0481-11e9-b477-b1b61fce4008\",\"panelIndex\":\"44\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":32,\"y\":23,\"w\":16,\"h\":12,\"i\":\"45\"},\"id\":\"8f4d0c00-4c86-11e8-b3d7-01146121b73d\",\"panelIndex\":\"45\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":23,\"w\":16,\"h\":12,\"i\":\"46\"},\"id\":\"e85f7e30-0483-11e9-b477-b1b61fce4008\",\"panelIndex\":\"46\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":37,\"y\":16,\"w\":11,\"h\":7,\"i\":\"47\"},\"id\":\"318d0dc0-0a06-11e9-b477-b1b61fce4008\",\"panelIndex\":\"47\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"defaultColors\":{\"0 - 110\":\"rgb(247,251,255)\",\"110 - 220\":\"rgb(208,225,242)\",\"220 - 330\":\"rgb(148,196,223)\",\"330 - 440\":\"rgb(74,152,201)\",\"440 - 550\":\"rgb(23,100,171)\"},\"legendOpen\":false}},\"gridData\":{\"x\":26,\"y\":50,\"w\":22,\"h\":21,\"i\":\"48\"},\"id\":\"25e3ca20-2b0f-11e9-a97a-a131387375f1\",\"panelIndex\":\"48\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":10,\"y\":50,\"w\":16,\"h\":10,\"i\":\"49\"},\"id\":\"dc1edf80-2b11-11e9-a97a-a131387375f1\",\"panelIndex\":\"49\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":10,\"y\":60,\"w\":16,\"h\":11,\"i\":\"50\"},\"id\":\"f418dfa0-2b11-11e9-a97a-a131387375f1\",\"panelIndex\":\"50\",\"type\":\"visualization\",\"version\":\"6.5.2\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":71,\"w\":24,\"h\":33,\"i\":\"51\"},\"id\":\"2ee55ea0-311c-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"51\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":50,\"w\":10,\"h\":21,\"i\":\"52\"},\"id\":\"d51ce440-4400-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"52\",\"type\":\"visualization\",\"version\":\"6.6.0\"}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now/d",
+      "timeFrom": "now/d",
+      "refreshInterval": {
+        "pause": true,
+        "value": 0
+      },
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"lucene\",\"query\":\"\"},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"key\":\"cancelada.keyword\",\"negate\":false,\"params\":{\"query\":\"Não\",\"type\":\"phrase\"},\"type\":\"phrase\",\"value\":\"Não\"},\"query\":{\"match\":{\"cancelada.keyword\":{\"query\":\"Não\",\"type\":\"phrase\"}}}}],\"highlightAll\":true,\"version\":true}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "d51ce440-4400-11e9-9c59-1778f6ff48b0",
+    "_type": "visualization",
+    "_source": {
+      "title": "[GTA] Destino por Estados",
+      "visState": "{\"title\":\"[GTA] Destino por Estados\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMetricsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":true,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destino.municipio.uf.keyword\",\"size\":1000,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Estados\"}},{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Quantidade\"}}]}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"866d40f0-fa1e-11e8-8b94-3d19b7438a18\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  }
+]

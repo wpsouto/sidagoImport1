@@ -1,0 +1,8 @@
+URL template
+http://sidago.agrodefesa.go.gov.br/fiscalizacao/termo-fiscalizacao/imprimir/id/{{value}}
+
+Label template
+{{value}}
+
+Script
+doc['termofiscalizacao_id'].value

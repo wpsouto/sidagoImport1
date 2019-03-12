@@ -1,0 +1,399 @@
+[
+  {
+    "_id": "7c5b5520-39f2-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Filtro Emissor",
+      "visState": "{\"title\":\"[Termo Fiscalização] Filtro Emissor\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1551204813541\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"emissor.nome.keyword\",\"parent\":\"\",\"label\":\"Emissor Nome\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1551204850026\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"emissor.documento.keyword\",\"parent\":\"\",\"label\":\"Emissor Documento\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}}],\"updateFiltersOnChange\":true,\"useTimeFilter\":false,\"pinFilters\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "215086a0-36a5-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Instruções",
+      "visState": "{\"title\":\"[Termo Fiscalização] Instruções\",\"type\":\"markdown\",\"params\":{\"fontSize\":12,\"openLinksInNewTab\":true,\"markdown\":\"### Termo de Fiscalização\\nEste painel contém dados dos Termos de Fiscalização do Sistema [SIDAGO](http://www.sidago.go.gov.br). \\n\\nVocê pode visualizá-lo, pesquisá-lo e interagir com as visualizações. Para mais informações, consulte o departamento de informatica.\"},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "8d092000-36a5-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Filtros",
+      "visState": "{\"title\":\"[Termo Fiscalização] Filtros\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1551101814194\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"emissor.lotacao.organograma.keyword\",\"parent\":\"\",\"label\":\"Organograma\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1550841878646\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"emissor.lotacao.regional.nome.keyword\",\"parent\":\"\",\"label\":\"Regional\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1550841902636\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"emissor.lotacao.nome.keyword\",\"parent\":\"\",\"label\":\"UOL\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}}],\"updateFiltersOnChange\":true,\"useTimeFilter\":false,\"pinFilters\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "f8f81eb0-39f2-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Filtro Fiscalizado",
+      "visState": "{\"title\":\"[Termo Fiscalização] Filtro Fiscalizado\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1551204813541\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"fiscalizado.nome.keyword\",\"parent\":\"\",\"label\":\"Fiscalizado Nome\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1551204850026\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"fiscalizado.documento.keyword\",\"parent\":\"\",\"label\":\"Fiscalizado Documento\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}}],\"updateFiltersOnChange\":true,\"useTimeFilter\":false,\"pinFilters\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "52b09710-3602-11e9-b81f-ed646b5e5a63",
+    "_type": "index-pattern",
+    "_source": {
+      "title": "termo_fiscalizacao",
+      "timeFieldName": "emissao",
+      "fields": "[{\"name\":\"_id\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_index\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"_score\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_source\",\"type\":\"_source\",\"count\":0,\"scripted\":false,\"searchable\":false,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"_type\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false},{\"name\":\"autuado\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"autuado.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"cancelada\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"cancelada.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"caracterizacao\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"caracterizacao.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissao\",\"type\":\"date\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.lotacao.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.organograma\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.lotacao.organograma.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.regional.id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.lotacao.regional.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.lotacao.regional.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"emissor.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"emissor.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"fiscalizado.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.ie\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"fiscalizado.ie.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.municipio.localizacao\",\"type\":\"geo_point\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.municipio.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"fiscalizado.municipio.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.municipio.uf\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"fiscalizado.municipio.uf.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"fiscalizado.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"fiscalizado.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"identificacao\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"identificacao.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"numero\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"objetivo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"objetivo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"produto\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"produto.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"programa\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"programa.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"quantidade\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"responsavel.documento\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"responsavel.documento.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"responsavel.nome\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"responsavel.nome.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"serie\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"serie.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"subobjetivo\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"subobjetivo.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"subproduto\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":false,\"readFromDocValues\":false},{\"name\":\"subproduto.keyword\",\"type\":\"string\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"termofiscalizacao_id\",\"type\":\"number\",\"count\":0,\"scripted\":false,\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":true},{\"name\":\"Download\",\"type\":\"string\",\"count\":1,\"scripted\":true,\"script\":\"doc['termofiscalizacao_id'].value\",\"lang\":\"painless\",\"searchable\":true,\"aggregatable\":true,\"readFromDocValues\":false}]",
+      "fieldFormatMap": "{\"Download\":{\"id\":\"url\",\"params\":{\"urlTemplate\":\"http://sidago.agrodefesa.go.gov.br/fiscalizacao/termo-fiscalizacao/imprimir/id/{{value}}\",\"labelTemplate\":\"{{value}}\"}}}"
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    },
+    "_migrationVersion": {
+      "index-pattern": "6.5.0"
+    }
+  },
+  {
+    "_id": "c7a59000-36a9-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Fiscalizados",
+      "visState": "{\"title\":\"[Termo Fiscalização] Fiscalizados\",\"type\":\"metric\",\"params\":{\"addLegend\":false,\"addTooltip\":true,\"metric\":{\"colorSchema\":\"Green to Red\",\"colorsRange\":[{\"from\":0,\"to\":10000}],\"invertColors\":false,\"labels\":{\"show\":true},\"metricColorMode\":\"None\",\"percentageMode\":false,\"style\":{\"bgColor\":false,\"bgFill\":\"#000\",\"fontSize\":25,\"labelColor\":false,\"subText\":\"\"},\"useRanges\":false},\"type\":\"metric\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"fiscalizado.documento.keyword\",\"customLabel\":\"Fiscalizados\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "aa78acd0-3611-11e9-b81f-ed646b5e5a63",
+    "_type": "search",
+    "_source": {
+      "title": "[Termo Fiscalização] Registros",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "Download",
+        "numero",
+        "serie",
+        "emissor.nome",
+        "fiscalizado.nome",
+        "programa",
+        "objetivo",
+        "subobjetivo",
+        "produto",
+        "subproduto",
+        "quantidade"
+      ],
+      "sort": [
+        "emissao",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"highlightAll\": true,\n  \"version\": true,\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "b9b9a250-36d7-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Municípios Fiscalizados",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Municípios Fiscalizados\",\n  \"type\": \"region_map\",\n  \"params\": {\n    \"legendPosition\": \"bottomright\",\n    \"addTooltip\": true,\n    \"colorSchema\": \"Blues\",\n    \"selectedLayer\": {\n      \"name\": \"Região Centro-Oeste\",\n      \"url\": \"http://analyzer.agrodefesa.go.gov.br/geojs-52-mun.json\",\n      \"attribution\": \"https://github.com/tbrugz/geodata-br\",\n      \"fields\": [\n        {\n          \"name\": \"name\",\n          \"description\": \"Nome Municipio\"\n        }\n      ],\n      \"format\": {\n        \"type\": \"geojson\"\n      },\n      \"meta\": {\n        \"feature_collection_path\": \"data\"\n      },\n      \"layerId\": \"self_hosted.Região Centro-Oeste\",\n      \"isEMS\": false\n    },\n    \"emsHotLink\": null,\n    \"selectedJoinField\": {\n      \"name\": \"name\",\n      \"description\": \"Nome Municipio\"\n    },\n    \"isDisplayWarning\": false,\n    \"wms\": {\n      \"enabled\": false,\n      \"options\": {\n        \"format\": \"image/png\",\n        \"transparent\": true\n      },\n      \"selectedTmsLayer\": {\n        \"origin\": \"elastic_maps_service\",\n        \"id\": \"road_map\",\n        \"minZoom\": 0,\n        \"maxZoom\": 18,\n        \"attribution\": \"<p>&#169; <a href=\\\"http://www.openstreetmap.org/copyright\\\">OpenStreetMap</a> contributors | <a href=\\\"https://www.elastic.co/elastic-maps-service\\\">Elastic Maps Service</a></p>&#10;\"\n      }\n    },\n    \"mapZoom\": 2,\n    \"mapCenter\": [\n      0,\n      0\n    ],\n    \"outlineWeight\": 1,\n    \"showAllShapes\": true\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termo Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"fiscalizado.municipio.nome.keyword\",\n        \"size\": 500,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Municipio\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"mapZoom\": 7,\n  \"mapCenter\": [\n    -15.956047623050553,\n    -48.94409179687501\n  ]\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "09d4ce70-39eb-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Quantidades(únicas)",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Quantidades(únicas)\",\n  \"type\": \"metric\",\n  \"params\": {\n    \"addLegend\": false,\n    \"addTooltip\": true,\n    \"metric\": {\n      \"colorSchema\": \"Green to Red\",\n      \"colorsRange\": [\n        {\n          \"from\": 0,\n          \"to\": 10000\n        }\n      ],\n      \"invertColors\": false,\n      \"labels\": {\n        \"show\": true\n      },\n      \"metricColorMode\": \"None\",\n      \"percentageMode\": false,\n      \"style\": {\n        \"bgColor\": false,\n        \"bgFill\": \"#000\",\n        \"fontSize\": 35,\n        \"labelColor\": false,\n        \"subText\": \"\"\n      },\n      \"useRanges\": false\n    },\n    \"type\": \"metric\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termo Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"fiscalizado.documento.keyword\",\n        \"customLabel\": \"Fiscalizados\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"emissor.documento.keyword\",\n        \"customLabel\": \"Emissores\"\n      }\n    },\n    {\n      \"id\": \"5\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"programa.keyword\",\n        \"customLabel\": \"Programas\"\n      }\n    },\n    {\n      \"id\": \"6\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"objetivo.keyword\",\n        \"customLabel\": \"Objetivos\"\n      }\n    },\n    {\n      \"id\": \"7\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"subobjetivo.keyword\",\n        \"customLabel\": \"SubObjetivo\"\n      }\n    },\n    {\n      \"id\": \"8\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"produto.keyword\",\n        \"customLabel\": \"Produto\"\n      }\n    },\n    {\n      \"id\": \"9\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"subproduto.keyword\",\n        \"customLabel\": \"SubProduto\"\n      }\n    },\n    {\n      \"id\": \"10\",\n      \"enabled\": true,\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"quantidade\",\n        \"customLabel\": \"Quantidade\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "4ad513e0-3607-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Top 100 Fiscalizado",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Top 100 Fiscalizado\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 10,\n    \"showPartialRows\": false,\n    \"showMetricsAtAllLevels\": false,\n    \"sort\": {\n      \"columnIndex\": 2,\n      \"direction\": \"desc\"\n    },\n    \"showTotal\": true,\n    \"totalFunc\": \"sum\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termos de Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"fiscalizado.documento.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Documento\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"fiscalizado.nome.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Estabelecimento\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"params\": {\n      \"sort\": {\n        \"columnIndex\": 2,\n        \"direction\": \"desc\"\n      }\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "91ea39c0-39d3-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Top 100 Emissor",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Top 100 Emissor\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 10,\n    \"showPartialRows\": false,\n    \"showMetricsAtAllLevels\": false,\n    \"sort\": {\n      \"columnIndex\": 2,\n      \"direction\": \"desc\"\n    },\n    \"showTotal\": true,\n    \"totalFunc\": \"sum\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termos de Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"emissor.documento.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Documento\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"emissor.nome.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Nome\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"params\": {\n      \"sort\": {\n        \"columnIndex\": 2,\n        \"direction\": \"desc\"\n      }\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2fd929a0-39d1-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Regional",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Regional\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 15,\n    \"showMetricsAtAllLevels\": false,\n    \"showPartialRows\": false,\n    \"showTotal\": true,\n    \"sort\": {\n      \"columnIndex\": 2,\n      \"direction\": \"desc\"\n    },\n    \"totalFunc\": \"sum\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"emissor.lotacao.regional.nome.keyword\",\n        \"size\": 500,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Regional\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"params\": {\n      \"sort\": {\n        \"columnIndex\": 2,\n        \"direction\": \"desc\"\n      }\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "8180d050-39fe-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] UOL",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] UOL\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 15,\n    \"showMetricsAtAllLevels\": false,\n    \"showPartialRows\": false,\n    \"showTotal\": true,\n    \"sort\": {\n      \"columnIndex\": 2,\n      \"direction\": \"desc\"\n    },\n    \"totalFunc\": \"sum\"\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"emissor.lotacao.nome.keyword\",\n        \"size\": 500,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"UOL\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"params\": {\n      \"sort\": {\n        \"columnIndex\": 2,\n        \"direction\": \"desc\"\n      }\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "76a5a6e0-39f1-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Produto e SubProduto",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Produto e SubProduto\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"type\": \"pie\",\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"isDonut\": true,\n    \"labels\": {\n      \"show\": false,\n      \"values\": true,\n      \"last_level\": true,\n      \"truncate\": 100\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"4\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"produto.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Produto\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"subproduto.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"SubProduto\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "df3886a0-3609-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo de Fiscalização] Caracterização",
+      "visState": "{\n  \"title\": \"[Termo de Fiscalização] Caracterização\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"type\": \"pie\",\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"isDonut\": false,\n    \"labels\": {\n      \"show\": true,\n      \"values\": true,\n      \"last_level\": true,\n      \"truncate\": 100\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termos de Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"caracterizacao.keyword\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Caracterização da Fiscalização\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2a12c5a0-39e8-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Identificação",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Identificação\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"type\": \"pie\",\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"isDonut\": false,\n    \"labels\": {\n      \"show\": true,\n      \"values\": true,\n      \"last_level\": true,\n      \"truncate\": 100\n    }\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"identificacao.keyword\",\n        \"size\": 100,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Identificação\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "d6aab970-36c9-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalizacao] Termo de Fiscalização vs Emissor",
+      "visState": "{\n  \"title\": \"[Termo Fiscalizacao] Termo de Fiscalização vs Emissor\",\n  \"type\": \"area\",\n  \"params\": {\n    \"addLegend\": true,\n    \"addTimeMarker\": false,\n    \"addTooltip\": true,\n    \"categoryAxes\": [\n      {\n        \"id\": \"CategoryAxis-1\",\n        \"labels\": {\n          \"filter\": false,\n          \"show\": true,\n          \"truncate\": 100\n        },\n        \"position\": \"bottom\",\n        \"scale\": {\n          \"type\": \"linear\"\n        },\n        \"show\": true,\n        \"style\": {},\n        \"title\": {},\n        \"type\": \"category\"\n      }\n    ],\n    \"grid\": {\n      \"categoryLines\": false,\n      \"style\": {\n        \"color\": \"#eee\"\n      }\n    },\n    \"legendPosition\": \"right\",\n    \"seriesParams\": [\n      {\n        \"data\": {\n          \"id\": \"1\",\n          \"label\": \"Termo Fiscalização\"\n        },\n        \"drawLinesBetweenPoints\": true,\n        \"interpolate\": \"linear\",\n        \"mode\": \"normal\",\n        \"show\": \"true\",\n        \"showCircles\": true,\n        \"type\": \"histogram\",\n        \"valueAxis\": \"ValueAxis-1\"\n      },\n      {\n        \"data\": {\n          \"id\": \"3\",\n          \"label\": \"Emissores\"\n        },\n        \"drawLinesBetweenPoints\": false,\n        \"interpolate\": \"linear\",\n        \"mode\": \"stacked\",\n        \"show\": true,\n        \"showCircles\": true,\n        \"type\": \"line\",\n        \"valueAxis\": \"ValueAxis-1\"\n      }\n    ],\n    \"times\": [],\n    \"type\": \"area\",\n    \"valueAxes\": [\n      {\n        \"id\": \"ValueAxis-1\",\n        \"labels\": {\n          \"filter\": false,\n          \"rotate\": 0,\n          \"show\": true,\n          \"truncate\": 100\n        },\n        \"name\": \"LeftAxis-1\",\n        \"position\": \"left\",\n        \"scale\": {\n          \"mode\": \"normal\",\n          \"type\": \"linear\"\n        },\n        \"show\": true,\n        \"style\": {},\n        \"title\": {\n          \"text\": \"Termo Fiscalização\"\n        },\n        \"type\": \"value\"\n      }\n    ]\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Termo Fiscalização\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"date_histogram\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"emissao\",\n        \"timeRange\": {\n          \"from\": \"now/M\",\n          \"to\": \"now/M\",\n          \"mode\": \"quick\"\n        },\n        \"useNormalizedEsInterval\": true,\n        \"interval\": \"d\",\n        \"time_zone\": \"America/Sao_Paulo\",\n        \"drop_partials\": false,\n        \"customInterval\": \"2h\",\n        \"min_doc_count\": 1,\n        \"extended_bounds\": {},\n        \"customLabel\": \"Emissão\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"emissor.documento.keyword\",\n        \"customLabel\": \"Emissores\"\n      }\n    },\n    {\n      \"id\": \"4\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"radius\",\n      \"params\": {\n        \"field\": \"fiscalizado.documento.keyword\",\n        \"customLabel\": \"Fiscalizados\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"colors\": {\n      \"Estabelecimentos\": \"#0A437C\",\n      \"Termo Fiscalização\": \"#70DBED\",\n      \"Fiscalizados\": \"#447EBC\",\n      \"Emissores\": \"#447EBC\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "0452aef0-39cc-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Cancelamentos",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Cancelamentos\",\n  \"type\": \"horizontal_bar\",\n  \"params\": {\n    \"type\": \"histogram\",\n    \"grid\": {\n      \"categoryLines\": false,\n      \"style\": {\n        \"color\": \"#eee\"\n      }\n    },\n    \"categoryAxes\": [\n      {\n        \"id\": \"CategoryAxis-1\",\n        \"type\": \"category\",\n        \"position\": \"left\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"rotate\": 0,\n          \"filter\": false,\n          \"truncate\": 200\n        },\n        \"title\": {}\n      }\n    ],\n    \"valueAxes\": [\n      {\n        \"id\": \"ValueAxis-1\",\n        \"name\": \"LeftAxis-1\",\n        \"type\": \"value\",\n        \"position\": \"bottom\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\",\n          \"mode\": \"normal\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"rotate\": 75,\n          \"filter\": true,\n          \"truncate\": 100\n        },\n        \"title\": {\n          \"text\": \"Quantidade\"\n        }\n      }\n    ],\n    \"seriesParams\": [\n      {\n        \"show\": true,\n        \"type\": \"histogram\",\n        \"mode\": \"normal\",\n        \"data\": {\n          \"label\": \"Quantidade\",\n          \"id\": \"1\"\n        },\n        \"valueAxis\": \"ValueAxis-1\",\n        \"drawLinesBetweenPoints\": true,\n        \"showCircles\": true\n      }\n    ],\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"times\": [],\n    \"addTimeMarker\": false\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"cancelada.keyword\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"_key\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Cancelado\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"colors\": {\n      \"Quantidade\": \"#447EBC\"\n    },\n    \"legendOpen\": false\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"language\": \"kuery\",\n    \"query\": \"\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "c19f8790-3908-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Autuações",
+      "visState": "{\n  \"title\": \"[Termo Fiscalização] Autuações\",\n  \"type\": \"horizontal_bar\",\n  \"params\": {\n    \"type\": \"histogram\",\n    \"grid\": {\n      \"categoryLines\": false,\n      \"style\": {\n        \"color\": \"#eee\"\n      }\n    },\n    \"categoryAxes\": [\n      {\n        \"id\": \"CategoryAxis-1\",\n        \"type\": \"category\",\n        \"position\": \"left\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"rotate\": 0,\n          \"filter\": false,\n          \"truncate\": 200\n        },\n        \"title\": {}\n      }\n    ],\n    \"valueAxes\": [\n      {\n        \"id\": \"ValueAxis-1\",\n        \"name\": \"LeftAxis-1\",\n        \"type\": \"value\",\n        \"position\": \"bottom\",\n        \"show\": true,\n        \"style\": {},\n        \"scale\": {\n          \"type\": \"linear\",\n          \"mode\": \"normal\"\n        },\n        \"labels\": {\n          \"show\": true,\n          \"rotate\": 75,\n          \"filter\": true,\n          \"truncate\": 100\n        },\n        \"title\": {\n          \"text\": \"Quantidade\"\n        }\n      }\n    ],\n    \"seriesParams\": [\n      {\n        \"show\": true,\n        \"type\": \"histogram\",\n        \"mode\": \"normal\",\n        \"data\": {\n          \"label\": \"Quantidade\",\n          \"id\": \"1\"\n        },\n        \"valueAxis\": \"ValueAxis-1\",\n        \"drawLinesBetweenPoints\": true,\n        \"showCircles\": true\n      }\n    ],\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"legendPosition\": \"right\",\n    \"times\": [],\n    \"addTimeMarker\": false\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"enabled\": true,\n      \"type\": \"cardinality\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"termofiscalizacao_id\",\n        \"customLabel\": \"Quantidade\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"enabled\": true,\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"autuado.keyword\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"_key\",\n        \"otherBucket\": false,\n        \"otherBucketLabel\": \"Other\",\n        \"missingBucket\": false,\n        \"missingBucketLabel\": \"Missing\",\n        \"customLabel\": \"Autuação\"\n      }\n    }\n  ]\n}",
+      "uiStateJSON": "{\n  \"vis\": {\n    \"colors\": {\n      \"Quantidade\": \"#447EBC\"\n    }\n  }\n}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"52b09710-3602-11e9-b81f-ed646b5e5a63\",\n  \"query\": {\n    \"query\": \"\",\n    \"language\": \"kuery\"\n  },\n  \"filter\": []\n}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "248bffe0-4409-11e9-9c59-1778f6ff48b0",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Filtro Programa",
+      "visState": "{\"title\":\"[Termo Fiscalização] Filtro Programa\",\"type\":\"input_control_vis\",\"params\":{\"controls\":[{\"id\":\"1551204813541\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"programa.keyword\",\"parent\":\"\",\"label\":\"Programa\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}},{\"id\":\"1552314016774\",\"indexPattern\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"fieldName\":\"objetivo.keyword\",\"parent\":\"1551204813541\",\"label\":\"Objetivo\",\"type\":\"list\",\"options\":{\"type\":\"terms\",\"multiselect\":true,\"dynamicOptions\":true,\"size\":5,\"order\":\"desc\"}}],\"updateFiltersOnChange\":true,\"useTimeFilter\":false,\"pinFilters\":false},\"aggs\":[]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "2a346340-360a-11e9-b81f-ed646b5e5a63",
+    "_type": "dashboard",
+    "_source": {
+      "title": "[Termo Fiscalização] Dashboard Gerencial",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":24,\"y\":26,\"w\":24,\"h\":12,\"i\":\"1\"},\"id\":\"df3886a0-3609-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":117,\"w\":48,\"h\":19,\"i\":\"3\"},\"id\":\"aa78acd0-3611-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"3\",\"type\":\"search\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":19,\"h\":8,\"i\":\"4\"},\"id\":\"215086a0-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":8,\"w\":12,\"h\":12,\"i\":\"5\"},\"id\":\"8d092000-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Emissores\":\"#447EBC\",\"Estabelecimentos\":\"#0A437C\",\"Fiscalizados\":\"#447EBC\",\"Termo Fiscalização\":\"#70DBED\"},\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":105,\"w\":48,\"h\":12,\"i\":\"9\"},\"id\":\"d6aab970-36c9-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.961329081596647,-49.54284667968751],\"mapZoom\":7},\"gridData\":{\"x\":24,\"y\":58,\"w\":24,\"h\":26,\"i\":\"10\"},\"id\":\"b9b9a250-36d7-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Quantidade\":\"#447EBC\"},\"legendOpen\":false}},\"gridData\":{\"x\":19,\"y\":0,\"w\":15,\"h\":8,\"i\":\"11\"},\"id\":\"c19f8790-3908-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":34,\"y\":0,\"w\":14,\"h\":8,\"i\":\"12\"},\"id\":\"0452aef0-39cc-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":84,\"w\":24,\"h\":21,\"i\":\"18\"},\"id\":\"4ad513e0-3607-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"18\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":58,\"w\":12,\"h\":26,\"i\":\"20\"},\"id\":\"2fd929a0-39d1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"20\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":84,\"w\":24,\"h\":21,\"i\":\"21\"},\"id\":\"91ea39c0-39d3-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"21\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":26,\"w\":24,\"h\":12,\"i\":\"22\"},\"id\":\"2a12c5a0-39e8-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":20,\"w\":48,\"h\":6,\"i\":\"23\"},\"id\":\"09d4ce70-39eb-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":38,\"w\":24,\"h\":20,\"i\":\"24\"},\"id\":\"9e160bd0-39f0-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"24\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":24,\"y\":38,\"w\":24,\"h\":20,\"i\":\"25\"},\"id\":\"76a5a6e0-39f1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"25\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":8,\"w\":12,\"h\":12,\"i\":\"26\"},\"id\":\"7c5b5520-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"26\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":36,\"y\":8,\"w\":12,\"h\":12,\"i\":\"27\"},\"id\":\"f8f81eb0-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"27\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":12,\"y\":58,\"w\":12,\"h\":26,\"i\":\"28\"},\"id\":\"8180d050-39fe-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"28\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"gridData\":{\"x\":12,\"y\":8,\"w\":12,\"h\":12,\"i\":\"29\"},\"version\":\"6.6.0\",\"panelIndex\":\"29\",\"type\":\"visualization\",\"id\":\"248bffe0-4409-11e9-9c59-1778f6ff48b0\",\"embeddableConfig\":{}}]",
+      "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "now/M",
+      "timeFrom": "now/M",
+      "refreshInterval": {
+        "pause": true,
+        "value": 0
+      },
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  },
+  {
+    "_id": "9e160bd0-39f0-11e9-b81f-ed646b5e5a63",
+    "_type": "visualization",
+    "_source": {
+      "title": "[Termo Fiscalização] Programa, Objetivo e SubObjetivo",
+      "visState": "{\"title\":\"[Termo Fiscalização] Programa, Objetivo e SubObjetivo\",\"type\":\"pie\",\"params\":{\"addLegend\":true,\"addTooltip\":true,\"isDonut\":true,\"labels\":{\"last_level\":false,\"show\":false,\"truncate\":100,\"values\":true},\"legendPosition\":\"right\",\"type\":\"pie\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"termofiscalizacao_id\",\"customLabel\":\"Quantidade\"}},{\"id\":\"4\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"programa.keyword\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Programa\"}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"objetivo.keyword\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Objetivo\"}},{\"id\":\"3\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"subobjetivo.keyword\",\"size\":100,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":true,\"missingBucketLabel\":\"Não Informado\",\"customLabel\":\"SubObjetivo\"}}]}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"52b09710-3602-11e9-b81f-ed646b5e5a63\",\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+      }
+    },
+    "_meta": {
+      "savedObjectVersion": 2
+    }
+  }
+]
