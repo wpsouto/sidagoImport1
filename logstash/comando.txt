@@ -1,0 +1,13 @@
+scp carro.conf root@analyzer.agrodefesa.go.gov.br:/etc/logstash/conf.d
+senha: Ya2tdk8@
+
+last_run_metadata_path => "/etc/logstash/conf.d/.pessoa_last_run"
+
+sudo systemctl stop logstash.service
+
+-----PHP-----
+https://github.com/elastic/examples/tree/master/Search/recipe_search_php
+https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html
+
+
+scp carro.conf root@analyzer.agrodefesa.go.gov.br:/etc/logstash/conf.d

@@ -1,0 +1,54 @@
+POST /_xpack/sql/translate
+{
+  "query": "SELECT COUNT(*) FROM gta"
+}
+
+GET /_xpack/sql?format=txt
+{
+  "query": "SHOW FUNCTIONS"
+}
+
+GET /_xpack/sql?format=txt
+{
+  "query": "DESCRIBE gta"
+}
+
+GET /_xpack/sql?format=txt
+{
+  "query": """
+  SELECT  SCORE(),
+          id,
+         origem.propriedade.nomeFantasia AS origem,
+         destino.propriedade.nomeFantasia AS destino
+  FROM gta
+  WHERE QUERY('LAGOA')
+  ORDER BY SCORE() DESC
+"""
+}
+
+GET /_xpack/sql?format=txt
+{
+  "query": """
+  SELECT  SCORE(),
+          id,
+         origem.propriedade.nomeFantasia AS origem,
+         destino.propriedade.nomeFantasia AS destino
+  FROM gta
+  WHERE QUERY('TERR*')
+  ORDER BY SCORE() DESC
+"""
+}
+
+GET /_xpack/sql?format=txt
+{
+  "query": """
+  SELECT  SCORE(),
+          id,
+         origem.propriedade.nomeFantasia AS origem,
+         destino.propriedade.nomeFantasia AS destino
+  FROM gta
+  WHERE MATCH(origem.propriedade.nomeFantasia, 'LAGOA') OR
+        MATCH(destino.propriedade.nomeFantasia, 'MARIA')
+  ORDER BY SCORE() DESC
+"""
+}

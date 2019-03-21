@@ -33,4 +33,4 @@
 ## Responsaveis
 
 - Levantar e apresentar requisitos com Luiz Fernando (GTA)
-- Janilson (Fiscalização)
+- Janilson Azevedo (Fiscalização)

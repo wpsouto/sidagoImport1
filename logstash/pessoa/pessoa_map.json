@@ -1,0 +1,90 @@
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "email_analyzer": {
+                    "tokenizer": "email_analyzer_tokenizer"
+                }
+            },
+            "tokenizer": {
+                "email_analyzer_tokenizer": {
+                    "type": "uax_url_email"
+                }
+            }
+        }
+    },
+    "mappings": {
+        "doc": {
+            "properties": {
+                "documentos": {
+                    "properties": {
+                        "id": {
+                            "type": "long"
+                        },
+                        "numero": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "tipo": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        }
+                    }
+                },
+                "dt_atualizacao": {
+                    "type": "date"
+                },
+                "email": {
+                    "type": "text",
+                    "analyzer": "email_analyzer"
+                },
+                "fisica": {
+                    "type": "boolean"
+                },
+                "id": {
+                    "type": "long"
+                },
+                "nome": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "produtor": {
+                    "type": "boolean"
+                },
+                "sexo": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "tags": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

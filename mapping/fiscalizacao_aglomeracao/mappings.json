@@ -1,0 +1,111 @@
+/*PUT /fiscalizacao_aglomeracao*/
+{
+    "settings": {
+        "number_of_shards": 1
+    },
+    "mappings": {
+        "doc": {
+            "properties": {
+                "cancelada": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "classificacao": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                },
+                "fim": {
+                    "type": "date"
+                },
+                "fiscalizado": {
+                    "properties": {
+                        "ie": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "municipio": {
+                            "properties": {
+                                "localizacao": {
+                                    "type": "geo_point"
+                                },
+                                "nome": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                },
+                                "uf": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "nome": {
+                            "type": "text",
+                            "fields": {
+                                "keyword": {
+                                    "type": "keyword",
+                                    "ignore_above": 256
+                                }
+                            }
+                        },
+                        "regional": {
+                            "properties": {
+                                "nome": {
+                                    "type": "text",
+                                    "fields": {
+                                        "keyword": {
+                                            "type": "keyword",
+                                            "ignore_above": 256
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "id": {
+                    "type": "long"
+                },
+                "inicio": {
+                    "type": "date"
+                },
+                "numero": {
+                    "type": "long"
+                },
+                "vistoriado": {
+                    "type": "text",
+                    "fields": {
+                        "keyword": {
+                            "type": "keyword",
+                            "ignore_above": 256
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

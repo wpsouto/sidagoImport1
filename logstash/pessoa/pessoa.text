@@ -1,0 +1,372 @@
+GET _cat/indices?v
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SHOW TABLES"
+}
+
+POST /_xpack/sql/translate
+{
+  "query": "SELECT COUNT(*) FROM pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SELECT COUNT(*) FROM pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "DESC pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SHOW FUNCTIONS"
+}
+
+GET pessoa/doc/_search
+
+GET pessoa/doc/_search?q=Kennedy
+
+GET pessoa/_search
+{
+   "query": {
+    "query_string": {
+      "query": "Kennedy"
+    }
+  }
+}
+
+GET pessoa/doc/_search?q=nome:Kennedy
+
+POST /_xpack/sql/translate
+{
+  "query": "SELECT nome FROM pessoa where nome like 'Kennedy' limit 2"
+}
+
+GET pessoa/_search
+{
+  "from": 0,
+  "size": 2,
+  "query": {
+    "query_string": {
+      "query": "Kennedy",
+      "fields": ["nome"]
+    }
+  },
+  "sort": [
+      {
+        "id": {
+          "order": "asc"
+      }
+    }
+  ]
+}
+
+GET pessoa/_search
+{
+   "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "nome": "Kennedy"
+          }
+        },
+        {
+          "match": {
+            "documentos.tipo": "CNPJ"
+          }
+        }
+      ]
+    }
+  }
+}
+
+PUT pessoa
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "email_analyzer": {
+          "tokenizer": "email_analyzer_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "email_analyzer_tokenizer": {
+          "type": "uax_url_email"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "doc": {
+      "properties": {
+        "documentos": {
+          "properties": {
+            "id": {
+              "type": "long"
+            },
+            "numero": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "tipo": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "dt_atualizacao": {
+          "type": "date"
+        },
+        "email": {
+          "type": "text",
+          "analyzer" : "email_analyzer"
+        },
+        "fisica": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "long"
+        },
+        "nome": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "produtor": {
+          "type": "boolean"
+        },
+        "sexo": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "tags": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+GET /pessoa/_search
+{
+  "query": {
+    "match": {
+      "email": "kennedy.arantes@gmail.com"
+    }
+  }
+}
+GET _cat/indices?v
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SHOW TABLES"
+}
+
+POST /_xpack/sql/translate
+{
+  "query": "SELECT COUNT(*) FROM pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SELECT COUNT(*) FROM pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "DESC pessoa"
+}
+
+POST /_xpack/sql?format=txt
+{
+  "query": "SHOW FUNCTIONS"
+}
+
+GET pessoa/doc/_search
+
+GET pessoa/doc/_search?q=Kennedy
+
+GET pessoa/_search
+{
+   "query": {
+    "query_string": {
+      "query": "Kennedy"
+    }
+  }
+}
+
+GET pessoa/doc/_search?q=nome:Kennedy
+
+POST /_xpack/sql/translate
+{
+  "query": "SELECT nome FROM pessoa where nome like 'Kennedy' limit 2"
+}
+
+GET pessoa/_search
+{
+  "from": 0,
+  "size": 2,
+  "query": {
+    "query_string": {
+      "query": "Kennedy",
+      "fields": ["nome"]
+    }
+  },
+  "sort": [
+      {
+        "id": {
+          "order": "asc"
+      }
+    }
+  ]
+}
+
+GET pessoa/_search
+{
+   "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "nome": "Kennedy"
+          }
+        },
+        {
+          "match": {
+            "documentos.tipo": "CNPJ"
+          }
+        }
+      ]
+    }
+  }
+}
+
+PUT pessoa
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "email_analyzer": {
+          "tokenizer": "email_analyzer_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "email_analyzer_tokenizer": {
+          "type": "uax_url_email"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "doc": {
+      "properties": {
+        "documentos": {
+          "properties": {
+            "id": {
+              "type": "long"
+            },
+            "numero": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "tipo": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "dt_atualizacao": {
+          "type": "date"
+        },
+        "email": {
+          "type": "text",
+          "analyzer" : "email_analyzer"
+        },
+        "fisica": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "long"
+        },
+        "nome": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "produtor": {
+          "type": "boolean"
+        },
+        "sexo": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "tags": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+GET /pessoa/_search
+{
+  "query": {
+    "match": {
+      "email": "kennedy.arantes@gmail.com"
+    }
+  }
+}
