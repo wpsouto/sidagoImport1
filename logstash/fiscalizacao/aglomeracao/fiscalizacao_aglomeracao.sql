@@ -20,7 +20,7 @@ SELECT ac.id_aglomeracaociclo                          AS id,
         WHERE gt.id_destinovinculado = ac.id_aglomeracaociclo
           AND gt.tp_destino = 'aglomeracao'
           AND gta.bo_ativo = TRUE
-       )                                               AS animal_entrada,
+       )                                               AS animal_entrada_total,
 
        (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
         FROM gta.gta_destino AS gt
@@ -31,14 +31,47 @@ SELECT ac.id_aglomeracaociclo                          AS id,
           AND gt.tp_destino = 'aglomeracao'
           AND gta.bo_ativo = TRUE
           AND gta.bo_confirmada = TRUE
-       )                                               AS animal_confirmado,
+       )                                               AS animal_confirmado_total,
 
        (SELECT COALESCE(SUM(tro.nu_quantidade), 0)
         FROM fisc.termo_fiscalizacao AS tf
                     INNER JOIN fisc.termoobjetivo_fiscalizacao AS tro ON tf.id_termofiscalizacao = tro.id_termofiscalizacao
         WHERE ie.id_pessoa = tf.id_entidade
           and (tf.dt_criacaotermo BETWEEN ac.ts_inicio and ac.ts_fim)
-          and tf.bo_evento = true)                     AS animal_vistoriado,
+          and tf.bo_evento = true)                     AS animal_vistoriado_total,
+
+       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+        FROM gta.gta_destino AS gt
+                 INNER JOIN gta.gta AS gta ON gta.id_gta = gt.id_gta
+                 INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                 INNER JOIN dsa.estratificacao AS es ON gem.id_estratificacao = es.id
+        WHERE gt.id_destinovinculado = ac.id_aglomeracaociclo
+          AND gt.tp_destino = 'aglomeracao'
+          AND es.id_especie = 1
+          AND gta.bo_ativo = TRUE
+       )                                               AS animal_entrada_bovino,
+
+       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+        FROM gta.gta_destino AS gt
+                 INNER JOIN gta.gta AS gta ON gta.id_gta = gt.id_gta
+                 INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                 INNER JOIN dsa.estratificacao AS es ON gem.id_estratificacao = es.id
+        WHERE gt.id_destinovinculado = ac.id_aglomeracaociclo
+          AND gt.tp_destino = 'aglomeracao'
+          AND es.id_especie = 2
+          AND gta.bo_ativo = TRUE
+       )                                               AS animal_entrada_bubalino,
+
+       (SELECT COALESCE(SUM(gem.nu_quantidade), 0)
+        FROM gta.gta_destino AS gt
+                 INNER JOIN gta.gta AS gta ON gta.id_gta = gt.id_gta
+                 INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                 INNER JOIN dsa.estratificacao AS es ON gem.id_estratificacao = es.id
+        WHERE gt.id_destinovinculado = ac.id_aglomeracaociclo
+          AND gt.tp_destino = 'aglomeracao'
+          AND es.id_especie = 5
+          AND gta.bo_ativo = TRUE
+       )                                               AS animal_entrada_equino,
 
        ie.no_fantasia                                  AS fiscalizado_nome,
        ie.nu_inscricaoestadual                         AS fiscalizado_ie,
