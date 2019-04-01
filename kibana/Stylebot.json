@@ -1,1 +1,61 @@
-{"analyzer.agrodefesa.go.gov.br":{"_enabled":true,"_rules":{".kbnGlobalNav.kbnGlobalNav-isOpen + .app-wrapper":{"left":"0px "},".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(1)":{"display":"none"},".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(2)":{"display":"none"},".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(3)":{"display":"none"},".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(4)":{"display":"none"},"a.kuiLocalBreadcrumb__link":{"display":"none"},"nav.kbnGlobalNav":{"display":"none"}}}}
+{
+    "analyzer.agrodefesa.go.gov.br": {
+        "_enabled": true,
+        "_rules": {
+            ".euiCheckbox.euiCheckbox--inList.euiCheckbox--noLabel": {
+                "display": "none"
+            },
+            ".euiPage.homPage > .euiPageBody": {
+                "display": "none"
+            },
+            ".euiTableCellContent.euiTableCellContent--alignRight.euiTableCellContent--showOnHover.euiTableCellContent--overflowingContent": {
+                "display": "none"
+            },
+            ".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(2)": {
+                "display": "none"
+            },
+            ".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(3)": {
+                "display": "none"
+            },
+            ".kuiLocalNavRow__section > .kuiLocalMenu > .kuiLocalMenuItem:nth-of-type(4)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(1)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(10)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(11)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(12)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(2)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(4)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(5)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(6)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(7)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(8)": {
+                "display": "none"
+            },
+            "div.kbnGlobalNav__linksSection:nth-child(1) > app-switcher:nth-child(1) > div:nth-child(9)": {
+                "display": "none"
+            },
+            "html body#kibana-app.coreSystemRootDomElement div#kibana-body div.content div.app-wrapper div.app-wrapper-panel div.application.tab-dashboards dashboard-listing div.euiPage.euiPage--restrictWidth-default.dshDashboardListing__page div.euiPageBody div.euiPanel.euiPanel--paddingLarge.euiPageContent.euiPageContent--horizontalCenter div div.euiFlexGroup.euiFlexGroup--gutterLarge.euiFlexGroup--alignItemsFlexEnd.euiFlexGroup--justifyContentSpaceBetween.euiFlexGroup--directionRow.euiFlexGroup--responsive div.euiFlexItem.euiFlexItem--flexGrowZero": {
+                "display": "none"
+            }
+        }
+    }
+}

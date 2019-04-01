@@ -17,23 +17,6 @@
         }
     },
     {
-        "_id": "215086a0-36a5-11e9-b81f-ed646b5e5a63",
-        "_type": "visualization",
-        "_source": {
-            "title": "[Termo Fiscalização] Instruções",
-            "visState": "{\"title\":\"[Termo Fiscalização] Instruções\",\"type\":\"markdown\",\"params\":{\"fontSize\":12,\"openLinksInNewTab\":true,\"markdown\":\"### Termo de Fiscalização\\nEste painel contém dados dos Termos de Fiscalização do Sistema [SIDAGO](http://www.sidago.go.gov.br). \\n\\nVocê pode visualizá-lo, pesquisá-lo e interagir com as visualizações. Para mais informações, consulte o departamento de informatica.\"},\"aggs\":[]}",
-            "uiStateJSON": "{}",
-            "description": "",
-            "version": 1,
-            "kibanaSavedObjectMeta": {
-                "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
-            }
-        },
-        "_meta": {
-            "savedObjectVersion": 2
-        }
-    },
-    {
         "_id": "8d092000-36a5-11e9-b81f-ed646b5e5a63",
         "_type": "visualization",
         "_source": {
@@ -305,31 +288,6 @@
         }
     },
     {
-        "_id": "2a346340-360a-11e9-b81f-ed646b5e5a63",
-        "_type": "dashboard",
-        "_source": {
-            "title": "[Termo Fiscalização] Dashboard Gerencial",
-            "hits": 0,
-            "description": "",
-            "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":24,\"y\":26,\"w\":24,\"h\":12,\"i\":\"1\"},\"id\":\"df3886a0-3609-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":117,\"w\":48,\"h\":19,\"i\":\"3\"},\"id\":\"aa78acd0-3611-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"3\",\"type\":\"search\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":19,\"h\":8,\"i\":\"4\"},\"id\":\"215086a0-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":8,\"w\":12,\"h\":12,\"i\":\"5\"},\"id\":\"8d092000-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Emissores\":\"#447EBC\",\"Estabelecimentos\":\"#0A437C\",\"Fiscalizados\":\"#447EBC\",\"Termo Fiscalização\":\"#70DBED\"},\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":105,\"w\":48,\"h\":12,\"i\":\"9\"},\"id\":\"d6aab970-36c9-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.961329081596647,-49.54284667968751],\"mapZoom\":7},\"gridData\":{\"x\":24,\"y\":58,\"w\":24,\"h\":26,\"i\":\"10\"},\"id\":\"b9b9a250-36d7-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Quantidade\":\"#447EBC\"},\"legendOpen\":false}},\"gridData\":{\"x\":19,\"y\":0,\"w\":15,\"h\":8,\"i\":\"11\"},\"id\":\"c19f8790-3908-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":34,\"y\":0,\"w\":14,\"h\":8,\"i\":\"12\"},\"id\":\"0452aef0-39cc-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":84,\"w\":24,\"h\":21,\"i\":\"18\"},\"id\":\"4ad513e0-3607-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"18\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":58,\"w\":12,\"h\":26,\"i\":\"20\"},\"id\":\"2fd929a0-39d1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"20\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":84,\"w\":24,\"h\":21,\"i\":\"21\"},\"id\":\"91ea39c0-39d3-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"21\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":26,\"w\":24,\"h\":12,\"i\":\"22\"},\"id\":\"2a12c5a0-39e8-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":20,\"w\":48,\"h\":6,\"i\":\"23\"},\"id\":\"09d4ce70-39eb-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":38,\"w\":24,\"h\":20,\"i\":\"24\"},\"id\":\"9e160bd0-39f0-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"24\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":24,\"y\":38,\"w\":24,\"h\":20,\"i\":\"25\"},\"id\":\"76a5a6e0-39f1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"25\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":24,\"y\":8,\"w\":12,\"h\":12,\"i\":\"26\"},\"id\":\"7c5b5520-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"26\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":36,\"y\":8,\"w\":12,\"h\":12,\"i\":\"27\"},\"id\":\"f8f81eb0-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"27\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":12,\"y\":58,\"w\":12,\"h\":26,\"i\":\"28\"},\"id\":\"8180d050-39fe-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"28\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"gridData\":{\"x\":12,\"y\":8,\"w\":12,\"h\":12,\"i\":\"29\"},\"version\":\"6.6.0\",\"panelIndex\":\"29\",\"type\":\"visualization\",\"id\":\"248bffe0-4409-11e9-9c59-1778f6ff48b0\",\"embeddableConfig\":{}}]",
-            "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
-            "version": 1,
-            "timeRestore": true,
-            "timeTo": "now/M",
-            "timeFrom": "now/M",
-            "refreshInterval": {
-                "pause": true,
-                "value": 0
-            },
-            "kibanaSavedObjectMeta": {
-                "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
-            }
-        },
-        "_meta": {
-            "savedObjectVersion": 2
-        }
-    },
-    {
         "_id": "9e160bd0-39f0-11e9-b81f-ed646b5e5a63",
         "_type": "visualization",
         "_source": {
@@ -357,23 +315,6 @@
             "version": 1,
             "kibanaSavedObjectMeta": {
                 "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
-            }
-        },
-        "_meta": {
-            "savedObjectVersion": 2
-        }
-    },
-    {
-        "_id": "b05eb3b0-4746-11e9-9c59-1778f6ff48b0",
-        "_type": "visualization",
-        "_source": {
-            "title": "[Fiscalização Aglomeração] Vistoriado",
-            "visState": "{\"title\":\"[Fiscalização Aglomeração] Vistoriado\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"vistoriado.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Vistoriado\"}}]}",
-            "uiStateJSON": "{}",
-            "description": "",
-            "version": 1,
-            "kibanaSavedObjectMeta": {
-                "searchSourceJSON": "{\"index\":\"5bc79390-472c-11e9-9c59-1778f6ff48b0\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
             }
         },
         "_meta": {
@@ -678,13 +619,72 @@
         }
     },
     {
+        "_id": "b05eb3b0-4746-11e9-9c59-1778f6ff48b0",
+        "_type": "visualization",
+        "_source": {
+            "title": "[Fiscalização Aglomeração] Gráfico Ciclos Vistoriado",
+            "visState": "{\"title\":\"[Fiscalização Aglomeração] Gráfico Ciclos Vistoriado\",\"type\":\"pie\",\"params\":{\"type\":\"pie\",\"addTooltip\":true,\"addLegend\":true,\"legendPosition\":\"right\",\"isDonut\":false,\"labels\":{\"show\":true,\"values\":true,\"last_level\":true,\"truncate\":100}},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"enabled\":true,\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"vistoriado.keyword\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"otherBucket\":false,\"otherBucketLabel\":\"Other\",\"missingBucket\":false,\"missingBucketLabel\":\"Missing\",\"customLabel\":\"Vistoriado\"}}]}",
+            "uiStateJSON": "{}",
+            "description": "",
+            "version": 1,
+            "kibanaSavedObjectMeta": {
+                "searchSourceJSON": "{\"index\":\"5bc79390-472c-11e9-9c59-1778f6ff48b0\",\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"
+            }
+        },
+        "_meta": {
+            "savedObjectVersion": 2
+        }
+    },
+    {
+        "_id": "215086a0-36a5-11e9-b81f-ed646b5e5a63",
+        "_type": "visualization",
+        "_source": {
+            "title": "[Termo Fiscalização] Instruções",
+            "visState": "{\"title\":\"[Termo Fiscalização] Instruções\",\"type\":\"markdown\",\"params\":{\"fontSize\":12,\"openLinksInNewTab\":true,\"markdown\":\"### Termo de Fiscalização\\nEste painel contém dados dos Termos de Fiscalização do Sistema [SIDAGO](http://www.sidago.go.gov.br). As informações estão sendo atualizadas a cada 10 minutos\\n\\nVocê pode visualizá-lo, pesquisá-lo e interagir com as visualizações. Para mais informações, consulte o departamento de informatica.\"},\"aggs\":[]}",
+            "uiStateJSON": "{}",
+            "description": "",
+            "version": 1,
+            "kibanaSavedObjectMeta": {
+                "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+            }
+        },
+        "_meta": {
+            "savedObjectVersion": 2
+        }
+    },
+    {
+        "_id": "2a346340-360a-11e9-b81f-ed646b5e5a63",
+        "_type": "dashboard",
+        "_source": {
+            "title": "Termos de Fiscalização",
+            "hits": 0,
+            "description": "",
+            "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":12,\"i\":\"1\",\"w\":24,\"x\":24,\"y\":26},\"id\":\"df3886a0-3609-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":19,\"i\":\"3\",\"w\":48,\"x\":0,\"y\":117},\"id\":\"aa78acd0-3611-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"3\",\"type\":\"search\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":8,\"i\":\"4\",\"w\":19,\"x\":0,\"y\":0},\"id\":\"215086a0-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"4\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":12,\"i\":\"5\",\"w\":12,\"x\":0,\"y\":8},\"id\":\"8d092000-36a5-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Emissores\":\"#447EBC\",\"Estabelecimentos\":\"#0A437C\",\"Fiscalizados\":\"#447EBC\",\"Termo Fiscalização\":\"#70DBED\"},\"legendOpen\":false}},\"gridData\":{\"h\":12,\"i\":\"9\",\"w\":48,\"x\":0,\"y\":105},\"id\":\"d6aab970-36c9-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.961329081596647,-49.54284667968751],\"mapZoom\":7},\"gridData\":{\"h\":26,\"i\":\"10\",\"w\":24,\"x\":24,\"y\":58},\"id\":\"b9b9a250-36d7-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Quantidade\":\"#447EBC\"},\"legendOpen\":false}},\"gridData\":{\"h\":8,\"i\":\"11\",\"w\":15,\"x\":19,\"y\":0},\"id\":\"c19f8790-3908-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":8,\"i\":\"12\",\"w\":14,\"x\":34,\"y\":0},\"id\":\"0452aef0-39cc-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":21,\"i\":\"18\",\"w\":24,\"x\":0,\"y\":84},\"id\":\"4ad513e0-3607-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"18\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":26,\"i\":\"20\",\"w\":12,\"x\":0,\"y\":58},\"id\":\"2fd929a0-39d1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"20\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":21,\"i\":\"21\",\"w\":24,\"x\":24,\"y\":84},\"id\":\"91ea39c0-39d3-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"21\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":12,\"i\":\"22\",\"w\":24,\"x\":0,\"y\":26},\"id\":\"2a12c5a0-39e8-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"22\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":6,\"i\":\"23\",\"w\":48,\"x\":0,\"y\":20},\"id\":\"09d4ce70-39eb-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"23\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":20,\"i\":\"24\",\"w\":24,\"x\":0,\"y\":38},\"id\":\"9e160bd0-39f0-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"24\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":20,\"i\":\"25\",\"w\":24,\"x\":24,\"y\":38},\"id\":\"76a5a6e0-39f1-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"25\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":12,\"i\":\"26\",\"w\":12,\"x\":24,\"y\":8},\"id\":\"7c5b5520-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"26\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":12,\"i\":\"27\",\"w\":12,\"x\":36,\"y\":8},\"id\":\"f8f81eb0-39f2-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"27\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":26,\"i\":\"28\",\"w\":12,\"x\":12,\"y\":58},\"id\":\"8180d050-39fe-11e9-b81f-ed646b5e5a63\",\"panelIndex\":\"28\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":12,\"i\":\"29\",\"w\":12,\"x\":12,\"y\":8},\"id\":\"248bffe0-4409-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"29\",\"type\":\"visualization\",\"version\":\"6.6.0\"}]",
+            "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
+            "version": 1,
+            "timeRestore": true,
+            "timeTo": "now/M",
+            "timeFrom": "now/M",
+            "refreshInterval": {
+                "pause": true,
+                "value": 0
+            },
+            "kibanaSavedObjectMeta": {
+                "searchSourceJSON": "{\"query\":{\"language\":\"kuery\",\"query\":\"\"},\"filter\":[]}"
+            }
+        },
+        "_meta": {
+            "savedObjectVersion": 2
+        }
+    },
+    {
         "_id": "ecab6790-4751-11e9-9c59-1778f6ff48b0",
         "_type": "dashboard",
         "_source": {
-            "title": "[Fiscalização Aglomeração] Gerencial",
+            "title": "Fiscalização de Aglomeração (Eventos)",
             "hits": 0,
             "description": "",
-            "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"x\":0,\"y\":15,\"w\":20,\"h\":17,\"i\":\"1\"},\"id\":\"b05eb3b0-4746-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":2,\"direction\":\"desc\"}}}},\"gridData\":{\"x\":0,\"y\":82,\"w\":24,\"h\":26,\"i\":\"2\"},\"id\":\"10662da0-4748-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":39,\"w\":48,\"h\":11,\"i\":\"3\"},\"id\":\"a7f5de40-4743-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":108,\"w\":48,\"h\":23,\"i\":\"4\"},\"id\":\"0307b6e0-474a-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"4\",\"type\":\"search\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":38,\"y\":8,\"w\":10,\"h\":7,\"i\":\"5\"},\"id\":\"c496a0c0-475c-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":2,\"direction\":\"desc\"}}}},\"gridData\":{\"x\":0,\"y\":61,\"w\":24,\"h\":21,\"i\":\"8\"},\"id\":\"b2e40cc0-49bc-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":0,\"w\":48,\"h\":8,\"i\":\"9\"},\"id\":\"95a58f60-49be-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Ciclos\":\"#447EBC\",\"Quantidade\":\"#447EBC\"},\"legendOpen\":false}},\"gridData\":{\"x\":20,\"y\":15,\"w\":28,\"h\":17,\"i\":\"10\"},\"id\":\"ca717180-4a42-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":8,\"w\":38,\"h\":7,\"i\":\"11\"},\"id\":\"70609480-4a44-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":32,\"w\":17,\"h\":7,\"i\":\"12\"},\"id\":\"8f119b60-4a47-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":17,\"y\":32,\"w\":16,\"h\":7,\"i\":\"13\"},\"id\":\"b9bb7a50-4c10-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"13\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":0,\"y\":50,\"w\":48,\"h\":11,\"i\":\"14\"},\"id\":\"aea3e650-4c12-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"14\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.722697303944955,-49.68175748194998],\"mapZoom\":7},\"gridData\":{\"x\":24,\"y\":82,\"w\":24,\"h\":26,\"i\":\"15\"},\"id\":\"983301b0-4cd7-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"15\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":3,\"direction\":\"desc\"}}}},\"gridData\":{\"x\":24,\"y\":61,\"w\":24,\"h\":21,\"i\":\"16\"},\"id\":\"8d5876b0-4cd9-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"16\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"x\":33,\"y\":32,\"w\":15,\"h\":7,\"i\":\"17\"},\"id\":\"23479880-4f0b-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"17\",\"type\":\"visualization\",\"version\":\"6.6.0\"}]",
+            "panelsJSON": "[{\"embeddableConfig\":{\"vis\":{\"legendOpen\":false}},\"gridData\":{\"h\":17,\"i\":\"1\",\"w\":20,\"x\":0,\"y\":15},\"id\":\"b05eb3b0-4746-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"1\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":2,\"direction\":\"desc\"}}}},\"gridData\":{\"h\":26,\"i\":\"2\",\"w\":24,\"x\":0,\"y\":82},\"id\":\"10662da0-4748-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"2\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":11,\"i\":\"3\",\"w\":48,\"x\":0,\"y\":39},\"id\":\"a7f5de40-4743-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"3\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":23,\"i\":\"4\",\"w\":48,\"x\":0,\"y\":108},\"id\":\"0307b6e0-474a-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"4\",\"type\":\"search\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":7,\"i\":\"5\",\"w\":10,\"x\":38,\"y\":8},\"id\":\"c496a0c0-475c-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"5\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":2,\"direction\":\"desc\"}}}},\"gridData\":{\"h\":21,\"i\":\"8\",\"w\":24,\"x\":0,\"y\":61},\"id\":\"b2e40cc0-49bc-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"8\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":8,\"i\":\"9\",\"w\":48,\"x\":0,\"y\":0},\"id\":\"95a58f60-49be-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"9\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"colors\":{\"Ciclos\":\"#447EBC\",\"Quantidade\":\"#447EBC\"},\"legendOpen\":false}},\"gridData\":{\"h\":17,\"i\":\"10\",\"w\":28,\"x\":20,\"y\":15},\"id\":\"ca717180-4a42-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"10\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":7,\"i\":\"11\",\"w\":38,\"x\":0,\"y\":8},\"id\":\"70609480-4a44-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"11\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":7,\"i\":\"12\",\"w\":17,\"x\":0,\"y\":32},\"id\":\"8f119b60-4a47-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"12\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":7,\"i\":\"13\",\"w\":16,\"x\":17,\"y\":32},\"id\":\"b9bb7a50-4c10-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"13\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":11,\"i\":\"14\",\"w\":48,\"x\":0,\"y\":50},\"id\":\"aea3e650-4c12-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"14\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"mapCenter\":[-15.722697303944955,-49.68175748194998],\"mapZoom\":7},\"gridData\":{\"h\":26,\"i\":\"15\",\"w\":24,\"x\":24,\"y\":82},\"id\":\"983301b0-4cd7-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"15\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":3,\"direction\":\"desc\"}}}},\"gridData\":{\"h\":21,\"i\":\"16\",\"w\":24,\"x\":24,\"y\":61},\"id\":\"8d5876b0-4cd9-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"16\",\"type\":\"visualization\",\"version\":\"6.6.0\"},{\"embeddableConfig\":{},\"gridData\":{\"h\":7,\"i\":\"17\",\"w\":15,\"x\":33,\"y\":32},\"id\":\"23479880-4f0b-11e9-9c59-1778f6ff48b0\",\"panelIndex\":\"17\",\"type\":\"visualization\",\"version\":\"6.6.0\"}]",
             "optionsJSON": "{\"darkTheme\":false,\"hidePanelTitles\":false,\"useMargins\":true}",
             "version": 1,
             "timeRestore": true,

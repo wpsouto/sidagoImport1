@@ -2,7 +2,7 @@ SELECT ac.id_aglomeracaociclo                          AS id,
        ac.nu_evento                                    AS numero,
        ac.ts_inicio                                    AS inicio,
        ac.ts_fim                                       AS fim,
-       ac.ts_cadastro                                  AS ts_alteracao,
+       ac.ts_cadastro                                  AS cadastro,
        c.ds_classificacao                              AS classificacao,
        case when ac.bo_ativo then 'Não' else 'Sim' end AS cancelada,
 
@@ -73,6 +73,7 @@ SELECT ac.id_aglomeracaociclo                          AS id,
           AND gta.bo_ativo = TRUE
        )                                               AS animal_entrada_equino,
 
+       ie.id_inscricaoestadual                         AS fiscalizado_id,
        ie.no_fantasia                                  AS fiscalizado_nome,
        ie.nu_inscricaoestadual                         AS fiscalizado_ie,
        ll.loc_no                                       AS fiscalizado_municipio_nome,
@@ -90,5 +91,5 @@ FROM agrocomum.inscricaoestadual AS ie
        INNER JOIN rh.lotacao AS l
                   ON l.id_localidade = ac.id_localidade and l.bo_ativo = true and l.bo_organograma = true and id_lotacaotipo = 3
        INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai
-WHERE ac.ts_cadastro::date > :sql_last_value
+WHERE ac.ts_cadastro::date >= current_date - interval '2 month'
 ORDER BY ac.id_aglomeracaociclo
