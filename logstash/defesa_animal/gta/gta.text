@@ -52,3 +52,18 @@ GET /_xpack/sql?format=txt
   ORDER BY SCORE() DESC
 """
 }
+
+POST gta/_update_by_query
+{
+  "script": {
+    "source": "ctx._source.destino.municipio.nome = 'São João d`Aliança'",
+    "lang": "painless"
+  },
+  "query": {
+    "term": {
+      "destino.municipio.nome.keyword": {
+        "value": "São João d'Aliança"
+      }
+    }
+  }
+}

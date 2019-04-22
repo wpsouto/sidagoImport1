@@ -1,0 +1,15 @@
+/*PUT /fiscalizacao_transito*/
+{
+    "settings": {
+        "number_of_shards": 1
+    },
+    "mappings" : {
+        "doc" : {
+            "properties" : {
+                "local" : {
+                    "type" : "geo_point"
+                }
+            }
+        }
+    }
+}

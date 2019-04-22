@@ -1,0 +1,50 @@
+//PUT _template/fiscalizacao_transito
+{
+    "index_patterns": [
+        "fiscalizacao_transito*"
+    ],
+    "mappings": {
+        "properties": {
+            "fiscalizacao": {
+                "properties": {
+                    "localizacao": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    },
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "origem": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "destino": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

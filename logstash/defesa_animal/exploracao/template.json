@@ -1,0 +1,23 @@
+//PUT _template/exploracao_animal
+{
+    "index_patterns": [
+        "exploracao_animal*"
+    ],
+    "mappings": {
+        "doc": {
+            "properties": {
+                "propriedade": {
+                    "properties": {
+                        "municipio": {
+                            "properties": {
+                                "localizacao": {
+                                    "type": "geo_point"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
