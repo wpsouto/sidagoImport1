@@ -1,0 +1,32 @@
+//PUT _template/confirmacao_abate
+{
+    "index_patterns": [
+        "confirmacao_abate*"
+    ],
+    "mappings": {
+        "properties": {
+            "origem": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "destino": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
