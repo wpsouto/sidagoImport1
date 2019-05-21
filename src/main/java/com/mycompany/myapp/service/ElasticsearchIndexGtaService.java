@@ -62,7 +62,7 @@ public class ElasticsearchIndexGtaService {
 
         if (!elasticsearchTemplate.indexExists(GtaDTO.class)) {
             elasticsearchTemplate.createIndex(GtaDTO.class);
-            elasticsearchTemplate.putMapping(GtaDTO.class);
+            //elasticsearchTemplate.putMapping(GtaDTO.class);
         }
 
         int size = 300000;

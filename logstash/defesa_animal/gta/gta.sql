@@ -1,10 +1,11 @@
-SELECT gt.id_gta                            AS id,
+SELECT gt.id_gta                                   AS id,
        CAST(gt.nu_gta AS integer)                  AS numero,
        gt.nu_serie                                 AS serie,
        gt.ts_emissao                               AS emissao,
        trim(dados->>'id_boleto')                   AS dare,
        CAST(dados->>'vl_gta' AS numeric)           AS valor,
-       case when gt.bo_ativo = TRUE then 'Não' else 'Sim' end as cancelada,
+       case when gt.bo_ativo = TRUE then 'Não' else 'Sim' end        AS cancelada,
+       case when reg.bo_organograma = TRUE then 'Sim' else 'Não' end AS organograma,
        gt.ts_alteracao                             AS ts_alteracao,
 
        f.id_finalidade                             AS finalidade_id,

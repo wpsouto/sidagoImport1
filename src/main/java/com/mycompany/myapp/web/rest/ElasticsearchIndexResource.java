@@ -44,7 +44,6 @@ public class ElasticsearchIndexResource {
     /**
      * POST  /elasticsearch/index -> Reindex all Elasticsearch documents
      */
-/*
     @PostMapping("/elasticsearch/gta")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
@@ -55,8 +54,8 @@ public class ElasticsearchIndexResource {
             .headers(HeaderUtil.createAlert("elasticsearch.reindex.accepted", null))
             .build();
     }
-*/
 
+/*
     @PostMapping("/elasticsearch/termoFiscalizacao")
     @Timed
     @Secured(AuthoritiesConstants.ADMIN)
@@ -67,6 +66,7 @@ public class ElasticsearchIndexResource {
             .headers(HeaderUtil.createAlert("elasticsearch.reindex.accepted", null))
             .build();
     }
+*/
 
 /*
     */

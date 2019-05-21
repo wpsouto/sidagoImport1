@@ -15,7 +15,8 @@ SELECT it.id                                                               AS id
 
        (SELECT COUNT(tf.id_termofiscalizacao)
         FROM fisc.termo_fiscalizacao AS tf
-        WHERE tf.id_transito = t.id)                                       AS termo_fiscalizacao_quantidade,
+        WHERE tf.id_transito = t.id
+          AND tf.ativo = TRUE)                                             AS termo_fiscalizacao_quantidade,
 
        case when t.ativo then 'Não' else 'Sim' end                         AS cancelada,
 

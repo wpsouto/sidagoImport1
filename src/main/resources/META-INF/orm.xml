@@ -14,6 +14,7 @@
             trim(dados->>'id_boleto')                   AS dare,
             CAST(dados->>'vl_gta' AS numeric)           AS valor,
             case when gt.bo_ativo = TRUE then 'Não' else 'Sim' end as cancelada,
+            case when reg.bo_organograma = TRUE then 'Sim' else 'Não' end AS organograma,
 
             f.id_finalidade                             AS finalidade_id,
             f.no_finalidade                             AS finalidade_nome,
@@ -81,7 +82,6 @@
             INNER JOIN gta.gta_destino AS gtd ON gt.id_gta = gtd.id_gta
             INNER JOIN dne.log_localidade AS lo ON gto.id_municipio = lo.loc_nu
             INNER JOIN dne.log_localidade AS ld ON gtd.id_municipio = ld.loc_nu
-            WHERE gt.id_gta > 6300012
             ORDER BY gt.id_gta ASC
         </query>
     </named-native-query>
@@ -173,6 +173,7 @@
             <column name="dare"/>
             <column name="valor"/>
             <column name="cancelada"/>
+            <column name="organograma"/>
             <column name="finalidade_id"/>
             <column name="finalidade_nome"/>
             <column name="especie_id"/>

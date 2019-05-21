@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Date;
 
-@Document(indexName = "gta", type = "doc")
+@Document(indexName = "gta")
 public class GtaDTO {
 
     private Integer id;
@@ -24,6 +24,8 @@ public class GtaDTO {
     private BigDecimal valor;
 
     private String cancelada;
+
+    private String organograma;
 
     private Finalidade finalidade;
 
@@ -43,7 +45,7 @@ public class GtaDTO {
         // Empty constructor needed for Jackson.
     }
 
-    public GtaDTO(Integer id, Integer numero, String serie, Date emissao, String dare, BigDecimal valor, String cancelada,
+    public GtaDTO(Integer id, Integer numero, String serie, Date emissao, String dare, BigDecimal valor, String cancelada, String organograma,
                   Integer finalidade_id, String finalidade_nome,
                   Integer especie_id, String especie_nome,
                   String transporte_nome,
@@ -69,6 +71,7 @@ public class GtaDTO {
         this.dare = dare;
         this.valor = valor;
         this.cancelada = cancelada;
+        this.organograma = organograma;
 
         this.finalidade = new Finalidade();
         this.finalidade.setId(finalidade_id);
@@ -188,6 +191,14 @@ public class GtaDTO {
 
     public void setCancelada(String cancelada) {
         this.cancelada = cancelada;
+    }
+
+    public String getOrganograma() {
+        return organograma;
+    }
+
+    public void setOrganograma(String organograma) {
+        this.organograma = organograma;
     }
 
     public Finalidade getFinalidade() {

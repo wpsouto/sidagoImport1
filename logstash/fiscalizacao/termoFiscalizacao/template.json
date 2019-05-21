@@ -1,11 +1,11 @@
-//PUT _template/exploracao_animal
+//PUT _template/termo_fiscalizacao
 {
     "index_patterns": [
-        "exploracao_animal*"
+        "termo_fiscalizacao*"
     ],
     "mappings": {
         "properties": {
-            "propriedade": {
+            "fiscalizado": {
                 "properties": {
                     "municipio": {
                         "properties": {

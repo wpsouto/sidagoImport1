@@ -1,11 +1,22 @@
-//PUT _template/exploracao_animal
+//PUT _template/gta
 {
     "index_patterns": [
-        "exploracao_animal*"
+        "gta*"
     ],
     "mappings": {
         "properties": {
-            "propriedade": {
+            "origem": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "localizacao": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "destino": {
                 "properties": {
                     "municipio": {
                         "properties": {

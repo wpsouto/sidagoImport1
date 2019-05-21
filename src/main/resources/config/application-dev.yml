@@ -59,7 +59,9 @@ spring:
     data:
         jest:
 
-            uri: http://analyzer.agrodefesa.go.gov.br:9200
+            uri: http://elastic2.agrodefesa.go.gov.br:9200
+            username: elastic
+            password: mito2019
             read-timeout: 300000
         #        elasticsearch:
         #            cluster-nodes: analyzer.agrodefesa.go.gov.br:9200
