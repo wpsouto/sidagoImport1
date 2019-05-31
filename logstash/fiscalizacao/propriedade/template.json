@@ -1,0 +1,28 @@
+//PUT _template/fiscalizacao_propriedade
+{
+    "index_patterns": [
+        "fiscalizacao_propriedade*"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade": {
+                "properties": {
+                    "localizacao": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    },
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
