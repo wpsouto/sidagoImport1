@@ -1,0 +1,27 @@
+GET _cat/indices?v
+
+GET _cat/health?v
+
+GET _nodes/stats?pretty
+
+GET _nodes/stats/breaker
+
+GET _cluster/settings
+
+GET /_cluster/settings?include_defaults=true
+
+GET _template/fiscalizacao_propriedade
+
+PUT /_cluster/settings
+{
+    "transient" : {
+        "search.max_buckets" : null
+    }
+}
+
+PUT /_cluster/settings
+{
+    "persistent" : {
+        "search.max_buckets" : null
+    }
+}
