@@ -1,0 +1,32 @@
+//PUT _template/atv_ptv
+{
+    "index_patterns": [
+        "atv_ptv*"
+    ],
+    "mappings": {
+        "properties": {
+            "origem": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "destino": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
