@@ -25,3 +25,74 @@ PUT /_cluster/settings
         "search.max_buckets" : null
     }
 }
+
+GET fiscalizacao_propriedade/_search
+{
+
+  "sort": [
+    {
+      "_geo_distance": {
+        "propriedade.municipio.gps": {
+          "lat": -17.636346,
+          "lon": -47.776815
+        },
+        "order":         "asc",
+        "unit":          "km",
+        "distance_type": "plane"
+      }
+    }
+    ]
+}
+
+GET fiscalizacao_propriedade/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_distance": {
+          "distance": "1km",
+          "propriedade.municipio.gps": {
+            "lat": -17.636346,
+            "lon": -47.776815
+          }
+        }
+      }
+    }
+  }
+}
+
+
+GET fiscalizacao_propriedade/_search
+{
+  "sort": [
+    {
+      "_geo_distance": {
+        "propriedade.municipio.gps": {
+          "lat": -17.636346,
+          "lon": -47.776815
+        },
+        "order": "asc",
+        "unit": "km"
+      }
+    }
+  ],
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_distance": {
+          "distance": "1km",
+          "propriedade.municipio.gps": {
+            "lat": -17.63634,
+            "lon": -47.776815
+          }
+        }
+      }
+    }
+  }
+}

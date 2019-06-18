@@ -14,3 +14,6 @@ scp carro.conf root@analyzer.agrodefesa.go.gov.br:/etc/logstash/conf.d
 
 mkdir fiscalizacao
 chmod 775 fiscalizacao
+
+chgrp logstash .atv_ptv_last_run
+chown logstash .atv_ptv_last_run

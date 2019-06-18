@@ -2,19 +2,20 @@ SELECT pg.id_produto_gtv                               AS id,
        case when ce.bo_ativo then 'Não' else 'Sim' end AS cancelada,
        gt.dt_emissao                                   AS emissao,
        COALESCE(gt.vl_total, 0)                        AS valor,
+       ce.ts_alteracao                                 AS ts_alteracao,
 
        CASE
            WHEN ce.id_situacao = '1' THEN 'Aguardando Homologação'
            WHEN ce.id_situacao = '2' THEN 'Homologado'
            WHEN ce.id_situacao = '3' THEN 'Indeferido'
            ELSE 'Não Informado'
-           END                                           AS situação,
+           END                                         AS situação,
 
        CASE
            WHEN gt.tp_transitotipo = '1' THEN 'ATV'
            WHEN gt.tp_transitotipo = '2' THEN 'PTV'
            ELSE 'PTV Exportação'
-           END                                           AS transito_tipo,
+           END                                         AS transito_tipo,
 
        gt.id_certificado                               AS certificado_id,
        gt.nu_gtv                                       AS certificado_numero,
@@ -30,7 +31,7 @@ SELECT pg.id_produto_gtv                               AS id,
            WHEN gt.tp_certificado = '9' THEN 'Nota Fiscal'
            WHEN gt.tp_certificado = '10' THEN 'Autorização Mudas'
            ELSE 'Não Informado'
-           END                                           AS certificado_tipo,
+           END                                         AS certificado_tipo,
 
        UPPER(ph.nome)                                  AS homologador_nome,
        dh.numero                                       AS homologador_documento,
@@ -111,8 +112,7 @@ FROM gtv.gtv AS gt
                               INNER JOIN gtv.produto_gtv AS pg ON pg.id_certificado = gt.id_certificado
                      GROUP BY gt.id_certificado) AS produtos ON produtos.id = gt.id_certificado
 
---WHERE gt.dt_emissao::date >= current_date - interval '7 month'
+WHERE ce.ts_alteracao > :sql_last_value
 ORDER BY pg.id_produto_gtv
-
 
 
