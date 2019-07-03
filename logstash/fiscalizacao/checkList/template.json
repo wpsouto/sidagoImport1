@@ -1,0 +1,21 @@
+//PUT _template/check_list
+{
+    "index_patterns": [
+        "check_list*"
+    ],
+    "mappings": {
+        "properties": {
+            "fiscalizado": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "localizacao": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
