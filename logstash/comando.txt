@@ -19,3 +19,6 @@ cp /etc/logstash/conf.d/.gta_last_run .check_list_itens_last_run
 
 chgrp logstash .atv_ptv_last_run
 chown logstash .atv_ptv_last_run
+
+sudo chmod a+rw .check_list_itens_last_run
+sudo chmod 666 .check_list_itens_last_run

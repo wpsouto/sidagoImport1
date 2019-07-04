@@ -31,10 +31,10 @@ SELECT tro.id_termoobjetivo                            AS id,
 
        CASE
            WHEN tf.bo_propriedade THEN 'Propriedade'
-           WHEN tf.bo_empresa THEN 'Estabelecimento Comercial'
-           WHEN tf.bo_industria THEN 'Estabelecimento Industrial'
+           WHEN tf.bo_empresa THEN 'Empresa'
+           WHEN tf.bo_industria THEN 'Industria'
            WHEN tf.bo_transito THEN 'Trânsito'
-           WHEN tf.bo_evento THEN 'Evento Agropecuário'
+           WHEN tf.bo_evento THEN 'Evento'
            ELSE
                CASE
                    WHEN tf.no_entidade = 'pessoa' THEN 'Pessoa Física'
