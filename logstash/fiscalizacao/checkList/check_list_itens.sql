@@ -26,6 +26,8 @@ SELECT chtf.id_checklistrespostatf                                  AS id,
        dse.numero                                                   AS emissor_documento,
 
        tf.id_termofiscalizacao                                      AS termo_fiscalizacao_id,
+       tf.id_entidade                                               AS termo_fiscalizacao_entidade_id,
+       tf.ds_rginscricaoestadual                                    AS termo_fiscalizacao_entidade_documento,
        tf.dt_criacaotermo                                           AS termo_fiscalizacao_emissao,
        case when tf.ativo then 'Não' else 'Sim' end                 AS termo_fiscalizacao_cancelada
 FROM fisc.checklist AS ch
@@ -45,5 +47,5 @@ FROM fisc.checklist AS ch
          LEFT JOIN rh.pessoa AS pse ON pse.id = tf.id_criadortermo
          LEFT JOIN rh.documento AS dse ON dse.id_pessoa = pse.id and dse.id_documento_tipo in (1, 2)
 WHERE ch.id_checklist in (12,18)
-AND tf.ts_alteracao > :sql_last_value
+--AND tf.ts_alteracao > :sql_last_value
 ORDER BY chtf.id_checklistrespostatf
