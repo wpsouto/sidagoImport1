@@ -1,35 +1,35 @@
-SELECT chtf.id_checklistrespostatf                                  AS id,
-       case when ch.bo_ativo then 'Não' else 'Sim' end              AS cancelada,
-       pro.ds_programa                                              AS programa,
-       tf.ts_alteracao                                              AS ts_alteracao,
+SELECT chtf.id_checklistrespostatf                                              AS id,
+       case when ch.bo_ativo then 'Não' else 'Sim' end                          AS cancelada,
+       pro.ds_programa                                                          AS programa,
+       tf.ts_alteracao                                                          AS ts_alteracao,
        CASE
            WHEN ch.tp_identificacao = 'bo_propriedade' THEN 'Propriedade'
            WHEN ch.tp_identificacao = 'bo_empresa' THEN 'Empresa'
            WHEN ch.tp_identificacao = 'bo_industria' THEN 'Industria'
            WHEN ch.tp_identificacao = 'bo_evento' THEN 'Evento'
            ELSE 'Não identificado'
-           END                                                      AS identificacao,
-       ch.id_checklist                                              AS check_list_id,
-       ch.ds_descritivo                                             AS check_list_descricao,
-       cp.ds_pergunta                                               AS pergunta,
-       TRIM(UPPER(cr.ds_resposta))                                  AS resposta,
-       cr.nu_pontuacao                                              AS pontuacao,
-       ie.nu_inscricaoestadual                                      AS fiscalizado_ie,
-       UPPER(COALESCE(ie.no_fantasia, tf.ds_nomerazao))             AS fiscalizado_nome,
-       mf_lr.nome                                                   AS fiscalizado_regional_nome,
-       mf.loc_no                                                    AS fiscalizado_municipio_nome,
-       mf.ufe_sg                                                    AS fiscalizado_municipio_uf,
-       COALESCE(mf.lat, 0)                                          AS fiscalizado_municipio_localizacao_latitude,
-       COALESCE(mf.lon, 0)                                          AS fiscalizado_municipio_localizacao_longitude,
+           END                                                                  AS identificacao,
+       ch.id_checklist                                                          AS check_list_id,
+       ch.ds_descritivo                                                         AS check_list_descricao,
+       cp.ds_pergunta                                                           AS pergunta,
+       TRIM(UPPER(cr.ds_resposta))                                              AS resposta,
+       cr.nu_pontuacao                                                          AS pontuacao,
+       COALESCE(ie.nu_inscricaoestadual, CAST(ie.id_inscricaoestadual AS TEXT)) AS fiscalizado_ie,
+       UPPER(COALESCE(ie.no_fantasia, tf.ds_nomerazao))                         AS fiscalizado_nome,
+       mf_lr.nome                                                               AS fiscalizado_regional_nome,
+       mf.loc_no                                                                AS fiscalizado_municipio_nome,
+       mf.ufe_sg                                                                AS fiscalizado_municipio_uf,
+       COALESCE(mf.lat, 0)                                                      AS fiscalizado_municipio_localizacao_latitude,
+       COALESCE(mf.lon, 0)                                                      AS fiscalizado_municipio_localizacao_longitude,
 
-       UPPER(pse.nome)                                              AS emissor_nome,
-       dse.numero                                                   AS emissor_documento,
+       UPPER(pse.nome)                                                          AS emissor_nome,
+       dse.numero                                                               AS emissor_documento,
 
-       tf.id_termofiscalizacao                                      AS termo_fiscalizacao_id,
-       tf.id_entidade                                               AS termo_fiscalizacao_entidade_id,
-       tf.ds_rginscricaoestadual                                    AS termo_fiscalizacao_entidade_documento,
-       tf.dt_criacaotermo                                           AS termo_fiscalizacao_emissao,
-       case when tf.ativo then 'Não' else 'Sim' end                 AS termo_fiscalizacao_cancelada
+       tf.id_termofiscalizacao                                                  AS termo_fiscalizacao_id,
+       tf.id_entidade                                                           AS termo_fiscalizacao_entidade_id,
+       tf.ds_rginscricaoestadual                                                AS termo_fiscalizacao_entidade_documento,
+       tf.dt_criacaotermo                                                       AS termo_fiscalizacao_emissao,
+       case when tf.ativo then 'Não' else 'Sim' end                             AS termo_fiscalizacao_cancelada
 FROM fisc.checklist AS ch
          INNER JOIN fisc.programa_fiscalizacao AS pro ON ch.id_programafiscalizacao = pro.id_programafiscalizacao
          INNER JOIN fisc.checklist_pergunta AS cp ON cp.id_checklist = ch.id_checklist
@@ -46,6 +46,6 @@ FROM fisc.checklist AS ch
                       mf_lr.bo_organograma = true
          LEFT JOIN rh.pessoa AS pse ON pse.id = tf.id_criadortermo
          LEFT JOIN rh.documento AS dse ON dse.id_pessoa = pse.id and dse.id_documento_tipo in (1, 2)
-WHERE ch.id_checklist in (12,18)
---AND tf.ts_alteracao > :sql_last_value
+WHERE ch.id_checklist in (12, 18)
+  AND tf.ts_alteracao > :sql_last_value
 ORDER BY chtf.id_checklistrespostatf
