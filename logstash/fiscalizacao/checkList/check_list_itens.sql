@@ -46,6 +46,5 @@ FROM fisc.checklist AS ch
                       mf_lr.bo_organograma = true
          LEFT JOIN rh.pessoa AS pse ON pse.id = tf.id_criadortermo
          LEFT JOIN rh.documento AS dse ON dse.id_pessoa = pse.id and dse.id_documento_tipo in (1, 2)
-WHERE ch.id_checklist in (12, 18)
-  AND tf.ts_alteracao > :sql_last_value
+WHERE tf.ts_alteracao > :sql_last_value
 ORDER BY chtf.id_checklistrespostatf

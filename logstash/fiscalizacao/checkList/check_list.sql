@@ -1,4 +1,4 @@
-SELECT DISTINCT (tf.id_entidade || '-' || ch.id_checklist)                               AS id,
+SELECT DISTINCT (tf.id_termofiscalizacao || '-' || ch.id_checklist)                      AS id,
                 case when ch.bo_ativo then 'Não' else 'Sim' end                          AS cancelada,
                 pro.ds_programa                                                          AS programa,
                 CASE
@@ -61,5 +61,4 @@ FROM fisc.checklist AS ch
           GROUP BY ch.id_checklist, tf.id_inscricaoestadual) as ultimo
          ON ultimo.data = tf.dt_criacaotermo AND ultimo.check_list_id = ch.id_checklist AND ultimo.inscricaoestadual_id = tf.id_inscricaoestadual
 
-WHERE cp.id_checklist in (12, 18)
-ORDER BY tf.id_entidade
+ORDER BY tf.id_termofiscalizacao, ch.id_checklist
