@@ -1,0 +1,21 @@
+//PUT _template/receita_agronomica
+{
+    "index_patterns": [
+        "receita_agronomica*"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "localizacao": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

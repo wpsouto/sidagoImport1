@@ -2,6 +2,8 @@ package com.mycompany.myapp.service.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import java.math.BigDecimal;
+
 /**
  * Utility class for generating random Strings.
  */
@@ -37,5 +39,12 @@ public final class RandomUtil {
      */
     public static String generateResetKey() {
         return RandomStringUtils.randomNumeric(DEF_COUNT);
+    }
+
+
+    public static void main(String[] args) {
+        Double valorDouble = 6.820992945297895E-6;
+        String valorStr =  new BigDecimal(valorDouble).toPlainString();
+        System.out.println(valorStr);
     }
 }

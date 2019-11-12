@@ -10,7 +10,7 @@ scp x-pack-core-7.0.1.jar root@elasticteste2.agrodefesa.go.gov.br:/usr/share/ela
 
 curl https://elasticteste1.agrodefesa.go.gov.br:9200/_cat/indices?v -u elastic
 
-curl -u elastic:123456 http://elasticteste2.agrodefesa.go.gov.br:9200
+curl -u elastic:mito2019 http://elastic2.agrodefesa.go.gov.br:9200
 
 curl -u elastic:123456 http://elasticteste2.agrodefesa.go.gov.br:9200/_cluster/health?pretty
 
