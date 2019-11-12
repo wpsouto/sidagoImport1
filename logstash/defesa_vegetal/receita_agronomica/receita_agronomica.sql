@@ -65,5 +65,4 @@ FROM agrotoxicos.receitas AS rc
                      FROM gtv.praga AS pr
                      GROUP BY pr.eppo_code) AS praga ON praga.eppo_code = i.diagnostico
 WHERE rc.ts_alteracao > :sql_last_value
-
 ORDER BY i.id_item
