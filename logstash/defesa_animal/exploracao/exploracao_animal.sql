@@ -1,20 +1,26 @@
-SELECT s.id_saldo                                       AS id,
-       case when pro.bo_ativo then 'Sim' else 'Não' end AS ativa,
-       case when n.bo_ativo then 'Não' else 'Sim' end   AS bloqueado,
-       g.no_grupo                                       AS especie_grupo,
-       es.no_especie                                    AS especie_nome,
+SELECT s.id_saldo                                            AS id,
+       case when pro.bo_ativo then 'Sim' else 'Não' end      AS ativa,
+       case when n.bo_ativo then 'Não' else 'Sim' end        AS bloqueado,
+       g.no_grupo                                            AS especie_grupo,
+       es.no_especie                                         AS especie_nome,
 
-       UPPER(p.nome)                                    AS produtor_nome,
-       d.numero                                         AS produtor_documento,
+       CASE WHEN mm.bo_antirrabica THEN 'Sim' else 'Não' END AS marcacao_antirrabica,
 
-       ie.id_inscricaoestadual                          AS propriedade_id,
-       UPPER(ie.no_fantasia)                            AS propriedade_nome,
-       ie.nu_inscricaoestadual                          AS propriedade_ie,
-       pai.nome                                         AS propriedade_regional_nome,
-       ll.loc_no                                        AS propriedade_municipio_nome,
-       ll.ufe_sg                                        AS propriedade_municipio_uf,
-       COALESCE(ll.lat, 0)                              AS propriedade_municipio_localizacao_latitude,
-       COALESCE(ll.lon, 0)                              AS propriedade_municipio_localizacao_longitude,
+       UPPER(p.nome)                                         AS produtor_nome,
+       d.numero                                              AS produtor_documento,
+
+       ie.id_inscricaoestadual                               AS propriedade_id,
+       UPPER(ie.no_fantasia)                                 AS propriedade_nome,
+       ie.nu_inscricaoestadual                               AS propriedade_ie,
+       COALESCE(pro.vl_area, 0)                              AS propriedade_area,
+       COALESCE(ie.vl_latitude, 0)                           AS propriedade_gps_latitude,
+       COALESCE(ie.vl_longitude, 0)                          AS propriedade_gps_longitude,
+
+       pai.nome                                              AS propriedade_regional_nome,
+       ll.loc_no                                             AS propriedade_municipio_nome,
+       ll.ufe_sg                                             AS propriedade_municipio_uf,
+       COALESCE(ll.lat, 0)                                   AS propriedade_municipio_gps_latitude,
+       COALESCE(ll.lon, 0)                                   AS propriedade_municipio_gps_longitude,
 
        CASE
            WHEN ex_bo.id_finalidadebovideo = 1 THEN 'Corte'
@@ -40,7 +46,7 @@ SELECT s.id_saldo                                       AS id,
 
            ELSE 'Não Informada'
            END
-                                                        AS exploracao_finalidade,
+                                                             AS exploracao_finalidade,
 
        CASE
            WHEN ex_s.tp_exploracao = 'CR' THEN 'Criatório'
@@ -74,7 +80,7 @@ SELECT s.id_saldo                                       AS id,
 
            ELSE 'Não Informada'
            END
-                                                        AS exploracao_tipo,
+                                                             AS exploracao_tipo,
        CASE
            WHEN ex_s.tp_producao = 'CC' THEN 'Ciclo completo'
            WHEN ex_s.tp_producao = 'UP' THEN 'Unidade produtora'
@@ -95,24 +101,25 @@ SELECT s.id_saldo                                       AS id,
            WHEN ex_ja.tp_producao = 'S3' THEN 'Sitio III'
 
            ELSE 'Não Informada'
-           END                                          AS exploracao_producao,
+           END                                               AS exploracao_producao,
+       CASE
+           WHEN total.saldo > 0 THEN 'Sim'
+           ELSE 'Não'
+           END                                               AS exploracao_positiva,
 
-       et.nome                                          AS estratificacao_nome,
+       total.saldo                                           AS exploracao_total,
+
+
+       et.nome                                               AS estratificacao_nome,
 
        CASE
            WHEN et.tp_sexo = 'FE' THEN 'Femea'
            WHEN et.tp_sexo = 'MA' THEN 'Macho'
            ELSE 'Indefinido'
-           END                                          AS estratificacao_sexo,
+           END                                               AS estratificacao_sexo,
 
-       s.nu_saldo                                       AS estratificacao_saldo,
+       s.nu_saldo                                            AS estratificacao_saldo
 
-       CASE
-           WHEN total.saldo > 0 THEN 'Sim'
-           ELSE 'Não'
-           END                                          AS estratificacao_positiva,
-
-       total.saldo                                      AS estratificacao_total
 
 FROM dsa.exploracao AS e
          INNER JOIN dsa.exploracao_propriedade AS ep ON e.id_exploracao = ep.id_exploracao
@@ -128,6 +135,7 @@ FROM dsa.exploracao AS e
          INNER JOIN agrocomum.inscricaoestadual_endereco AS iee ON ie.id_inscricaoestadual = iee.id_inscricaoestadual
          INNER JOIN agrocomum.endereco AS en ON iee.id_endereco = en.id_endereco
          INNER JOIN dne.log_localidade AS ll ON en.id_localidade = ll.loc_nu
+         INNER JOIN dsa.marcacoes_municipios AS mm ON mm.id_municipio = ll.loc_nu
          INNER JOIN rh.lotacao AS l ON l.id_localidade = en.id_localidade AND l.bo_ativo = true AND id_lotacaotipo = 3 AND l.bo_organograma = true
          INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true
          INNER JOIN rh.pessoa AS p ON ie.id_pessoa = p.id

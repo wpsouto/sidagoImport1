@@ -7,9 +7,12 @@
         "properties": {
             "propriedade": {
                 "properties": {
+                    "gps": {
+                        "type": "geo_point"
+                    },
                     "municipio": {
                         "properties": {
-                            "localizacao": {
+                            "gps": {
                                 "type": "geo_point"
                             }
                         }

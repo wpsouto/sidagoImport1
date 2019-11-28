@@ -1,62 +1,83 @@
-SELECT s.id_saldo                                            AS id,
-       case when pro.bo_ativo then 'Sim' else 'Não' end      AS ativa,
-       case when n.bo_ativo then 'Não' else 'Sim' end        AS bloqueado,
-       g.no_grupo                                            AS especie_grupo,
-       es.no_especie                                         AS especie_nome,
+SELECT s.id_saldo                            AS id,
+       s.nu_saldo                            AS estratificacao_saldo,
 
-       UPPER(p.nome)                                         AS produtor_nome,
-       d.numero                                              AS produtor_documento,
-
-       ie.id_inscricaoestadual                               AS propriedade_id,
-       UPPER(ie.no_fantasia)                                 AS propriedade_nome,
-       ie.nu_inscricaoestadual                               AS propriedade_ie,
-       pai.nome                                              AS propriedade_regional_nome,
-       ll.loc_no                                             AS propriedade_municipio_nome,
-       ll.ufe_sg                                             AS propriedade_municipio_uf,
-       COALESCE(ll.lat, 0)                                   AS propriedade_municipio_localizacao_latitude,
-       COALESCE(ll.lon, 0)                                   AS propriedade_municipio_localizacao_longitude,
-
-       et.id                                                 AS estratificacao_id,
-       et.nome                                               AS estratificacao_nome,
+       UPPER(pd.nome)                        AS vacinacao_emissor_nome,
+       lote.nome                             AS vacinacao_emissor_lotacao_nome,
+       reg.nome                              AS vacinacao_emissor_lotacao_regional_nome,
 
        CASE
-           WHEN et.tp_sexo = 'FE' THEN 'Femea'
-           WHEN et.tp_sexo = 'MA' THEN 'Macho'
-           ELSE 'Indefinido'
-           END                                               AS estratificacao_sexo,
+           WHEN vd.bo_produtor = TRUE THEN 'Produtor'
+           WHEN vd.bo_produtor = FALSE THEN 'Funcionário'
+           END                               AS vacinacao_emissor_tipo,
 
-       s.nu_saldo                                            AS estratificacao_saldo,
+       vd.dt_declaracao                      AS vacinacao_data,
 
+       COALESCE(anti.vacinado, 'Não')        AS vacinacao_antirrabica_vacinado,
+       COALESCE(anti.quantidade, 0)          AS vacinacao_antirrabica_quantidade,
+       anti.tipo                             AS vacinacao_antirrabica_tipo,
+       COALESCE(anti.quantidade, s.nu_saldo) AS vacinacao_antirrabica_diferenca,
        CASE
-           WHEN total.saldo > 0 THEN 'Sim'
+           WHEN anti.situacao THEN 'Não'
+           WHEN anti.situacao = FALSE THEN 'Sim'
            ELSE 'Não'
-           END                                               AS estratificacao_positiva,
+           END                               AS vacinacao_antirrabica_cancelada,
 
-       total.saldo                                           AS estratificacao_total,
+       COALESCE(afto.vacinado, 'Não')        AS vacinacao_aftosa_vacinado,
+       COALESCE(afto.quantidade, 0)          AS vacinacao_aftosa_quantidade,
+       afto.tipo                             AS vacinacao_aftosa_tipo,
+       COALESCE(afto.quantidade, s.nu_saldo) AS vacinacao_aftosa_diferenca,
+       CASE
+           WHEN afto.situacao THEN 'Não'
+           WHEN afto.situacao = FALSE THEN 'Sim'
+           ELSE 'Não'
+           END                               AS vacinacao_aftosa_cancelada
 
-       CASE WHEN mm.bo_antirrabica THEN 'Sim' else 'Não' END AS municipio_antirrabica
-
-FROM dsa.exploracao AS e
-         INNER JOIN dsa.exploracao_propriedade AS ep ON e.id_exploracao = ep.id_exploracao
-         INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_inscricaoestadual = ep.id_inscricaoestadual
-         INNER JOIN agrocomum.propriedade AS pro ON ie.id_inscricaoestadual = pro.id_inscricaoestadual
-         INNER JOIN agrocomum.inscricaoestadual_endereco AS iee ON ie.id_inscricaoestadual = iee.id_inscricaoestadual
-         INNER JOIN agrocomum.endereco AS en ON iee.id_endereco = en.id_endereco
-         INNER JOIN dne.log_localidade AS ll ON en.id_localidade = ll.loc_nu
-         INNER JOIN rh.lotacao AS l ON l.id_localidade = en.id_localidade AND l.bo_ativo = true AND id_lotacaotipo = 3 AND l.bo_organograma = true
-         INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true
-         INNER JOIN rh.pessoa AS p ON ie.id_pessoa = p.id
-         INNER JOIN rh.documento AS d ON p.id = d.id_pessoa AND (d.id_documento_tipo = 1 OR d.id_documento_tipo = 2)
-         INNER JOIN dsa.nucleo AS n ON e.id_exploracao = n.id_exploracao
+FROM dsa.saldo AS s
+         INNER JOIN dsa.nucleo AS n ON s.id_nucleo = n.id_nucleo
          INNER JOIN dsa.especie AS es ON n.id_especie = es.id
-         INNER JOIN dsa.grupo AS g ON es.id_grupo = g.id
-         INNER JOIN dsa.saldo AS s ON n.id_nucleo = s.id_nucleo
-         INNER JOIN dsa.estratificacao AS et ON et.id = s.id_estratificacao
-         INNER JOIN dsa.marcacoes_municipios AS mm ON mm.id_municipio = ll.loc_nu
-         INNER JOIN (SELECT st.id_nucleo, SUM(st.nu_saldo) AS saldo
-                     FROM dsa.saldo st
-                     GROUP BY st.id_nucleo) AS total ON total.id_nucleo = s.id_nucleo
-WHERE es.id_grupo = 1
-AND ll.loc_nu = 2361
-ORDER BY s.id_saldo
+         INNER JOIN dsa.exploracao_propriedade AS ep ON n.id_exploracao = ep.id_exploracao
+         INNER JOIN agrocomum.inscricaoestadual AS ie ON ep.id_inscricaoestadual = ie.id_inscricaoestadual
+         LEFT JOIN dsa.vacinacao_declaracao AS vd ON vd.id_inscricaoestadual = ie.id_inscricaoestadual AND vd.id_campanha_vacina = 51
+         LEFT JOIN rh.pessoa AS pd ON pd.id = vd.id_pessoa
+         LEFT JOIN rh.lotacao_funcionario AS lf ON lf.id_pessoa = vd.id_pessoa AND lf.dt_final IS NULL
+         LEFT JOIN rh.lotacao AS lote ON lf.id_lotacao = lote.id
+         LEFT JOIN rh.lotacao AS reg ON lote.id_lotacao_pai = reg.id
 
+         LEFT JOIN (SELECT 'Sim'                    AS vacinado,
+                           COALESCE(nu_vacinado, 0) AS quantidade,
+                           va.bo_situacao           AS situacao,
+                           CASE
+                               WHEN tp_vacinacao = 'PR' THEN 'Produtor'
+                               WHEN tp_vacinacao = 'OF' THEN 'Oficial'
+                               WHEN tp_vacinacao = 'AS' THEN 'Assistida'
+                               WHEN tp_vacinacao = 'FI' THEN 'Fiscalizada'
+                               WHEN tp_vacinacao = 'VE' THEN 'Veterinario'
+                               ELSE 'Produtor'
+                               END                  AS tipo,
+                           va.id_inscricaoestadual,
+                           ve.id_estratificacao
+                    FROM dsa.vacinacao AS va
+                             INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
+                    WHERE va.id_campanha_vacina = 50
+                      AND va.tp_origem not in ('RT', 'TG')) AS anti ON anti.id_inscricaoestadual = ie.id_inscricaoestadual AND anti.id_estratificacao = s.id_estratificacao
+
+         LEFT JOIN (SELECT 'Sim'                    AS vacinado,
+                           COALESCE(nu_vacinado, 0) AS quantidade,
+                           va.bo_situacao           AS situacao,
+                           CASE
+                               WHEN tp_vacinacao = 'PR' THEN 'Produtor'
+                               WHEN tp_vacinacao = 'OF' THEN 'Oficial'
+                               WHEN tp_vacinacao = 'AS' THEN 'Assistida'
+                               WHEN tp_vacinacao = 'FI' THEN 'Fiscalizada'
+                               WHEN tp_vacinacao = 'VE' THEN 'Veterinario'
+                               ELSE 'Produtor'
+                               END                  AS tipo,
+                           va.id_inscricaoestadual,
+                           ve.id_estratificacao
+                    FROM dsa.vacinacao AS va
+                             INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
+                    WHERE va.id_campanha_vacina = 51
+                      AND va.tp_origem not in ('RT', 'TG')) AS afto ON afto.id_inscricaoestadual = ie.id_inscricaoestadual AND afto.id_estratificacao = s.id_estratificacao
+
+WHERE es.id_grupo = 1
+ORDER BY s.id_saldo
