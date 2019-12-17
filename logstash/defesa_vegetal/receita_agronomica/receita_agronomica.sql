@@ -2,6 +2,7 @@ SELECT i.id_item                                                     AS id,
        rc.id_receita                                                 AS receita_id,
        rc.nu_receita                                                 AS numero,
        rc.dt_emissao                                                 AS emissao,
+       rc.dt_criacao                                                 AS envio,
        ct.ds_nome                                                    AS cultura,
        rc.ts_alteracao                                               AS ts_alteracao,
        case when rc.situacao_externa = 'C' then 'Sim' else 'Não' end AS cancelada,
@@ -15,6 +16,7 @@ SELECT i.id_item                                                     AS id,
        pai.nome                                                      AS propriedade_regional_nome,
        lc.loc_no                                                     AS propriedade_municipio_nome,
        lc.ufe_sg                                                     AS propriedade_municipio_uf,
+       lc.cod_ibge                                                   AS propriedade_municipio_ibge,
        COALESCE(lc.lat, 0)                                           AS propriedade_municipio_localizacao_latitude,
        COALESCE(lc.lon, 0)                                           AS propriedade_municipio_localizacao_longitude,
 
@@ -23,12 +25,18 @@ SELECT i.id_item                                                     AS id,
 
        UPPER(TRIM(rc.nome_comerciante))                              AS comerciante_nome,
        rc.cnpj_comerciante                                           AS comerciante_documento,
+       ll.loc_no                                                     AS comerciante_municipio_nome,
+       ll.ufe_sg                                                     AS comerciante_municipio_uf,
+       ll.cod_ibge                                                   AS comerciante_municipio_ibge,
+       COALESCE(ll.lat, 0)                                           AS comerciante_municipio_localizacao_latitude,
+       COALESCE(ll.lon, 0)                                           AS comerciante_municipio_localizacao_longitude,
 
        UPPER(ie_t.no_fantasia)                                       AS empresa_software_nome,
 
        ag.ds_registro                                                AS agrotoxico_registro,
        ag.ds_nome                                                    AS agrotoxico_nome,
-       REPLACE(i.quantidade_adquirir, ',', '.')::NUMERIC             AS agrotoxico_quantidade,
+       REPLACE(TRIM(i.quantidade_adquirir), ',', '.')
+       ::NUMERIC AS agrotoxico_quantidade,
 
        CASE
            WHEN i.unidade_medida_adquirir = 'Ds' THEN 'Dose'
@@ -59,7 +67,12 @@ FROM agrotoxicos.receitas AS rc
          LEFT JOIN rh.lotacao AS l ON l.id_localidade = lc.loc_nu AND l.bo_ativo = true AND id_lotacaotipo = 3 AND l.bo_organograma = true
          LEFT JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true
          INNER JOIN rh.usuario AS us_t ON us_t.usuario = rc.usuario
-         INNER JOIN agrocomum.inscricaoestadual ie_t on ie_t.id_pessoa = us_t.id_pessoa
+         INNER JOIN agrocomum.inscricaoestadual ie_t ON ie_t.id_pessoa = us_t.id_pessoa
+         LEFT JOIN rh.documento d ON d.numero = rc.cnpj_comerciante
+         LEFT JOIN agrocomum.inscricaoestadual com ON com.id_pessoa = d.id_pessoa AND com.id_classificacao IN (128, 129)
+         LEFT JOIN agrocomum.inscricaoestadual_endereco AS iee ON com.id_inscricaoestadual = iee.id_inscricaoestadual
+         LEFT JOIN agrocomum.endereco AS e ON iee.id_endereco = e.id_endereco
+         LEFT JOIN dne.log_localidade AS ll ON e.id_localidade = ll.loc_nu
          INNER JOIN (SELECT pr.eppo_code                  AS eppo_code,
                             string_agg(pr.no_praga, ', ') AS nome
                      FROM gtv.praga AS pr

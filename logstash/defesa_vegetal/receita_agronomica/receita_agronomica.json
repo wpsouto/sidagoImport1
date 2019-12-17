@@ -15,6 +15,17 @@
                         }
                     }
                 }
+            },
+            "comerciante": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "localizacao": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
             }
         }
     }
