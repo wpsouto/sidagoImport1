@@ -1,0 +1,78 @@
+GET _cat/indices?v
+
+GET goias_muns/_search
+
+#DELETE goias_muns
+
+GET goias_muns/_search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match_all": {}
+      },
+      "filter": {
+        "geo_shape": {
+          "coordinates": {
+            "shape": {
+              "coordinates": [
+                -46.82138888888889,
+                -14.910833333333333
+              ],
+              "type": "point"
+            },
+            "relation": "intersects"
+          }
+        }
+      }
+    }
+  },
+  "_source" : {
+    "includes" : [
+      "id",
+      "name"
+    ]
+  }
+}
+
+GET _analyze
+{
+  "text": ["Flores de Goiás"],
+  "analyzer": "brazilian"
+}
+
+GET goias_muns/_search
+{
+  "query": {
+    "match": {
+      "name.br": "flor"
+    }
+  }
+}
+
+PUT goias_muns
+{
+  "mappings": {
+    "properties": {
+      "coordinates": {
+        "type": "geo_shape"
+      },
+      "id": {
+        "type": "long"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "br": {
+            "type": "text",
+            "analyzer": "brazilian"
+          }
+        }
+      }
+    }
+  }
+}

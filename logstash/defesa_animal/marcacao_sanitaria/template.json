@@ -1,0 +1,24 @@
+//PUT _template/marcacao_sanitaria
+{
+    "index_patterns": [
+        "marcacao_sanitaria"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade": {
+                "properties": {
+                    "gps": {
+                        "type": "geo_point"
+                    },
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
