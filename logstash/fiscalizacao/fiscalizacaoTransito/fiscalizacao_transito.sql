@@ -6,7 +6,7 @@ SELECT it.id                                                               AS id
        CASE
            WHEN t.id_transito_tablet is null THEN 'Web'
            ELSE 'Mobile'
-           END                                                               AS sistema,
+           END                                                             AS sistema,
 
        (SELECT case when COUNT(tf.id_termofiscalizacao) != 0 then 'Sim' else 'Não' end
         FROM fisc.termo_fiscalizacao AS tf
@@ -27,7 +27,10 @@ SELECT it.id                                                               AS id
        it.qtde_produto                                                     AS produto_quantidade,
        p.ds_classificacaoproduto                                           AS produto_classificacao,
 
-       l.nome                                                              AS fiscalizacao_localizacao_nome,
+       CASE
+           WHEN t.tp_posto = 'fixo' THEN l.nome
+           ELSE pai.nome
+           END                                                             AS fiscalizacao_localizacao_nome,
        COALESCE(REGEXP_REPLACE(t.vl_latitude, '[^0-9.]+', ' ', 'g'), '0')  AS fiscalizacao_localizacao_gps_latitude,
        COALESCE(REGEXP_REPLACE(t.vl_longitude, '[^0-9.]+', ' ', 'g'), '0') AS fiscalizacao_localizacao_gps_longitude,
        mf.loc_no                                                           AS fiscalizacao_municipio_nome,
@@ -41,7 +44,7 @@ SELECT it.id                                                               AS id
        CASE
            WHEN t.tp_posto = 'fixo' THEN 'Posto Fixo'
            WHEN t.tp_posto = 'movel' THEN 'Posto Movel'
-           END                                                               AS posto,
+           END                                                             AS posto,
 
        po.nome                                                             AS origem_nome,
        dor.numero                                                          AS origem_documento,
@@ -68,6 +71,8 @@ FROM mt.transito t
          INNER JOIN rh.pessoa AS pf ON t.fk_funcionario_fiscal = pf.id
          LEFT JOIN rh.documento AS dof ON pf.id = dof.id_pessoa AND dof.id_documento_tipo = 1
          LEFT JOIN dne.log_localidade AS mf ON t.id_municipio_fiscalizacao = mf.loc_nu
+         LEFT JOIN rh.lotacao AS lf ON lf.id_localidade = t.id_municipio_fiscalizacao AND lf.bo_ativo = true AND lf.id_lotacaotipo = 3 AND lf.bo_organograma = true --Unidade Local
+         LEFT JOIN rh.lotacao AS pai ON pai.id = lf.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true --Unidade Regional
          LEFT JOIN mt.estabelecimento_transito AS eo ON eo.id = t.fk_estabelecimento_origem
          LEFT JOIN mt.estabelecimento_transito AS ed ON ed.id = t.fk_estabelecimento_destino
          LEFT JOIN dne.log_localidade AS mo ON eo.fk_municipio = mo.loc_nu
@@ -79,5 +84,5 @@ FROM mt.transito t
          LEFT JOIN produtos.subproduto AS s ON it.id_subproduto = s.id_subproduto
          LEFT JOIN produtos.produto AS p ON it.fk_produto_id = p.id_produto
          LEFT JOIN produtos.unidademedida AS um ON s.id_unidademedida = um.id_unidademedida
-WHERE t.data_hora_cadastro_transito::date >= current_date - interval '1 month'
+WHERE t.data_hora_cadastro_transito:: date >= current_date - interval '1 month'
 ORDER BY it.id
