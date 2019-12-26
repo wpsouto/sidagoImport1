@@ -4,6 +4,36 @@ GET goias_muns/_search
 
 #DELETE goias_muns
 
+curl -u elastic:hElPvwCcqSvh81a6VPEh http://elastic.agrodefesa.go.gov.br:9200/goias_muns/_search
+
+curl -XPUT -u elastic:hElPvwCcqSvh81a6VPEh "http://elastic.agrodefesa.go.gov.br:9200/goias_muns?pretty" -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "properties": {
+      "coordinates": {
+        "type": "geo_shape"
+      },
+      "id": {
+        "type": "long"
+      },
+      "name": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          },
+          "br": {
+            "type": "text",
+            "analyzer": "brazilian"
+          }
+        }
+      }
+    }
+  }
+}
+'
+
 GET goias_muns/_search
 {
   "query": {
@@ -76,3 +106,4 @@ PUT goias_muns
     }
   }
 }
+
