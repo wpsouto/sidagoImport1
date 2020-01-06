@@ -1,0 +1,35 @@
+//PUT _template/vacinacao
+{
+    "index_patterns": [
+        "vacinacao"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade": {
+                "properties": {
+                    "gps": {
+                        "type": "geo_point"
+                    },
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            },
+            "vacinacao": {
+                "properties": {
+                    "campanha": {
+                        "properties": {
+                            "id": {
+                                "type": "long"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
