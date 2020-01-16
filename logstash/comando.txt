@@ -10,7 +10,7 @@ https://github.com/elastic/examples/tree/master/Search/recipe_search_php
 https://www.elastic.co/guide/en/elasticsearch/client/php-api/current/index.html
 
 
-scp carro.conf root@analyzer.agrodefesa.go.gov.br:/etc/logstash/conf.d
+scp * root@elastic5.agrodefesa.go.gov.br:/etc/logstash/conf.d/defesa_animal/exploracao
 
 mkdir fiscalizacao
 chmod 775 fiscalizacao

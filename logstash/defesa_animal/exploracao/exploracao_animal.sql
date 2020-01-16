@@ -19,8 +19,20 @@ SELECT s.id_saldo                                            AS id,
        pai.nome                                              AS propriedade_regional_nome,
        ll.loc_no                                             AS propriedade_municipio_nome,
        ll.ufe_sg                                             AS propriedade_municipio_uf,
+       ll.cod_ibge                                           AS propriedade_municipio_ibge,
        COALESCE(ll.lat, 0)                                   AS propriedade_municipio_gps_latitude,
        COALESCE(ll.lon, 0)                                   AS propriedade_municipio_gps_longitude,
+
+       CASE
+           WHEN ex_ga.tp_areainteresse = 'MA' THEN 'Material de Multiplicação Animal'
+           WHEN ex_ga.tp_areainteresse = 'AC' THEN 'Aves Comerciais'
+           WHEN ex_ga.tp_areainteresse = 'AS' THEN 'Avicultura de Subsistência'
+           WHEN ex_ga.tp_areainteresse = 'OR' THEN 'Ave Ornamental'
+           WHEN ex_ga.tp_areainteresse = 'SI' THEN 'Ave Silvestre'
+
+           ELSE 'Não Informada'
+           END
+                                                             AS exploracao_area_interesse,
 
        CASE
            WHEN ex_bo.id_finalidadebovideo = 1 THEN 'Corte'
