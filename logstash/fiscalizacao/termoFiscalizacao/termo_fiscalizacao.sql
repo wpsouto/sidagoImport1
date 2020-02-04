@@ -76,6 +76,6 @@ FROM fisc.termo_fiscalizacao AS tf
                    ON mf_lr.id = mf_l.id_lotacao_pai AND mf_lr.id_lotacaotipo = 2 AND mf_lr.bo_ativo = true AND
                       mf_lr.bo_organograma = true
 WHERE tf.bo_termoautojuridico = false
-  AND tf.ts_alteracao > :sql_last_value
+  AND tf.ts_alteracao > date_trunc('second', TIMESTAMP :sql_last_value)
 
 ORDER BY tro.id_termoobjetivo
