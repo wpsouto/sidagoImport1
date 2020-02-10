@@ -7,7 +7,7 @@ SELECT DISTINCT (CAST(tf.id_inscricaoestadual AS TEXT) || '-' || ch.id_checklist
                     WHEN ch.tp_identificacao = 'bo_industria' THEN 'Industria'
                     WHEN ch.tp_identificacao = 'bo_evento' THEN 'Evento'
                     ELSE 'Não identificado'
-                    END                                                                    AS identificacao,
+                    END                                                                  AS identificacao,
 
                 CASE WHEN ultimo.quantidade > 1 THEN 'Sim' ELSE 'Não' end                AS revisitada,
 
@@ -16,6 +16,7 @@ SELECT DISTINCT (CAST(tf.id_inscricaoestadual AS TEXT) || '-' || ch.id_checklist
 
                 COALESCE(ie.nu_inscricaoestadual, CAST(ie.id_inscricaoestadual AS TEXT)) AS fiscalizado_ie,
                 UPPER(COALESCE(ie.no_fantasia, tf.ds_nomerazao))                         AS fiscalizado_nome,
+                tf.id_inscricaoestadual                                                  AS fiscalizado_id,
                 mf_lr.nome                                                               AS fiscalizado_regional_nome,
                 mf.loc_no                                                                AS fiscalizado_municipio_nome,
                 mf.ufe_sg                                                                AS fiscalizado_municipio_uf,
