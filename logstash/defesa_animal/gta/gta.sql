@@ -79,5 +79,5 @@ FROM gta.gta as gt
                      FROM gta.gta as gt
                               INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
                      GROUP BY gt.id_gta) AS estratificacao ON estratificacao.id = gt.id_gta
-WHERE gt.ts_alteracao > date_trunc('second', TIMESTAMP :sql_last_value)
+WHERE gt.ts_alteracao > DATE_TRUNC('minute', TIMESTAMP :sql_last_value - interval '3 hour')
 ORDER BY gt.id_gta ASC
