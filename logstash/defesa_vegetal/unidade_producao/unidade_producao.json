@@ -1,0 +1,24 @@
+//PUT _template/unidade_producao
+{
+    "index_patterns": [
+        "unidade_producao"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade": {
+                "properties": {
+                    "gps": {
+                        "type": "geo_point"
+                    },
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
