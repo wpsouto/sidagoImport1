@@ -11,6 +11,7 @@ SELECT up.id_unidadeproducao || '_' || pup.id_produtoup                       AS
        pp.ds_nome                                                             AS produto_nome,
        case when pp.bo_culturaperene then 'Sim' else 'Não' end                AS produto_perene,
        c.no_cultivar                                                          AS produto_cultivar,
+       EXTRACT(YEAR FROM pup.dt_plantio::TIMESTAMP)::TEXT                     AS produto_ano_plantio,
        pup.dt_plantio::TIMESTAMP                                              AS produto_plantio,
        pup.dt_iniciosafra::TIMESTAMP                                          AS produto_inicioColheita,
        pup.dt_fimsafra::TIMESTAMP                                             AS produto_fimColheita,

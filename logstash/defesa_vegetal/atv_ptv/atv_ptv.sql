@@ -112,7 +112,7 @@ FROM gtv.gtv AS gt
                               INNER JOIN gtv.produto_gtv AS pg ON pg.id_certificado = gt.id_certificado
                      GROUP BY gt.id_certificado) AS produtos ON produtos.id = gt.id_certificado
 
-WHERE ce.ts_alteracao > :sql_last_value
+WHERE ce.ts_alteracao > DATE_TRUNC('minute', TIMESTAMP :sql_last_value - interval '3 hour')
 ORDER BY pg.id_produto_gtv
 
 
