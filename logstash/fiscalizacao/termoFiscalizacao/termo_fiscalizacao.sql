@@ -45,7 +45,7 @@ SELECT tro.id_termoobjetivo                            AS id,
            END                                           AS identificacao,
 
        tf.ds_rginscricaoestadual                       AS fiscalizado_ie,
-       pfi.nome                                        AS fiscalizado_nome,
+       UPPER(pfi.nome)                                 AS fiscalizado_nome,
        dfi.numero                                      AS fiscalizado_documento,
        mf_lr.nome                                      AS fiscalizado_regional_nome,
        mf.loc_no                                       AS fiscalizado_municipio_nome,
@@ -53,7 +53,7 @@ SELECT tro.id_termoobjetivo                            AS id,
        COALESCE(mf.lat, 0)                             AS fiscalizado_municipio_localizacao_latitude,
        COALESCE(mf.lon, 0)                             AS fiscalizado_municipio_localizacao_longitude,
 
-       pse.nome                                        AS emissor_nome,
+       UPPER(pse.nome)                                 AS emissor_nome,
        dse.numero                                      AS emissor_documento
 
 FROM fisc.termo_fiscalizacao AS tf
@@ -76,6 +76,5 @@ FROM fisc.termo_fiscalizacao AS tf
                    ON mf_lr.id = mf_l.id_lotacao_pai AND mf_lr.id_lotacaotipo = 2 AND mf_lr.bo_ativo = true AND
                       mf_lr.bo_organograma = true
 WHERE tf.bo_termoautojuridico = false
-  AND tf.ts_alteracao > date_trunc('second', TIMESTAMP :sql_last_value)
-
+    AND tf.ts_alteracao > DATE_TRUNC('minute', TIMESTAMP :sql_last_value - interval '3 hour')
 ORDER BY tro.id_termoobjetivo
