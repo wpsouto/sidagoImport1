@@ -13,6 +13,8 @@ SELECT DISTINCT (CAST(tf.id_inscricaoestadual AS TEXT) || '-' || ch.id_checklist
 
                 ch.id_checklist                                                          AS check_list_id,
                 ch.ds_descritivo                                                         AS check_list_descricao,
+                pontuacao.maior                                                          AS check_list_pontuacao_maxima,
+                pontuacao.menor                                                          AS check_list_pontuacao_minima,
 
                 COALESCE(ie.nu_inscricaoestadual, CAST(ie.id_inscricaoestadual AS TEXT)) AS fiscalizado_ie,
                 UPPER(COALESCE(ie.no_fantasia, tf.ds_nomerazao))                         AS fiscalizado_nome,
@@ -20,6 +22,7 @@ SELECT DISTINCT (CAST(tf.id_inscricaoestadual AS TEXT) || '-' || ch.id_checklist
                 mf_lr.nome                                                               AS fiscalizado_regional_nome,
                 mf.loc_no                                                                AS fiscalizado_municipio_nome,
                 mf.ufe_sg                                                                AS fiscalizado_municipio_uf,
+                mf.cod_ibge                                                              AS fiscalizado_municipio_ibge,
                 COALESCE(mf.lat, 0)                                                      AS fiscalizado_municipio_localizacao_latitude,
                 COALESCE(mf.lon, 0)                                                      AS fiscalizado_municipio_localizacao_longitude,
 
@@ -48,18 +51,31 @@ FROM fisc.checklist AS ch
                       mf_lr.bo_organograma = true
          LEFT JOIN rh.pessoa AS pse ON pse.id = tf.id_criadortermo
          LEFT JOIN rh.documento AS dse ON dse.id_pessoa = pse.id and dse.id_documento_tipo in (1, 2)
-         INNER JOIN
-         (SELECT max(tf.dt_criacaotermo)                   as data,
-                 count(distinct (tf.id_termofiscalizacao)) AS quantidade,
-                 tf.id_inscricaoestadual                   AS inscricaoestadual_id,
-                 ch.id_checklist                           AS check_list_id
-          FROM fisc.checklist AS ch
-                   INNER JOIN fisc.checklist_pergunta AS cp ON cp.id_checklist = ch.id_checklist
-                   INNER JOIN fisc.checklist_resposta AS cr ON cr.id_checklistpergunta = cp.id_checklistpergunta
-                   INNER JOIN fisc.checklistresposta_tf AS chtf ON chtf.id_checklistresposta = cr.id_checklistresposta
-                   INNER JOIN fisc.termo_fiscalizacao AS tf ON tf.id_termofiscalizacao = chtf.id_termofiscalizacao
-          WHERE tf.ativo = true
-          GROUP BY ch.id_checklist, tf.id_inscricaoestadual) as ultimo
-         ON ultimo.data = tf.dt_criacaotermo AND ultimo.check_list_id = ch.id_checklist AND ultimo.inscricaoestadual_id = tf.id_inscricaoestadual
+         INNER JOIN (SELECT max(tf.dt_criacaotermo)                   as data,
+                            count(distinct (tf.id_termofiscalizacao)) AS quantidade,
+                            tf.id_inscricaoestadual                   AS inscricaoestadual_id,
+                            ch.id_checklist                           AS check_list_id
+                     FROM fisc.checklist AS ch
+                              INNER JOIN fisc.checklist_pergunta AS cp ON cp.id_checklist = ch.id_checklist
+                              INNER JOIN fisc.checklist_resposta AS cr ON cr.id_checklistpergunta = cp.id_checklistpergunta
+                              INNER JOIN fisc.checklistresposta_tf AS chtf ON chtf.id_checklistresposta = cr.id_checklistresposta
+                              INNER JOIN fisc.termo_fiscalizacao AS tf ON tf.id_termofiscalizacao = chtf.id_termofiscalizacao
+                     WHERE tf.ativo = true
+                     GROUP BY ch.id_checklist, tf.id_inscricaoestadual) as ultimo
+                    ON ultimo.data = tf.dt_criacaotermo AND ultimo.check_list_id = ch.id_checklist AND ultimo.inscricaoestadual_id = tf.id_inscricaoestadual
+         INNER JOIN (SELECT ch.id_checklist AS id,
+                            sum(menor)      AS menor,
+                            sum(maior)      as maior
+                     FROM fisc.checklist AS ch
+                              INNER JOIN (SELECT cp.id_checklist,
+                                                 min(cr.nu_pontuacao) AS menor,
+                                                 max(cr.nu_pontuacao) AS maior
+                                          FROM fisc.checklist_pergunta AS cp
+                                                   INNER JOIN fisc.checklist_resposta AS cr ON cr.id_checklistpergunta = cp.id_checklistpergunta
+                                          GROUP BY cp.id_checklistpergunta, cp.ds_pergunta
+                         ) AS total ON ch.id_checklist = total.id_checklist
+                     GROUP BY ch.id_checklist) AS pontuacao
+                    ON ch.id_checklist = pontuacao.id
+
 WHERE ch.bo_ativo = true
 ORDER BY CAST(tf.id_inscricaoestadual AS TEXT) || '-' || ch.id_checklist
