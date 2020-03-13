@@ -46,6 +46,15 @@ SELECT it.id                                                               AS id
            WHEN t.tp_posto = 'movel' THEN 'Posto Movel'
            END                                                             AS posto,
 
+       CASE
+           WHEN unid.bo_movel = true THEN 'Movel'
+           WHEN unid.bo_movel = false THEN 'Fixo'
+           END                                                             AS unidade_tipo,
+       unid.id_unidademovel                                                AS unidade_id,
+       unid.no_unidademovel                                                AS unidade_nome,
+       COALESCE(unid.lat, 0)                                               AS unidade_gps_latitude,
+       COALESCE(unid.lon, 0)                                               AS unidade_gps_longitude,
+
        po.nome                                                             AS origem_nome,
        dor.numero                                                          AS origem_documento,
        mo.loc_no                                                           AS origem_municipio_nome,
@@ -84,5 +93,6 @@ FROM mt.transito t
          LEFT JOIN produtos.subproduto AS s ON it.id_subproduto = s.id_subproduto
          LEFT JOIN produtos.produto AS p ON it.fk_produto_id = p.id_produto
          LEFT JOIN produtos.unidademedida AS um ON s.id_unidademedida = um.id_unidademedida
-WHERE t.data_hora_cadastro_transito:: date >= current_date - interval '1 month'
+         LEFT JOIN fisc.unidademovel AS unid ON t.id_unidademovel = unid.id_unidademovel AND unid.bo_ativo = true
+WHERE t.data_hora_cadastro_transito:: date >= current_date - interval '2 month'
 ORDER BY it.id
