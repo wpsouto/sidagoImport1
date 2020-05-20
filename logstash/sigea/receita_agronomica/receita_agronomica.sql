@@ -69,7 +69,7 @@ FROM agrotoxicos.receitas AS rc
          INNER JOIN rh.usuario AS us_t ON us_t.usuario = rc.usuario
          INNER JOIN agrocomum.inscricaoestadual ie_t ON ie_t.id_pessoa = us_t.id_pessoa
          LEFT JOIN rh.documento d ON d.numero = rc.cnpj_comerciante
-         LEFT JOIN agrocomum.inscricaoestadual com ON com.id_pessoa = d.id_pessoa AND com.id_classificacao IN (128, 129)
+         LEFT JOIN agrocomum.inscricaoestadual com ON com.id_pessoa = d.id_pessoa AND com.id_classificacao is not null
          LEFT JOIN agrocomum.inscricaoestadual_endereco AS iee ON com.id_inscricaoestadual = iee.id_inscricaoestadual
          LEFT JOIN agrocomum.endereco AS e ON iee.id_endereco = e.id_endereco
          LEFT JOIN dne.log_localidade AS ll ON e.id_localidade = ll.loc_nu
@@ -77,5 +77,5 @@ FROM agrotoxicos.receitas AS rc
                             string_agg(pr.no_praga, ', ') AS nome
                      FROM gtv.praga AS pr
                      GROUP BY pr.eppo_code) AS praga ON praga.eppo_code = i.diagnostico
-WHERE rc.ts_alteracao > :sql_last_value
+--WHERE rc.ts_alteracao > :sql_last_value
 ORDER BY i.id_item

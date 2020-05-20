@@ -5,11 +5,11 @@ SELECT s.id_saldo                                                              A
        lote.nome                                                               AS vacinacao_emissor_lotacao_nome,
        reg.nome                                                                AS vacinacao_emissor_lotacao_regional_nome,
 
-       51                                                                      AS vacinacao_campanha_id,
-       '2º Etapa 2019 Febre Aftosa/Antirrábica'                                AS vacinacao_campanha_nome,
-       '2019-11-01'                                                            AS vacinacao_campanha_inicio,
-       '2019-11-30'                                                            AS vacinacao_campanha_fim,
-       '2019-12-27'                                                            AS vacinacao_campanha_fechamento,
+       52                                                                      AS vacinacao_campanha_id,
+       '1º Etapa 2020 Febre Aftosa/Antirrábica'                                AS vacinacao_campanha_nome,
+       '2020-04-20'                                                            AS vacinacao_campanha_inicio,
+       '2020-05-31'                                                            AS vacinacao_campanha_fim,
+       '2020-06-27'                                                            AS vacinacao_campanha_fechamento,
 
        CASE
            WHEN vd.bo_produtor = TRUE THEN 'Produtor'
@@ -44,7 +44,7 @@ FROM dsa.saldo AS s
          INNER JOIN dsa.especie AS es ON n.id_especie = es.id
          INNER JOIN dsa.exploracao_propriedade AS ep ON n.id_exploracao = ep.id_exploracao
          INNER JOIN agrocomum.inscricaoestadual AS ie ON ep.id_inscricaoestadual = ie.id_inscricaoestadual
-         LEFT JOIN dsa.vacinacao_declaracao AS vd ON vd.id_inscricaoestadual = ie.id_inscricaoestadual AND vd.id_campanha_vacina = 51
+         LEFT JOIN dsa.vacinacao_declaracao AS vd ON vd.id_inscricaoestadual = ie.id_inscricaoestadual AND vd.id_campanha_vacina = 52
          LEFT JOIN rh.pessoa AS pd ON pd.id = vd.id_pessoa
          LEFT JOIN rh.lotacao_funcionario AS lf ON lf.id_pessoa = vd.id_pessoa AND lf.dt_final IS NULL
          LEFT JOIN rh.lotacao AS lote ON lf.id_lotacao = lote.id
@@ -65,7 +65,7 @@ FROM dsa.saldo AS s
                            ve.id_estratificacao
                     FROM dsa.vacinacao AS va
                              INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
-                    WHERE va.id_campanha_vacina = 50
+                    WHERE va.id_campanha_vacina = 53
                       AND va.tp_origem not in ('RT', 'TG')) AS anti ON anti.id_inscricaoestadual = ie.id_inscricaoestadual AND anti.id_estratificacao = s.id_estratificacao
 
          LEFT JOIN (SELECT 'Sim'                    AS vacinado,
@@ -83,7 +83,7 @@ FROM dsa.saldo AS s
                            ve.id_estratificacao
                     FROM dsa.vacinacao AS va
                              INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
-                    WHERE va.id_campanha_vacina = 51
+                    WHERE va.id_campanha_vacina = 52
                       AND va.tp_origem not in ('RT', 'TG')) AS afto ON afto.id_inscricaoestadual = ie.id_inscricaoestadual AND afto.id_estratificacao = s.id_estratificacao
 
          LEFT JOIN (SELECT 'Sim'          AS vacinado,
@@ -101,7 +101,7 @@ FROM dsa.saldo AS s
                            ve.id_estratificacao
                     FROM dsa.vacinacao AS va
                              INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
-                    WHERE va.id_campanha_vacina = 50
+                    WHERE va.id_campanha_vacina = 53
                       AND va.tp_origem = 'TG') AS anti_transf ON anti_transf.id_inscricaoestadual = ie.id_inscricaoestadual AND anti_transf.id_estratificacao = s.id_estratificacao
 
          LEFT JOIN (SELECT 'Sim'          AS vacinado,
@@ -119,7 +119,7 @@ FROM dsa.saldo AS s
                            ve.id_estratificacao
                     FROM dsa.vacinacao AS va
                              INNER JOIN dsa.vacinacao_estratificacao AS ve ON ve.id_vacinacao = va.id
-                    WHERE va.id_campanha_vacina = 51
+                    WHERE va.id_campanha_vacina = 52
                       AND va.tp_origem = 'TG') AS afto_transf ON afto_transf.id_inscricaoestadual = ie.id_inscricaoestadual AND afto_transf.id_estratificacao = s.id_estratificacao
 
 WHERE es.id_grupo = 1
