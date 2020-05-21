@@ -1,33 +1,38 @@
-SELECT ie.id_inscricaoestadual                                                 AS id,
-       ie.id_situacaocadastral                                                 AS empresa_situacao_id,
+SELECT ie.id_inscricaoestadual                                                                          AS id,
+       ie.id_situacaocadastral                                                                          AS empresa_situacao_id,
        CASE
            WHEN ie.id_situacaocadastral = 5 THEN 'SUSPENSA'
            WHEN ie.id_situacaocadastral = 6 THEN 'DESCREDENCIADA'
            WHEN ie.id_situacaocadastral = 8 THEN 'ERRO CADASTRO'
            ELSE 'ATIVA'
-           END                                                                   AS empresa_situacao_descricao,
+           END                                                                                            AS empresa_situacao_descricao,
 
-       UPPER(ie.no_fantasia)                                                   AS empresa_nome,
-       d.numero                                                                AS empresa_cnpj,
-       c.ds_classificacao                                                      AS empresa_classificacao,
-       ie.nu_inscricaoestadual                                                 AS empresa_ie,
-       COALESCE(ie.vl_latitude, 0)                                             AS empresa_gps_latitude,
-       COALESCE(ie.vl_longitude, 0)                                            AS empresa_gps_longitude,
-       llr.nome                                                                AS empresa_regional_nome,
-       ll.loc_no                                                               AS empresa_municipio_nome,
-       ll.ufe_sg                                                               AS empresa_municipio_uf,
-       ll.cod_ibge                                                             AS empresa_municipio_ibge,
-       COALESCE(ll.lat, 0)                                                     AS empresa_municipio_gps_latitude,
-       COALESCE(ll.lon, 0)                                                     AS empresa_municipio_gps_longitude,
+       UPPER(ie.no_fantasia)                                                                            AS empresa_nome,
+       d.numero                                                                                         AS empresa_cnpj,
+       c.ds_classificacao                                                                               AS empresa_classificacao,
+       ie.nu_inscricaoestadual                                                                          AS empresa_ie,
+       COALESCE(ie.vl_latitude, 0)                                                                      AS empresa_gps_latitude,
+       COALESCE(ie.vl_longitude, 0)                                                                     AS empresa_gps_longitude,
+       llr.nome                                                                                         AS empresa_regional_nome,
+       ll.loc_no                                                                                        AS empresa_municipio_nome,
+       ll.ufe_sg                                                                                        AS empresa_municipio_uf,
+       ll.cod_ibge                                                                                      AS empresa_municipio_ibge,
+       COALESCE(ll.lat, 0)                                                                              AS empresa_municipio_gps_latitude,
+       COALESCE(ll.lon, 0)                                                                              AS empresa_municipio_gps_longitude,
 
-       tf.emissao                                                              AS tf_emissao,
-       COALESCE(tf.quantidade, 0)                                              AS tf_quantidade,
-       CASE WHEN COALESCE(tf.quantidade, 0) > 1 THEN 'Sim' ELSE 'Não' end      AS tf_fiscalizado,
+       ie.dt_credenciamento                                                                             AS empresa_credenciamento_data,
+       CURRENT_DATE - ie.dt_credenciamento                                                              AS empresa_credenciamento_dias,
 
-       receita.emissao                                                         AS receita_emissao,
-       receita.envio                                                           AS receita_envio,
-       COALESCE(receita.quantidade, 0)                                         AS receita_quantidade,
-       CASE WHEN COALESCE(receita.quantidade, 0) > 1 THEN 'Sim' ELSE 'Não' end AS receita_enviada
+       tf.emissao                                                                                       AS tf_emissao,
+       COALESCE(tf.quantidade, 0)                                                                       AS tf_quantidade,
+       CASE WHEN COALESCE(tf.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                               AS tf_fiscalizado,
+       DIV((((DATE_PART('year', CURRENT_DATE) - DATE_PART('year', ie.dt_credenciamento)) * 12) +
+            (DATE_PART('month', CURRENT_DATE) - DATE_PART('month', ie.dt_credenciamento)))::NUMERIC, 4) AS tf_meta_quantidade,
+
+       receita.emissao                                                                                  AS receita_emissao,
+       receita.envio                                                                                    AS receita_envio,
+       COALESCE(receita.quantidade, 0)                                                                  AS receita_quantidade,
+       CASE WHEN COALESCE(receita.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                          AS receita_enviada
 
 FROM agrocomum.empresa emp
          INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_inscricaoestadual = emp.id_inscricaoestadual

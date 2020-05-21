@@ -1,38 +1,33 @@
-SELECT ie.id_inscricaoestadual                                                 AS id,
-       ie.id_situacaocadastral                                                 AS empresa_situacao_id,
-       CASE
-           WHEN ie.id_situacaocadastral = 5 THEN 'SUSPENSA'
-           WHEN ie.id_situacaocadastral = 6 THEN 'DESCREDENCIADA'
-           WHEN ie.id_situacaocadastral = 8 THEN 'ERRO CADASTRO'
-           ELSE 'ATIVA'
-           END                                                                   AS empresa_situacao_descricao,
-
-       UPPER(ie.no_fantasia)                                                   AS empresa_nome,
-       d.numero                                                                AS empresa_cnpj,
-       c.ds_classificacao                                                      AS empresa_classificacao,
-       ie.nu_inscricaoestadual                                                 AS empresa_ie,
-       COALESCE(ie.vl_latitude, 0)                                             AS empresa_gps_latitude,
-       COALESCE(ie.vl_longitude, 0)                                            AS empresa_gps_longitude,
-       llr.nome                                                                AS empresa_regional_nome,
-       ll.loc_no                                                               AS empresa_municipio_nome,
-       ll.ufe_sg                                                               AS empresa_municipio_uf,
-       ll.cod_ibge                                                             AS empresa_municipio_ibge,
-       COALESCE(ll.lat, 0)                                                     AS empresa_municipio_gps_latitude,
-       COALESCE(ll.lon, 0)                                                     AS empresa_municipio_gps_longitude,
-
-       tf.emissao                                                              AS tf_emissao,
-       COALESCE(tf.quantidade, 0)                                              AS tf_quantidade,
-       CASE WHEN COALESCE(tf.quantidade, 0) > 1 THEN 'Sim' ELSE 'Não' end      AS tf_fiscalizado,
-
-       receita.emissao                                                         AS receita_emissao,
-       receita.envio                                                           AS receita_envio,
-       COALESCE(receita.quantidade, 0)                                         AS receita_quantidade,
-       CASE WHEN COALESCE(receita.quantidade, 0) > 1 THEN 'Sim' ELSE 'Não' end AS receita_enviada
-
+SELECT ie.id_inscricaoestadual || '_' || cm.id_classificacaomacro     AS id,
+       ie.id_inscricaoestadual                                        AS chave,
+       UPPER(ie.no_fantasia)                                          AS nome,
+       d.numero                                                       AS cnpj,
+       ie.dt_credenciamento                                           AS data_credenciamento,
+       c.ds_classificacao                                             AS classificacao_id,
+       c.ds_classificacao                                             AS classificacao_nome,
+       cm.id_classificacaomacro                                       AS classificacao_macro_id,
+       COALESCE(cm.ds_classificacaomacro, 'Não Informada')            AS classificacao_macro_nome,
+       ie.nu_inscricaoestadual                                        AS ie,
+       COALESCE(ie.vl_latitude, 0)                                    AS gps_latitude,
+       COALESCE(ie.vl_longitude, 0)                                   AS gps_longitude,
+       llr.nome                                                       AS regional_nome,
+       ll.loc_no                                                      AS municipio_nome,
+       ll.ufe_sg                                                      AS municipio_uf,
+       ll.cod_ibge                                                    AS municipio_ibge,
+       COALESCE(ll.lat, 0)                                            AS municipio_gps_latitude,
+       COALESCE(ll.lon, 0)                                            AS municipio_gps_longitude,
+       empresa_situacao_cadastral_kibana(ie.id_inscricaoestadual,
+                                         ie.id_classificacao,
+                                         ie.id_situacaocadastral,
+                                         ie.dt_credenciamento,
+                                         b.idEtapaBDAtual,
+                                         b.dtVencimentoEtapa)         AS empresa_situacao_cadastral_id,
+       agrocomum.empresa_situacao_financeiro(ie.id_inscricaoestadual) AS empresa_situacao_financeira_id
 FROM agrocomum.empresa emp
          INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_inscricaoestadual = emp.id_inscricaoestadual
          INNER JOIN agrocomum.classificacao AS c ON ie.id_classificacao = c.id_classificacao
-         INNER JOIN agrocomum.classificacao_macro_composta AS cmc ON cmc.id_classificacaooriginal = c.id_classificacao AND cmc.id_classificacaomacro = 28
+         LEFT JOIN agrocomum.classificacao_macro_composta AS cmc ON cmc.id_classificacaooriginal = c.id_classificacao
+         LEFT JOIN agrocomum.classificacao_macro AS cm ON cm.id_classificacaomacro = cmc.id_classificacaomacro
          INNER JOIN agrocomum.inscricaoestadual_endereco AS iee ON ie.id_inscricaoestadual = iee.id_inscricaoestadual
          INNER JOIN agrocomum.endereco AS e ON iee.id_endereco = e.id_endereco
          INNER JOIN dne.log_localidade AS ll ON e.id_localidade = ll.loc_nu
@@ -40,21 +35,23 @@ FROM agrocomum.empresa emp
          INNER JOIN rh.lotacao AS llr ON llr.id = l.id_lotacao_pai AND llr.id_lotacaotipo = 2 --Unidade Regional
          INNER JOIN rh.pessoa AS pe ON pe.id = ie.id_pessoa
          INNER JOIN rh.documento AS d ON d.id_pessoa = pe.id AND id_documento_tipo = 2
-         LEFT JOIN (SELECT tf.id_inscricaoestadual                 AS ie,
-                           COUNT(DISTINCT tf.id_termofiscalizacao) AS quantidade,
-                           MAX(tf.dt_criacaotermo)                 AS emissao
-                    FROM fisc.termo_fiscalizacao AS tf
-                             INNER JOIN fisc.termoobjetivo_fiscalizacao AS tro ON tf.id_termofiscalizacao = tro.id_termofiscalizacao
-                             INNER JOIN fisc.programa_fiscalizacao AS pr ON tro.id_programafiscalizacao = pr.id_programafiscalizacao
-                    WHERE pr.id_programafiscalizacao = 5
-                      AND tf.ativo = true
-                    GROUP BY ie) AS tf ON tf.ie = ie.id_inscricaoestadual
-         LEFT JOIN (SELECT COUNT(ie.id_inscricaoestadual) AS quantidade,
-                           MAX(rc.dt_emissao)             AS emissao,
-                           MAX(rc.dt_criacao)             AS envio,
-                           ie.id_inscricaoestadual        AS ie
-                    FROM agrotoxicos.receitas AS rc
-                             INNER JOIN rh.documento AS d ON d.numero = rc.cnpj_comerciante
-                             INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_pessoa = d.id_pessoa
-                    GROUP BY ie.id_inscricaoestadual) AS receita ON receita.ie = ie.id_inscricaoestadual
-ORDER BY ie.id_inscricaoestadual
+         INNER JOIN (SELECT e.id_etaparecadastramento AS idEtapaBDAtual, e.dt_vencimentoetapa AS dtVencimentoEtapa, e.ano AS ano
+                     FROM agrocomum.etapa_recadastramento AS e
+                     WHERE e.ano = date_part('year', CURRENT_DATE)::text
+                     ORDER BY e.ano DESC
+                              LIMIT '1') AS b ON 1 = 1
+ORDER BY ie.id_inscricaoestadual, cm.id_classificacaomacro
+LIMIT 100
+
+--     1 -Regular
+--     2 -Irregular - Aguardando Envio ao Cadastro
+--     3 -Irregular - Cadastro Avaliando
+--     4 -Irregular - Cadastro Recusado
+--     5 -Suspensa
+--     6 -Descredenciada
+--     8 -Erro Cadastro
+
+
+--102; -- Isenta
+--101;--'Irregular';
+--100;--'Regular';
