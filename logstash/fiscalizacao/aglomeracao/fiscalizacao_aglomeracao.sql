@@ -40,11 +40,13 @@ SELECT ac.id_aglomeracaociclo                          AS id,
        pai.nome                                        AS fiscalizado_regional_nome
 
 FROM agrocomum.inscricaoestadual AS ie
+         INNER JOIN agrocomum.inscricaoestadual_endereco AS iee ON ie.id_inscricaoestadual = iee.id_inscricaoestadual
+         INNER JOIN agrocomum.endereco AS e ON iee.id_endereco = e.id_endereco
          INNER JOIN dsa.aglomeracao_ciclo AS ac ON ac.id_inscricaoestadual = ie.id_inscricaoestadual
          INNER JOIN agrocomum.classificacao AS c ON ie.id_classificacao = c.id_classificacao
          INNER JOIN agrocomum.classificacao_macro_composta AS cmc
                     ON cmc.id_classificacaooriginal = c.id_classificacao AND cmc.id_classificacaomacro = 5
-         INNER JOIN dne.log_localidade AS ll ON ll.loc_nu = ac.id_localidade
+         INNER JOIN dne.log_localidade AS ll ON e.id_localidade = ll.loc_nu
          INNER JOIN rh.lotacao AS l
                     ON l.id_localidade = ac.id_localidade and l.bo_ativo = true and l.bo_organograma = true and id_lotacaotipo = 3
          INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai
