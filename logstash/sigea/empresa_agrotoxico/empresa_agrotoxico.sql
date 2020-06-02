@@ -1,38 +1,44 @@
-SELECT ie.id_inscricaoestadual                                                                          AS id,
-       ie.id_situacaocadastral                                                                          AS empresa_situacao_id,
+SELECT ie.id_inscricaoestadual                                                                                AS id,
+       ie.id_situacaocadastral                                                                                AS empresa_situacao_id,
        CASE
            WHEN ie.id_situacaocadastral = 5 THEN 'SUSPENSA'
            WHEN ie.id_situacaocadastral = 6 THEN 'DESCREDENCIADA'
            WHEN ie.id_situacaocadastral = 8 THEN 'ERRO CADASTRO'
            ELSE 'ATIVA'
-           END                                                                                            AS empresa_situacao_descricao,
+           END                                                                                                  AS empresa_situacao_descricao,
 
-       UPPER(ie.no_fantasia)                                                                            AS empresa_nome,
-       d.numero                                                                                         AS empresa_cnpj,
-       c.ds_classificacao                                                                               AS empresa_classificacao,
-       ie.nu_inscricaoestadual                                                                          AS empresa_ie,
-       COALESCE(ie.vl_latitude, 0)                                                                      AS empresa_gps_latitude,
-       COALESCE(ie.vl_longitude, 0)                                                                     AS empresa_gps_longitude,
-       llr.nome                                                                                         AS empresa_regional_nome,
-       ll.loc_no                                                                                        AS empresa_municipio_nome,
-       ll.ufe_sg                                                                                        AS empresa_municipio_uf,
-       ll.cod_ibge                                                                                      AS empresa_municipio_ibge,
-       COALESCE(ll.lat, 0)                                                                              AS empresa_municipio_gps_latitude,
-       COALESCE(ll.lon, 0)                                                                              AS empresa_municipio_gps_longitude,
+       UPPER(ie.no_fantasia)                                                                                  AS empresa_nome,
+       d.numero                                                                                               AS empresa_cnpj,
+       c.ds_classificacao                                                                                     AS empresa_classificacao,
+       ie.nu_inscricaoestadual                                                                                AS empresa_ie,
+       COALESCE(ie.vl_latitude, 0)                                                                            AS empresa_gps_latitude,
+       COALESCE(ie.vl_longitude, 0)                                                                           AS empresa_gps_longitude,
+       llr.nome                                                                                               AS empresa_regional_nome,
+       ll.loc_no                                                                                              AS empresa_municipio_nome,
+       ll.ufe_sg                                                                                              AS empresa_municipio_uf,
+       ll.cod_ibge                                                                                            AS empresa_municipio_ibge,
+       COALESCE(ll.lat, 0)                                                                                    AS empresa_municipio_gps_latitude,
+       COALESCE(ll.lon, 0)                                                                                    AS empresa_municipio_gps_longitude,
 
-       ie.dt_credenciamento                                                                             AS empresa_credenciamento_data,
-       CURRENT_DATE - ie.dt_credenciamento                                                              AS empresa_credenciamento_dias,
+       ie.dt_credenciamento                                                                                   AS empresa_credenciamento_data,
+       CURRENT_DATE - ie.dt_credenciamento                                                                    AS empresa_credenciamento_dias,
 
-       tf.emissao                                                                                       AS tf_emissao,
-       COALESCE(tf.quantidade, 0)                                                                       AS tf_quantidade,
-       CASE WHEN COALESCE(tf.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                               AS tf_fiscalizado,
-       DIV((((DATE_PART('year', CURRENT_DATE) - DATE_PART('year', ie.dt_credenciamento)) * 12) +
-            (DATE_PART('month', CURRENT_DATE) - DATE_PART('month', ie.dt_credenciamento)))::NUMERIC, 4) AS tf_meta_quantidade,
+       tf.emissao                                                                                             AS tf_emissao,
+       COALESCE(tf.quantidade, 0)                                                                             AS tf_quantidade,
+       CASE WHEN COALESCE(tf.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                                     AS tf_fiscalizado,
+       extract(DAY FROM CURRENT_DATE - tf.emissao)                                                            AS tf_dia,
+       ROUND((extract(DAY FROM CURRENT_DATE - tf.emissao) / 30)::NUMERIC, 0)                                  AS tf_mes,
+       CASE WHEN COALESCE(extract(DAY FROM CURRENT_DATE - tf.emissao) / 30, 5) >= 5 THEN 'Sim' ELSE 'Não' end AS tf_insuficiente,
 
-       receita.emissao                                                                                  AS receita_emissao,
-       receita.envio                                                                                    AS receita_envio,
-       COALESCE(receita.quantidade, 0)                                                                  AS receita_quantidade,
-       CASE WHEN COALESCE(receita.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                          AS receita_enviada
+       receita.emissao                                                                                        AS receita_emissao,
+       receita.envio                                                                                          AS receita_envio,
+       COALESCE(receita.quantidade, 0)                                                                        AS receita_quantidade,
+       COALESCE(receita.propriedade, 0)                                                                       AS receita_propriedade,
+       CASE WHEN COALESCE(receita.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                                AS receita_enviada,
+
+       COALESCE(fea_ur.total, 0)                                                                              AS fea_ur_total,
+       COALESCE(fea_uol.total, 0)                                                                             AS fea_uol_total,
+       CASE WHEN COALESCE(fea_uol.total, 0) > 0 THEN 'Sim' ELSE 'Não' end                                     AS fea_uol_presente
 
 FROM agrocomum.empresa emp
          INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_inscricaoestadual = emp.id_inscricaoestadual
@@ -54,12 +60,59 @@ FROM agrocomum.empresa emp
                     WHERE pr.id_programafiscalizacao = 5
                       AND tf.ativo = true
                     GROUP BY ie) AS tf ON tf.ie = ie.id_inscricaoestadual
-         LEFT JOIN (SELECT COUNT(ie.id_inscricaoestadual) AS quantidade,
-                           MAX(rc.dt_emissao)             AS emissao,
-                           MAX(rc.dt_criacao)             AS envio,
-                           ie.id_inscricaoestadual        AS ie
+         LEFT JOIN (SELECT COUNT(ie.id_inscricaoestadual)           AS quantidade,
+                           MAX(rc.dt_emissao)                       AS emissao,
+                           MAX(rc.dt_criacao)                       AS envio,
+                           COUNT(DISTINCT rc.nu_inscricao_estadual) AS propriedade,
+                           ie.id_inscricaoestadual                  AS ie
                     FROM agrotoxicos.receitas AS rc
                              INNER JOIN rh.documento AS d ON d.numero = rc.cnpj_comerciante
                              INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_pessoa = d.id_pessoa
                     GROUP BY ie.id_inscricaoestadual) AS receita ON receita.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT l.id        AS id,
+                           count(p.id) AS total
+                    FROM rh.funcionario AS f
+                             JOIN rh.pessoa AS p ON f.id_pessoa = p.id
+                             JOIN rh.cargo_funcionario AS cf ON cf.id_pessoa = p.id
+                             JOIN rh.cargo AS c ON cf.id_cargo = c.id
+                             JOIN rh.funcionario_titularidade AS pp ON pp.id_pessoa = p.id
+                             JOIN rh.lotacao_funcionario AS lf ON f.id_pessoa = lf.id_pessoa
+                             JOIN rh.lotacao AS l ON lf.id_lotacao = l.id
+                             LEFT JOIN (SELECT DISTINCT p.id AS id
+                                        FROM rh.pessoa AS p
+                                                 INNER JOIN rh.bloqueio AS b ON b.id_pessoa = p.id
+                                                 INNER JOIN rh.afastamento AS af ON af.id_bloqueio = b.id_bloqueio and b.dt_inicio <= current_date and b.dt_final >= current_date) AS afas ON afas.id = p.id
+                    WHERE cf.id_cargo = 131
+                      AND f.bo_ativo = true
+                      AND pp.id_profissao = 5
+                      AND afas.id is null
+                      AND lf.dt_final is null
+                      AND cf.dt_final is null
+                      AND l.bo_ativo = true
+                    GROUP BY l.id) AS fea_uol ON fea_uol.id = l.id
+
+         LEFT JOIN (SELECT ll.id       AS id,
+                           count(p.id) AS total
+                    FROM rh.funcionario AS f
+                             JOIN rh.pessoa AS p ON f.id_pessoa = p.id
+                             JOIN rh.cargo_funcionario AS cf ON cf.id_pessoa = p.id
+                             JOIN rh.cargo AS c ON cf.id_cargo = c.id
+                             JOIN rh.funcionario_titularidade AS pp ON pp.id_pessoa = p.id
+                             JOIN rh.lotacao_funcionario AS lf ON f.id_pessoa = lf.id_pessoa
+                             JOIN rh.lotacao AS l ON lf.id_lotacao = l.id
+                             JOIN rh.lotacao AS ll ON ll.id = l.id_lotacao_pai
+                             LEFT JOIN (SELECT DISTINCT p.id AS id
+                                        FROM rh.pessoa AS p
+                                                 INNER JOIN rh.bloqueio AS b ON b.id_pessoa = p.id
+                                                 INNER JOIN rh.afastamento AS af ON af.id_bloqueio = b.id_bloqueio and b.dt_inicio <= current_date and b.dt_final >= current_date) AS afas ON afas.id = p.id
+                    WHERE cf.id_cargo = 131
+                      AND f.bo_ativo = true
+                      AND pp.id_profissao = 5
+                      AND afas.id is null
+                      AND lf.dt_final is null
+                      AND cf.dt_final is null
+                      AND l.bo_ativo = true
+                      AND l.id not in (2357, 2512, 2529) --PF Ceasa - Goiânia, UOL CEASA - GOIÂNIA, UOL CEASA - ANÁPOLIS
+                    GROUP BY ll.id) AS fea_ur ON fea_ur.id = llr.id
+
 ORDER BY ie.id_inscricaoestadual
