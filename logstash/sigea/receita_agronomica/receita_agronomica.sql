@@ -77,5 +77,5 @@ FROM agrotoxicos.receitas AS rc
                             string_agg(pr.no_praga, ', ') AS nome
                      FROM gtv.praga AS pr
                      GROUP BY pr.eppo_code) AS praga ON praga.eppo_code = i.diagnostico
---WHERE rc.ts_alteracao > :sql_last_value
+WHERE rc.ts_alteracao > :sql_last_value
 ORDER BY i.id_item
