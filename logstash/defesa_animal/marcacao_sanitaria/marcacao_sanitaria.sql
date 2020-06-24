@@ -1,64 +1,91 @@
-SELECT ie.id_inscricaoestadual                                                    AS id,
+SELECT ie.id_inscricaoestadual                                                                                                                                                AS id,
 
-       case when prop.bo_ativo then 'Sim' else 'Não' end                          AS ativa,
+       case when prop.bo_ativo then 'Sim' else 'Não' end                                                                                                                      AS ativa,
 
-       CASE WHEN mp.bo_brucelose THEN 'Sim' else 'Não' END                        AS marcacao_brucelose,
-       CASE WHEN mp.bo_leucose THEN 'Sim' else 'Não' END                          AS marcacao_leucose,
-       CASE WHEN mp.bo_antirrabica THEN 'Sim' else 'Não' END                      AS marcacao_antirrabica,
-       CASE WHEN mp.bo_tuberculose THEN 'Sim' else 'Não' END                      AS marcacao_tuberculose,
-       CASE WHEN mp.bo_vacinacaoassistida THEN 'Sim' else 'Não' END               AS marcacao_vacinacaoassistida,
-       CASE WHEN mp.bo_sorologiavfa THEN 'Sim' else 'Não' END                     AS marcacao_scvvfa,
-       CASE WHEN mp.bo_pncrc THEN 'Sim' else 'Não' END                            AS marcacao_pncrc,
-       CASE WHEN mp.bo_mormo THEN 'Sim' else 'Não' END                            AS marcacao_mormo,
-       CASE WHEN mp.bo_averbacaopenhora THEN 'Sim' else 'Não' END                 AS marcacao_averbacaopenhora,
-       CASE WHEN mp.bo_livrebrucelose THEN 'Sim' else 'Não' END                   AS marcacao_livrebrucelose,
-       CASE WHEN mp.bo_granjasuinolivreractopamina THEN 'Sim' else 'Não' END      AS marcacao_granjasuinolivreractopamina,
-       CASE WHEN mp.bo_eras THEN 'Sim' else 'Não' END                             AS marcacao_eras,
-       CASE WHEN mp.bo_pfe THEN 'Sim' else 'Não' END                              AS marcacao_pfe,
-       CASE WHEN mp.bo_livrebrucelosetuberculose THEN 'Sim' else 'Não' END        AS marcacao_livrebrucelosetuberculose,
-       CASE WHEN mp.bo_pestesuina THEN 'Sim' else 'Não' END                       AS marcacao_pestesuina,
-       CASE WHEN mp.bo_aie THEN 'Sim' else 'Não' END                              AS marcacao_aie,
-       CASE WHEN mp.bo_peae THEN 'Sim' else 'Não' END                             AS marcacao_peae,
-       CASE WHEN mp.bo_confinamento THEN 'Sim' else 'Não' END                     AS marcacao_confinamento,
-       CASE WHEN mp.bo_livretuberculose THEN 'Sim' else 'Não' END                 AS marcacao_livretuberculose,
+       CASE WHEN mp.bo_brucelose THEN 'Sim' else 'Não' END                                                                                                                    AS marcacao_brucelose,
+       CASE WHEN mp.bo_leucose THEN 'Sim' else 'Não' END                                                                                                                      AS marcacao_leucose,
+       CASE WHEN mp.bo_antirrabica THEN 'Sim' else 'Não' END                                                                                                                  AS marcacao_antirrabica,
+       CASE WHEN mp.bo_tuberculose THEN 'Sim' else 'Não' END                                                                                                                  AS marcacao_tuberculose,
+       CASE WHEN mp.bo_vacinacaoassistida THEN 'Sim' else 'Não' END                                                                                                           AS marcacao_vacinacaoassistida,
+       CASE WHEN mp.bo_sorologiavfa THEN 'Sim' else 'Não' END                                                                                                                 AS marcacao_scvvfa,
+       CASE WHEN mp.bo_pncrc THEN 'Sim' else 'Não' END                                                                                                                        AS marcacao_pncrc,
+       CASE WHEN mp.bo_mormo THEN 'Sim' else 'Não' END                                                                                                                        AS marcacao_mormo,
+       CASE WHEN mp.bo_averbacaopenhora THEN 'Sim' else 'Não' END                                                                                                             AS marcacao_averbacaopenhora,
+       CASE WHEN mp.bo_livrebrucelose THEN 'Sim' else 'Não' END                                                                                                               AS marcacao_livrebrucelose,
+       CASE WHEN mp.bo_granjasuinolivreractopamina THEN 'Sim' else 'Não' END                                                                                                  AS marcacao_granjasuinolivreractopamina,
+       CASE WHEN mp.bo_eras THEN 'Sim' else 'Não' END                                                                                                                         AS marcacao_eras,
+       CASE WHEN mp.bo_pfe THEN 'Sim' else 'Não' END                                                                                                                          AS marcacao_pfe,
+       CASE WHEN mp.bo_livrebrucelosetuberculose THEN 'Sim' else 'Não' END                                                                                                    AS marcacao_livrebrucelosetuberculose,
+       CASE WHEN mp.bo_pestesuina THEN 'Sim' else 'Não' END                                                                                                                   AS marcacao_pestesuina,
+       CASE WHEN mp.bo_aie THEN 'Sim' else 'Não' END                                                                                                                          AS marcacao_aie,
+       CASE WHEN mp.bo_peae THEN 'Sim' else 'Não' END                                                                                                                         AS marcacao_peae,
+       CASE WHEN mp.bo_confinamento THEN 'Sim' else 'Não' END                                                                                                                 AS marcacao_confinamento,
+       CASE WHEN mp.bo_livretuberculose THEN 'Sim' else 'Não' END                                                                                                             AS marcacao_livretuberculose,
 
-       UPPER(p.nome)                                                              AS produtor_nome,
-       d.numero                                                                   AS produtor_documento,
+       UPPER(p.nome)                                                                                                                                                          AS produtor_nome,
+       d.numero                                                                                                                                                               AS produtor_documento,
 
-       ie.id_inscricaoestadual                                                    AS propriedade_id,
-       UPPER(ie.no_fantasia)                                                      AS propriedade_nome,
-       ie.nu_inscricaoestadual                                                    AS propriedade_ie,
-       COALESCE(prop.vl_area, 0)                                                  AS propriedade_area,
-       COALESCE(ie.vl_latitude, 0)                                                AS propriedade_gps_latitude,
-       COALESCE(ie.vl_longitude, 0)                                               AS propriedade_gps_longitude,
+       ie.id_inscricaoestadual                                                                                                                                                AS propriedade_id,
+       UPPER(ie.no_fantasia)                                                                                                                                                  AS propriedade_nome,
+       ie.nu_inscricaoestadual                                                                                                                                                AS propriedade_ie,
+       COALESCE(prop.vl_area, 0)                                                                                                                                              AS propriedade_area,
+       COALESCE(ie.vl_latitude, 0)                                                                                                                                            AS propriedade_gps_latitude,
+       COALESCE(ie.vl_longitude, 0)                                                                                                                                           AS propriedade_gps_longitude,
 
-       pai.nome                                                                   AS propriedade_regional_nome,
-       ll.loc_no                                                                  AS propriedade_municipio_nome,
-       ll.ufe_sg                                                                  AS propriedade_municipio_uf,
-       ll.cod_ibge                                                                AS propriedade_municipio_ibge,
-       COALESCE(ll.lat, 0)                                                        AS propriedade_municipio_gps_latitude,
-       COALESCE(ll.lon, 0)                                                        AS propriedade_municipio_gps_longitude,
+       pai.nome                                                                                                                                                               AS propriedade_regional_nome,
+       ll.loc_no                                                                                                                                                              AS propriedade_municipio_nome,
+       ll.ufe_sg                                                                                                                                                              AS propriedade_municipio_uf,
+       ll.cod_ibge                                                                                                                                                            AS propriedade_municipio_ibge,
+       COALESCE(ll.lat, 0)                                                                                                                                                    AS propriedade_municipio_gps_latitude,
+       COALESCE(ll.lon, 0)                                                                                                                                                    AS propriedade_municipio_gps_longitude,
 
-       COALESCE(animal.total, 0)                                                  AS animal_total,
-       case when COALESCE(animal.total, 0) > 0 then 'Sim' else 'Não' end          AS animal_existe,
+       tf.emissao                                                                                                                                                             AS tf_emissao,
+       COALESCE(tf.quantidade, 0)                                                                                                                                             AS tf_quantidade,
+       CASE WHEN ROUND((extract(DAY FROM CURRENT_DATE - COALESCE(tf.emissao, current_date - interval '5 year')::TIMESTAMP) / 30):: NUMERIC, 0) > 60 THEN 'Não' ELSE 'Sim' end AS tf_fiscalizado,
+       ROUND((extract(DAY FROM CURRENT_DATE - COALESCE(tf.emissao, current_date - interval '5 year')::TIMESTAMP) / 30):: NUMERIC, 0)                                          AS tf_mes,
 
-       COALESCE(animal_bovideo.total, 0)                                          AS animal_bovideo_total,
-       case when COALESCE(animal_bovideo.total, 0) > 0 then 'Sim' else 'Não' end  AS animal_bovideo_existe,
+       gta.emissao                                                                                                                                                            AS gta_emissao,
+       COALESCE(gta.quantidade, 0)                                                                                                                                            AS gta_quantidade,
+       CASE WHEN COALESCE(gta.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                                                                                                    AS gta_emitida,
+       COALESCE(gta_bovideo.quantidade, 0) + COALESCE(gta_equideo.quantidade, 0) + COALESCE(gta_suideo.quantidade, 0) + COALESCE(gta_ave.quantidade, 0) + COALESCE(gta_caprino.quantidade, 0) +
+       COALESCE(gta_aquatico.quantidade, 0)                                                                                                                                  AS gta_total_aminal,
 
-       COALESCE(animal_equideo.total, 0)                                          AS animal_equideo_total,
-       case when COALESCE(animal_equideo.total, 0) > 0 then 'Sim' else 'Não' end  AS animal_equideo_existe,
+       COALESCE(gta_bovideo.quantidade, 0)                                                                                                                                    AS gta_bovideo,
+       COALESCE(gta_equideo.quantidade, 0)                                                                                                                                    AS gta_equideo,
+       COALESCE(gta_suideo.quantidade, 0)                                                                                                                                     AS gta_suideo,
+       COALESCE(gta_ave.quantidade, 0)                                                                                                                                        AS gta_ave,
+       COALESCE(gta_caprino.quantidade, 0)                                                                                                                                    AS gta_caprino,
+       COALESCE(gta_aquatico.quantidade, 0)                                                                                                                                   AS gta_aquatico,
+       COALESCE(gta_bovideo.quantidade, 0) + COALESCE(gta_suideo.quantidade, 0) + COALESCE(gta_caprino.quantidade, 0)                                                         AS gta_febre_aftosa,
 
-       COALESCE(animal_suideo.total, 0)                                           AS animal_suideo_total,
-       case when COALESCE(animal_suideo.total, 0) > 0 then 'Sim' else 'Não' end   AS animal_suideo_existe,
+       COALESCE(animal.total, 0)                                                                                                                                              AS animal_total,
+       case when COALESCE(animal.total, 0) > 0 then 'Sim' else 'Não' end                                                                                                      AS animal_existe,
 
-       COALESCE(animal_ave.total, 0)                                              AS animal_ave_total,
-       case when COALESCE(animal_ave.total, 0) > 0 then 'Sim' else 'Não' end      AS animal_ave_existe,
+       COALESCE(animal_bovideo.total, 0)                                                                                                                                      AS animal_bovideo_total,
+       case when COALESCE(animal_bovideo.total, 0) > 0 then 'Sim' else 'Não' end                                                                                              AS animal_bovideo_existe,
 
-       COALESCE(animal_caprino.total, 0)                                          AS animal_caprino_total,
-       case when COALESCE(animal_caprino.total, 0) > 0 then 'Sim' else 'Não' end  AS animal_caprino_existe,
+       COALESCE(animal_equideo.total, 0)                                                                                                                                      AS animal_equideo_total,
+       case when COALESCE(animal_equideo.total, 0) > 0 then 'Sim' else 'Não' end                                                                                              AS animal_equideo_existe,
 
-       COALESCE(animal_aquatico.total, 0)                                         AS animal_aquatico_total,
-       case when COALESCE(animal_aquatico.total, 0) > 0 then 'Sim' else 'Não' end AS animal_aquatico_existe
+       COALESCE(animal_suideo.total, 0)                                                                                                                                       AS animal_suideo_total,
+       case when COALESCE(animal_suideo.total, 0) > 0 then 'Sim' else 'Não' end                                                                                               AS animal_suideo_existe,
+
+       COALESCE(animal_ave.total, 0)                                                                                                                                          AS animal_ave_total,
+       case when COALESCE(animal_ave.total, 0) > 0 then 'Sim' else 'Não' end                                                                                                  AS animal_ave_existe,
+
+       COALESCE(animal_caprino.total, 0)                                                                                                                                      AS animal_caprino_total,
+       case when COALESCE(animal_caprino.total, 0) > 0 then 'Sim' else 'Não' end                                                                                              AS animal_caprino_existe,
+
+       COALESCE(animal_aquatico.total, 0)                                                                                                                                     AS animal_aquatico_total,
+       case when COALESCE(animal_aquatico.total, 0) > 0 then 'Sim' else 'Não' end                                                                                             AS animal_aquatico_existe,
+
+       COALESCE(animal_bovideo.total, 0) + COALESCE(animal_suideo.total, 0) + COALESCE(animal_caprino.total, 0)                                                               AS animal_febre_aftosa_total,
+       CASE
+           WHEN COALESCE(animal_bovideo.total, 0) > 0 THEN 'Sim'
+           WHEN COALESCE(animal_suideo.total, 0) > 0 THEN 'Sim'
+           WHEN COALESCE(animal_caprino.total, 0) > 0 THEN 'Sim'
+           ELSE 'Não'
+           END                                                                                                                                                                AS animal_febre_aftosa_existe
 
 FROM agrocomum.inscricaoestadual AS ie
          INNER JOIN agrocomum.propriedade AS prop ON prop.id_inscricaoestadual = ie.id_inscricaoestadual
@@ -131,5 +158,80 @@ FROM agrocomum.inscricaoestadual AS ie
                     WHERE ep.bo_ativo = true
                       AND es.id_grupo = 3
                     GROUP BY ep.id_inscricaoestadual) AS animal_aquatico ON animal_aquatico.id_inscricaoestadual = ie.id_inscricaoestadual
-
+         LEFT JOIN (SELECT tf.id_inscricaoestadual        AS ie,
+                           COUNT(tf.id_termofiscalizacao) AS quantidade,
+                           MAX(tf.dt_criacaotermo)        AS emissao
+                    FROM fisc.termo_fiscalizacao AS tf
+                    WHERE tf.tp_caracterizacao = 'AN'
+                      AND DATE_PART('year', tf.dt_criacaotermo) >= DATE_PART('year', current_date - interval '5 year')
+                      AND tf.ativo = true
+                    GROUP BY ie) AS tf ON tf.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 1
+                    GROUP BY gto.id_origem) AS gta_bovideo ON gta_bovideo.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 2
+                    GROUP BY gto.id_origem) AS gta_equideo ON gta_equideo.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 5
+                    GROUP BY gto.id_origem) AS gta_suideo ON gta_suideo.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 4
+                    GROUP BY gto.id_origem) AS gta_ave ON gta_ave.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 10
+                    GROUP BY gto.id_origem) AS gta_caprino ON gta_caprino.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem                       AS ie,
+                           SUM(COALESCE(gem.nu_quantidade, 0)) AS quantidade
+                    FROM gta.gta as gt
+                             INNER JOIN dsa.especie AS es ON gt.id_especie = es.id
+                             INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                      AND es.id_grupo = 3
+                    GROUP BY gto.id_origem) AS gta_aquatico ON gta_aquatico.ie = ie.id_inscricaoestadual
+         LEFT JOIN (SELECT gto.id_origem      AS ie,
+                           COUNT(gt.id_gta)   AS quantidade,
+                           MAX(gt.ts_emissao) AS emissao
+                    FROM gta.gta as gt
+                             INNER JOIN gta.gta_origem AS gto ON gt.id_gta = gto.id_gta AND gto.tp_origem = 'propriedade'
+                    WHERE DATE_PART('year', gt.ts_emissao) = DATE_PART('year', current_date - interval '1 year')
+                      AND gt.bo_ativo = TRUE
+                    GROUP BY ie) AS gta ON gta.ie = ie.id_inscricaoestadual
 ORDER BY ie.id_inscricaoestadual
