@@ -34,6 +34,9 @@ SELECT ie.id_inscricaoestadual                                                  
        receita.envio                                                                                          AS receita_envio,
        COALESCE(receita.quantidade, 0)                                                                        AS receita_quantidade,
        COALESCE(receita.propriedade, 0)                                                                       AS receita_propriedade,
+       COALESCE(receita.rt, 0)                                                                                AS receita_rt,
+       COALESCE(receita.agrotoxico, 0)                                                                        AS receita_agrotoxico,
+       COALESCE(receita.litro, 0)                                                                             AS receita_litro,
        CASE WHEN COALESCE(receita.quantidade, 0) > 0 THEN 'Sim' ELSE 'Não' end                                AS receita_enviada,
 
        COALESCE(fea_ur.total, 0)                                                                              AS fea_ur_total,
@@ -60,12 +63,16 @@ FROM agrocomum.empresa emp
                     WHERE pr.id_programafiscalizacao = 5
                       AND tf.ativo = true
                     GROUP BY ie) AS tf ON tf.ie = ie.id_inscricaoestadual
-         LEFT JOIN (SELECT COUNT(ie.id_inscricaoestadual)           AS quantidade,
-                           MAX(rc.dt_emissao)                       AS emissao,
-                           MAX(rc.dt_criacao)                       AS envio,
-                           COUNT(DISTINCT rc.nu_inscricao_estadual) AS propriedade,
-                           ie.id_inscricaoestadual                  AS ie
+         LEFT JOIN (SELECT COUNT(DISTINCT rc.id_receita)                                AS quantidade,
+                           MAX(rc.dt_emissao)                                           AS emissao,
+                           MAX(rc.dt_criacao)                                           AS envio,
+                           COUNT(DISTINCT rc.nu_inscricao_estadual)                     AS propriedade,
+                           COUNT(DISTINCT rc.cpf_responsavel_tecnico)                   AS rt,
+                           COUNT(DISTINCT i.produto)                                    AS agrotoxico,
+                           SUM(REPLACE(TRIM(i.quantidade_adquirir), ',', '.')::NUMERIC) AS litro,
+                           ie.id_inscricaoestadual                                      AS ie
                     FROM agrotoxicos.receitas AS rc
+                             INNER JOIN agrotoxicos.itens_receita AS i ON i.id_receita = rc.id_receita
                              INNER JOIN rh.documento AS d ON d.numero = rc.cnpj_comerciante
                              INNER JOIN agrocomum.inscricaoestadual AS ie ON ie.id_pessoa = d.id_pessoa
                     GROUP BY ie.id_inscricaoestadual) AS receita ON receita.ie = ie.id_inscricaoestadual
