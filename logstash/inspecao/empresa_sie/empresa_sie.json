@@ -1,0 +1,16 @@
+//PUT _template/empresa_sie
+{
+    "index_patterns": [
+        "empresa_sie"
+    ],
+    "mappings": {
+        "properties": {
+            "gps": {
+                "type": "geo_point"
+            },
+            "municipio_gps": {
+                "type": "geo_point"
+            }
+        }
+    }
+}
