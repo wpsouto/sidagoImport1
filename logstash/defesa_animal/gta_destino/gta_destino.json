@@ -1,0 +1,13 @@
+//PUT _template/gta_destino
+{
+    "index_patterns": [
+        "gta_destino"
+    ],
+    "mappings": {
+        "properties": {
+            "municipio_gps": {
+                "type": "geo_point"
+            }
+        }
+    }
+}

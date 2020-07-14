@@ -1,0 +1,24 @@
+//PUT _template/empresa_agrotoxico
+{
+    "index_patterns": [
+        "empresa_agrotoxico"
+    ],
+    "mappings": {
+        "properties": {
+            "empresa": {
+                "properties": {
+                    "municipio": {
+                        "properties": {
+                            "gps": {
+                                "type": "geo_point"
+                            }
+                        }
+                    },
+                    "gps": {
+                        "type": "geo_point"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+//PUT _template/gta_origem
+{
+    "index_patterns": [
+        "gta_origem"
+    ],
+    "mappings": {
+        "properties": {
+            "estabelecimento_municipio_gps": {
+                "type": "geo_point"
+            }
+        }
+    }
+}
