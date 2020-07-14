@@ -160,4 +160,5 @@ FROM dsa.exploracao AS e
          INNER JOIN (SELECT st.id_nucleo, SUM(st.nu_saldo) AS saldo
                      FROM dsa.saldo st
                      GROUP BY st.id_nucleo) AS total ON total.id_nucleo = s.id_nucleo
+WHERE ex_ga.bo_duplicado is not true
 ORDER BY s.id_saldo
