@@ -60,5 +60,5 @@ FROM chamado.chamado_abrir ch
                             MAX(dt_registro) AS atualizacao
                      FROM chamado.chamado_historico chh
                      GROUP BY id_chamado) AS chh ON ch.id = chh.id_chamado
-WHERE chh.atualizacao > CURRENT_DATE - INTERVAL '2 day'
+WHERE chh.atualizacao > DATE_TRUNC('minute', TIMESTAMP :sql_last_value - interval '3 hour')
 ORDER BY ch.id desc
