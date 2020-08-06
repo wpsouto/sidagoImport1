@@ -23,6 +23,7 @@ SELECT it.id                                                               AS id
        t.id                                                                AS transito_id,
 
        p.ds_nome                                                           AS produto_tipo,
+       ep.ds_especificacaoproduto                                          AS produto_especificacao,
        um.no_unidademedida                                                 AS produto_medida,
        it.qtde_produto                                                     AS produto_quantidade,
        p.ds_classificacaoproduto                                           AS produto_classificacao,
@@ -91,6 +92,7 @@ FROM mt.transito t
          LEFT JOIN rh.documento AS dor ON po.id = dor.id_pessoa AND dor.id_documento_tipo IN (1, 2)
          LEFT JOIN rh.documento AS dd ON pd.id = dd.id_pessoa AND dd.id_documento_tipo IN (1, 2)
          LEFT JOIN produtos.subproduto AS s ON it.id_subproduto = s.id_subproduto
+         LEFT JOIN produtos.especificacao_produto AS ep ON s.id_especificacaoproduto = ep.id_especificacaoproduto
          LEFT JOIN produtos.produto AS p ON it.fk_produto_id = p.id_produto
          LEFT JOIN produtos.unidademedida AS um ON s.id_unidademedida = um.id_unidademedida
          LEFT JOIN fisc.unidademovel AS unid ON t.id_unidademovel = unid.id_unidademovel AND unid.bo_ativo = true
