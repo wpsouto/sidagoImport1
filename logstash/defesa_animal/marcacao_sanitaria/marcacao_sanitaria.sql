@@ -23,9 +23,16 @@ SELECT ie.id_inscricaoestadual                                                  
            ELSE 'Não'
            END                                                                                                                                                                AS marcacao_tipo,
 
-
        p.id                                                                                                                                                                   AS proprietario_id,
        UPPER(p.nome)                                                                                                                                                          AS proprietario_nome,
+
+       case when NOT (u.id_pessoa isnull) then 'Sim' else 'Não' end                                                                                                           AS user_cadastrado,
+       case when NOT (u.inativo) then 'Sim' else 'Não' end                                                                                                                    AS user_ativo,
+       u.ts_usuario
+       ::DATE AS user_cadastro,
+       EXTRACT(YEAR FROM u.ts_usuario)                                                                                                                                        AS user_cadastro_ano,
+       EXTRACT(MONTH FROM u.ts_usuario)                                                                                                                                       AS user_cadastro_mes,
+       EXTRACT(MONTH FROM u.ts_usuario) || '/' || EXTRACT(YEAR FROM u.ts_usuario)                                                                                             AS user_cadastro_mes_ano,
 
        ie.id_inscricaoestadual                                                                                                                                                AS estabelecimento_id,
        UPPER(ie.no_fantasia)                                                                                                                                                  AS estabelecimento_nome,
@@ -93,6 +100,7 @@ FROM agrocomum.inscricaoestadual AS ie
          INNER JOIN rh.lotacao AS l ON l.id_localidade = en.id_localidade AND l.bo_ativo = true AND id_lotacaotipo = 3 AND l.bo_organograma = true --Unidade Local
          INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true --Unidade Regional
          INNER JOIN rh.pessoa AS p ON ie.id_pessoa = p.id
+         LEFT JOIN rh.usuario AS u ON p.id = u.id_pessoa
          LEFT JOIN dsa.propriedade_marcacao_sanitaria AS mp ON mp.id_inscricaoestadual = ie.id_inscricaoestadual
          LEFT JOIN (SELECT ep.id_inscricaoestadual,
                            SUM(s.nu_saldo) AS total
