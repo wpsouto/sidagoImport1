@@ -26,10 +26,9 @@ SELECT ie.id_inscricaoestadual                                                  
        p.id                                                                                                                                                                   AS proprietario_id,
        UPPER(p.nome)                                                                                                                                                          AS proprietario_nome,
 
-       case when NOT (u.id_pessoa isnull) then 'Sim' else 'Não' end                                                                                                           AS user_cadastrado,
-       case when NOT (u.inativo) then 'Sim' else 'Não' end                                                                                                                    AS user_ativo,
-       u.ts_usuario
-       ::DATE AS user_cadastro,
+       case when u.id_pessoa NOTNULL then 'Sim' else 'Não' end                                                                                                                AS user_cadastrado,
+       case when u.inativo NOTNULL then 'Sim' else 'Não' end                                                                                                                  AS user_ativo,
+       u.ts_usuario::DATE                                                                                                                                                     AS user_cadastro,
        EXTRACT(YEAR FROM u.ts_usuario)                                                                                                                                        AS user_cadastro_ano,
        EXTRACT(MONTH FROM u.ts_usuario)                                                                                                                                       AS user_cadastro_mes,
        EXTRACT(MONTH FROM u.ts_usuario) || '/' || EXTRACT(YEAR FROM u.ts_usuario)                                                                                             AS user_cadastro_mes_ano,
