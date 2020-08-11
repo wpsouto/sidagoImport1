@@ -1,0 +1,16 @@
+//PUT _template/linha_inspecao
+{
+    "index_patterns": [
+        "linha_inspecao"
+    ],
+    "mappings": {
+        "properties": {
+            "propriedade_gps": {
+                "type": "geo_point"
+            },
+            "propriedade_municipio_gps": {
+                "type": "geo_point"
+            }
+        }
+    }
+}
