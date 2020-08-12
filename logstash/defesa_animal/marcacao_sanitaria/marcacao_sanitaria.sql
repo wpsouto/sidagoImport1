@@ -13,7 +13,7 @@ SELECT ie.id_inscricaoestadual                                                  
            WHEN mp.bo_mormo THEN 'Sim'
            WHEN mp.bo_aie THEN 'Sim'
            ELSE 'Não'
-           END                                                                                                                                                                AS marcacao,
+           END                                                                                                                                                                  AS marcacao,
 
        CASE
            WHEN mp.bo_tuberculose THEN 'Tuberculose'
@@ -21,17 +21,16 @@ SELECT ie.id_inscricaoestadual                                                  
            WHEN mp.bo_mormo THEN 'Mormo'
            WHEN mp.bo_aie THEN 'AIE'
            ELSE 'Não'
-           END                                                                                                                                                                AS marcacao_tipo,
+           END                                                                                                                                                                  AS marcacao_tipo,
 
        p.id                                                                                                                                                                   AS proprietario_id,
        UPPER(p.nome)                                                                                                                                                          AS proprietario_nome,
 
-       case when u.id_pessoa NOTNULL then 'Sim' else 'Não' end                                                                                                                AS user_cadastrado,
-       case when u.inativo NOTNULL then 'Sim' else 'Não' end                                                                                                                  AS user_ativo,
-       u.ts_usuario::DATE                                                                                                                                                     AS user_cadastro,
-       EXTRACT(YEAR FROM u.ts_usuario)                                                                                                                                        AS user_cadastro_ano,
-       EXTRACT(MONTH FROM u.ts_usuario)                                                                                                                                       AS user_cadastro_mes,
-       EXTRACT(MONTH FROM u.ts_usuario) || '/' || EXTRACT(YEAR FROM u.ts_usuario)                                                                                             AS user_cadastro_mes_ano,
+       case when usuario.id NOTNULL then 'Sim' else 'Não' end                                                                                                                 AS usuario_cadastrado,
+       usuario.ativacao::DATE                                                                                                                                                 AS usuario_cadastro,
+       EXTRACT(YEAR FROM usuario.ativacao)                                                                                                                                    AS usuario_cadastro_ano,
+       EXTRACT(MONTH FROM usuario.ativacao)                                                                                                                                   AS usuario_cadastro_mes,
+       EXTRACT(MONTH FROM usuario.ativacao) || '/' || EXTRACT(YEAR FROM usuario.ativacao)                                                                                     AS usuario_cadastro_mes_ano,
 
        ie.id_inscricaoestadual                                                                                                                                                AS estabelecimento_id,
        UPPER(ie.no_fantasia)                                                                                                                                                  AS estabelecimento_nome,
@@ -89,7 +88,7 @@ SELECT ie.id_inscricaoestadual                                                  
            WHEN COALESCE(animal_suideo.total, 0) > 0 THEN 'Sim'
            WHEN COALESCE(animal_caprino.total, 0) > 0 THEN 'Sim'
            ELSE 'Não'
-           END                                                                                                                                                                AS animal_febre_aftosa_existe
+           END                                                                                                                                                                  AS animal_febre_aftosa_existe
 
 FROM agrocomum.inscricaoestadual AS ie
          INNER JOIN agrocomum.propriedade AS prop ON prop.id_inscricaoestadual = ie.id_inscricaoestadual
@@ -99,7 +98,6 @@ FROM agrocomum.inscricaoestadual AS ie
          INNER JOIN rh.lotacao AS l ON l.id_localidade = en.id_localidade AND l.bo_ativo = true AND id_lotacaotipo = 3 AND l.bo_organograma = true --Unidade Local
          INNER JOIN rh.lotacao AS pai ON pai.id = l.id_lotacao_pai AND pai.id_lotacaotipo = 2 AND pai.bo_ativo = true AND pai.bo_organograma = true --Unidade Regional
          INNER JOIN rh.pessoa AS p ON ie.id_pessoa = p.id
-         LEFT JOIN rh.usuario AS u ON p.id = u.id_pessoa
          LEFT JOIN dsa.propriedade_marcacao_sanitaria AS mp ON mp.id_inscricaoestadual = ie.id_inscricaoestadual
          LEFT JOIN (SELECT ep.id_inscricaoestadual,
                            SUM(s.nu_saldo) AS total
@@ -189,4 +187,11 @@ FROM agrocomum.inscricaoestadual AS ie
                     WHERE EXTRACT(YEAR FROM gt.ts_emissao) = EXTRACT(YEAR FROM CURRENT_DATE)
                       AND gt.bo_ativo = TRUE
                     GROUP BY ie) AS gta_atual ON gta_atual.ie = ie.id_inscricaoestadual
+
+         LEFT JOIN (SELECT u.id_pessoa                           AS id,
+                           COALESCE(h.dt_cadastro, u.ts_usuario) AS ativacao
+                    FROM rh.usuario u
+                             LEFT JOIN rh.primeiro_acesso_historico h ON h.id_pessoa_solicitante = u.id_pessoa AND h.bo_aprovado
+                    WHERE u.inativo = false) AS usuario ON p.id = usuario.id
+
 ORDER BY ie.id_inscricaoestadual
