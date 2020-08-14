@@ -188,10 +188,11 @@ FROM agrocomum.inscricaoestadual AS ie
                       AND gt.bo_ativo = TRUE
                     GROUP BY ie) AS gta_atual ON gta_atual.ie = ie.id_inscricaoestadual
 
-         LEFT JOIN (SELECT u.id_pessoa                           AS id,
-                           COALESCE(h.dt_cadastro, u.ts_usuario) AS ativacao
+         LEFT JOIN (SELECT DISTINCT u.id_pessoa                                AS id,
+                                    MAX(COALESCE(h.dt_cadastro, u.ts_usuario)) AS ativacao
                     FROM rh.usuario u
                              LEFT JOIN rh.primeiro_acesso_historico h ON h.id_pessoa_solicitante = u.id_pessoa AND h.bo_aprovado
-                    WHERE u.inativo = false) AS usuario ON p.id = usuario.id
+                    WHERE u.inativo = false
+                    GROUP BY u.id_pessoa) AS usuario ON p.id = usuario.id
 
 ORDER BY ie.id_inscricaoestadual
