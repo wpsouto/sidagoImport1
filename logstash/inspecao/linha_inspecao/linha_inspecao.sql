@@ -3,10 +3,19 @@ SELECT l.id_confirmacaoabatelote || '-' || COALESCE(lc.id_linhacondenacao, 0) AS
 
        l.id_linha                                                             AS linha_id,
 
-       case when l.bo_ativo then 'Não' else 'Sim' end                         AS cancelada,
+       CASE
+           WHEN COALESCE(lc.id_linhacondenacao, 0) = 0 THEN gta.animal
+           WHEN lc_mim.id = lc.id_linhacondenacao THEN gta.animal
+           ELSE 0
+           END                                                                AS gta_animal,
 
-       gta.animal                                                             AS gta_animal,
-       gta.quantidade                                                         AS gta_quantidade,
+       CASE
+           WHEN COALESCE(lc.id_linhacondenacao, 0) = 0 THEN gta.quantidade
+           WHEN lc_mim.id = lc.id_linhacondenacao THEN gta.quantidade
+           ELSE 0
+           END                                                                AS gta_quantidade,
+
+       case when l.bo_ativo then 'Não' else 'Sim' end                         AS cancelada,
 
        ie.id_inscricaoestadual                                                AS empresa_id,
        ie.no_fantasia                                                         AS empresa_nome,
@@ -66,6 +75,11 @@ FROM inspecao.linha AS l
          INNER JOIN agrocomum.inscricaoestadual AS ie ON l.id_inscricaoestadual = ie.id_inscricaoestadual
 
          LEFT JOIN inspecao.linha_condenacao AS lc ON lc.id_linha = l.id_linha
+         LEFT JOIN (SELECT lc2.id_linha                AS id_linha,
+                           MIN(lc2.id_linhacondenacao) AS id
+                    FROM inspecao.linha_condenacao AS lc2
+                    GROUP BY lc2.id_linha) AS lc_mim ON lc_mim.id_linha = l.id_linha
+
          LEFT JOIN inspecao.produto AS pr ON pr.id_produto = lc.id_produto
          LEFT JOIN inspecao.doenca AS d ON d.id_doenca = lc.id_doenca
          LEFT JOIN (SELECT calg.id_confirmacaoabatelote AS id,
