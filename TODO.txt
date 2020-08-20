@@ -1,0 +1,18 @@
+Para confecção do Painel Canvas no Kibana para a Diretoria, sugerimos as seguintes informações:
+
+A) Informação do Quadro de Quantidades de Exploração Atual (produtor, propriedade e municípios) - dado atual
+B) Quantidade atual de animais por exploração
+C) Quantidade de GTas emitidas e por finalidade - pizza
+D) Quantidade de ATVs emitidas e por produto - pizza
+E) Quantidade de termos de fiscalização e por tipo identificação - pizza
+F) Quantidade de arredacaçaõ (DARE) e por tipo de receita
+G) Quantidade de arredacaçaõ (DARE) e por municipio
+H) Quantidade de despesa por municipio
+J) Quantidade de funcionários ativos por categoria
+L) Quantidade de funcionários ativos por formação
+
+Obs: nos gráficos de documentos considerar sempre o período do ano atual
+
+Essa é a visão do gráfico da diretoria, geral.
+
+Depois verificar a possibilidade de trazer os dados do mesmo painel, mas filtrando por regional, para gente disponibilizar para cada gerente de regional o painel com esses mesmos dados de sua região.
