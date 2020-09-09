@@ -17,8 +17,3 @@ from auditoria.acesso a
 --         join auditoria.operacao_tipo ot on ot.id_operacaotipo = o.id_operacaotipo
 where a.id_acesso = 10900003
 order by a.ts_entrada asc
-
-
-select a.ds_brownser AS acesso_brownser
-from auditoria.acesso a
-GROUP BY a.ds_brownser
