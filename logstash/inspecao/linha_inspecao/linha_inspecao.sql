@@ -15,6 +15,9 @@ SELECT l.id_confirmacaoabatelote || '-' || COALESCE(lc.id_linhacondenacao, 0) AS
            ELSE 0
            END                                                                AS gta_quantidade,
 
+       gta.animal                                                             AS gta_animal1,
+       gta.quantidade                                                         AS gta_quantidade1,
+
        case when l.bo_ativo then 'Não' else 'Sim' end                         AS cancelada,
 
        ie.id_inscricaoestadual                                                AS empresa_id,
@@ -90,5 +93,5 @@ FROM inspecao.linha AS l
                              INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
                     GROUP BY calg.id_confirmacaoabatelote) AS gta ON cal.id_confirmacaoabatelote = gta.id
 
-WHERE l.dt_lancamento:: date >= current_date - interval '1 month'
+     --WHERE l.dt_lancamento:: date >= current_date - interval '1 month'
 ORDER BY l.id_confirmacaoabatelote
