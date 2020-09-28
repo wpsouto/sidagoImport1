@@ -32,7 +32,7 @@ from project AS jp
          LEFT JOIN customfieldvalue AS cfv_02 ON ji.id = cfv_02.issue AND cfv_02.customfield = 10905
          LEFT JOIN customfieldvalue AS cfv_03 ON ji.id = cfv_03.issue AND cfv_03.customfield = 11702
          LEFT JOIN (SELECT cg.issueid      AS id,
-                           min(cg.created) AS created
+                           max(cg.created) AS created
                     FROM changegroup cg
                              inner join changeitem ci on ci.groupid = cg.id AND ci.FIELDTYPE = 'jira' AND ci.FIELD = 'status'
                     WHERE ci.newvalue = '3'
