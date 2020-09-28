@@ -1,0 +1,14 @@
+//PUT _template/unidade_fiscalizacao
+{
+    "index_patterns": [
+        "unidade_fiscalizacao"
+    ],
+    "mappings": {
+        "properties": {
+            "unidade_gps": {
+                "type": "geo_point"
+            }
+        }
+    }
+}
+}
