@@ -93,5 +93,5 @@ FROM inspecao.linha AS l
                              INNER JOIN gta.estratificacao_gta AS gem ON gem.id_gta = gt.id_gta
                     GROUP BY calg.id_confirmacaoabatelote) AS gta ON cal.id_confirmacaoabatelote = gta.id
 
-     --WHERE l.dt_lancamento:: date >= current_date - interval '1 month'
+WHERE l.dt_lancamento:: date >= current_date - interval '1 month'
 ORDER BY l.id_confirmacaoabatelote
