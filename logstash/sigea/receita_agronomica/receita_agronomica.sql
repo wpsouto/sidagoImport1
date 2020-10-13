@@ -35,8 +35,11 @@ SELECT i.id_item                                                     AS id,
 
        ag.ds_registro                                                AS agrotoxico_registro,
        ag.ds_nome                                                    AS agrotoxico_nome,
-       REPLACE(TRIM(i.quantidade_adquirir), ',', '.')
-       ::NUMERIC AS agrotoxico_quantidade,
+       CASE
+           WHEN cl.no_classe is null THEN 'Sem Informação'
+           ELSE cl.no_classe
+           END                                                       AS agrotoxico_classe,
+       REPLACE(TRIM(i.quantidade_adquirir), ',', '.')::NUMERIC       AS agrotoxico_quantidade,
 
        CASE
            WHEN i.unidade_medida_adquirir = 'Ds' THEN 'Dose'
@@ -60,6 +63,8 @@ FROM agrotoxicos.receitas AS rc
          INNER JOIN agrotoxicos.agrotoxico AS a ON i.produto = a.nu_registromapa
          INNER JOIN produtos.produto AS ag ON a.id_produto = ag.id_produto
          INNER JOIN produtos.produto AS ct ON rc.cod_cultura = ct.id_produto::text
+         LEFT JOIN agrotoxicos.produto_classe prc on a.id_produto = prc.id_produto
+         LEFT JOIN agrotoxicos.classe cl on cl.id_classe = prc.id_classe
          LEFT JOIN agrocomum.inscricaoestadual AS pd ON pd.nu_inscricaoestadual = rc.nu_inscricao_estadual
          LEFT JOIN agrocomum.inscricaoestadual_endereco AS ied ON pd.id_inscricaoestadual = ied.id_inscricaoestadual
          LEFT JOIN agrocomum.endereco AS en ON ied.id_endereco = en.id_endereco
